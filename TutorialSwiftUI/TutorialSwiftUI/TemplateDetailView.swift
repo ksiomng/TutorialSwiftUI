@@ -11,6 +11,7 @@ import CodeEditor
 private enum Modifire: String, CaseIterable {
     case none, bold, frame, background
     
+    /// 코드 소스
     var code: String {
         switch self {
         case .none: return ""
@@ -20,6 +21,7 @@ private enum Modifire: String, CaseIterable {
         }
     }
     
+    /// 코드 설명
     var description: String {
         switch self {
         case .none: return ""
@@ -32,8 +34,13 @@ private enum Modifire: String, CaseIterable {
 
 /// Code의 소스를 출력하기 위한 구조체
 private struct CodeSource {
+    /// 기본 대상
     var original:String = "Text(\"TEST\")"
+    
+    /// 모디파이어 텍스트
     var text:[String] = Array(repeating: "", count: pickerCount)
+    
+    /// original과 text 배열을 연결한 문자열
     var toString: String {
         print("CodeSource - \(text)") // 로그
         return original + text.joined()
@@ -42,10 +49,15 @@ private struct CodeSource {
 
 /// Code의 설명을 출력하기 위한 구조체
 private struct CodeDescription {
+    /// 기본 대상
     var original:String = "텍스트 뷰 : 텍스트를 출력해주는 뷰"
+    
+    /// 모디파이어 텍스트
     var text:[String] = Array(repeating: "", count: pickerCount)
+    
+    /// original과 text 배열을 연결한 문자열
     var toString: String {
-        print("CodeDescription - \(text)") // 록
+        print("CodeDescription - \(text)") // 로그
         return original + text.joined()
     }
 }
@@ -54,6 +66,7 @@ private struct CodeDescription {
 /// - CodeSource, CodeDescription 및 selectedModifire의 repeating에 사용
 private let pickerCount = 3
 
+/// # 팀 공유용 상세뷰 템플릿
 struct TemplateDetailView: View {
     /// Picker의 제목 배열
     private let pickerTitle: [String] = [
@@ -70,7 +83,7 @@ struct TemplateDetailView: View {
     /// 코드의 설명문 구조체
     @State private var codeDescription = CodeDescription()
 
-    /// ## 리스트용 PickerView
+    /// # 리스트용 PickerView
     /// - 설명
     ///     - ForEach : Enum 타입의 Modifire순회 & Picker의 Content 생성
     ///     - OnChange : Picker 선택시, 해당 위치의 값 수정
@@ -94,10 +107,10 @@ struct TemplateDetailView: View {
         }
     }
     
-    /// body
+    /// # body
     var body: some View {
         VStack {
-            // # Picker 리스트
+            /// ## Picker 리스트
             List {
                 PickerView(0)
                 PickerView(1)
@@ -108,7 +121,7 @@ struct TemplateDetailView: View {
             
             Spacer()
             
-            // # 코드 텍스트
+            /// ## 코드 소스
             VStack(alignment: .leading) {
                 CodeEditor(
                     source: codeSource.toString,
@@ -121,7 +134,7 @@ struct TemplateDetailView: View {
             
             Spacer()
             
-            // # 코드 설명
+            /// ## 코드 설명
             VStack(alignment: .leading) {
                 CodeEditor(
                     source: codeDescription.toString,
@@ -133,7 +146,7 @@ struct TemplateDetailView: View {
             
             Spacer()
             
-            // # 코드 결과
+            /// ## 코드 결과
             Text("TEST")
                 .font(.largeTitle)
                 .modifier(ModifireBuilder(selectedModifire: $selectedModifire[0]))
