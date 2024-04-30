@@ -23,7 +23,8 @@ struct TemplateDetailView: View {
     
     var body: some View {
         VStack {
-            // Picker - 위치별 모디파이어 선택
+            
+            // List Picker - 위치별 모디파이어 선택
             List {
                 Picker("First", selection: $selectedModifire[0]) {
                     ForEach(Modifire.allCases, id: \.self) { modi in
@@ -45,7 +46,7 @@ struct TemplateDetailView: View {
                 }
             }.frame(height: 200)
             
-            // 코드 출력
+            // 코드 텍스트
             VStack(alignment: .leading) {
                 Text("Text(\"TEST\")")
                 CodeBuilder(selectedModifire: $selectedModifire[0])
@@ -88,7 +89,7 @@ struct TemplateDetailView: View {
     }
 }
 
-/// 코드 출력
+/// 코드 텍스트 - 출력할 코드 설정
 private struct CodeBuilder: View {
     @Binding var selectedModifire: Modifire
     
@@ -106,7 +107,7 @@ private struct CodeBuilder: View {
     }
 }
 
-/// 코드 출력
+/// 코드 설명 - 출력할 설명 설정
 private struct DescriptionBuilder: View {
     @Binding var selectedModifire: Modifire
     
@@ -124,7 +125,7 @@ private struct DescriptionBuilder: View {
     }
 }
 
-/// 모디파이어 설정
+/// 코드 결과 - 부여할 모디파이어 설정
 private struct ModifireBuilder: ViewModifier {
     @Binding var selectedModifire: Modifire
     
