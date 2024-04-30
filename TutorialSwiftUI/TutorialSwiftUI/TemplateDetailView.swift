@@ -30,7 +30,7 @@ private enum Modifire: String, CaseIterable {
     }
 }
 
-/// code text
+/// Code의 소스를 출력하기 위한 구조체
 private struct CodeSource {
     var original:String = "Text(\"TEST\")"
     var text:[String] = Array(repeating: "", count: pickerCnt)
@@ -40,7 +40,7 @@ private struct CodeSource {
     }
 }
 
-/// code description
+/// Code의 설명을 출력하기 위한 구조체
 private struct CodeDescription {
     var original:String = "텍스트 뷰 : 텍스트를 출력해주는 뷰"
     var text:[String] = Array(repeating: "", count: pickerCnt)
@@ -69,35 +69,65 @@ struct TemplateDetailView: View {
     /// 코드의 설명문 구조체
     @State private var codeDescription = CodeDescription()
     
+    private func
     
     var body: some View {
         VStack {
             // # Picker 리스트
-            // ForEach : pickerTitle 순회 & Picker 생성
-            // Picker의 OnChange : Picker 선택시, 해당 위치의 값 수정
-            List{
-                ForEach(pickerTitle.indices, id: \.self) {
-                    i in
-                    Picker(
-                        pickerTitle[i],
-                        selection: $selectedModifire[i]
-                    ) {
-                        ForEach(
-                            Modifire.allCases,
-                            id: \.self
-                        ) {
-                            modi in
-                            Text("\(modi.rawValue)").tag(modi)
-                        }
-                    }.onChange(
-                        of: selectedModifire
-                    ) {
-                        old, new in
-                        codeSource.text[i] = new[i].code
-                        CodeDescription.text[i] = new[i].code
+            // ForEach : Modifire 순회 & Picker의 Content 생성
+            // OnChange : Picker 선택시, 해당 위치의 값 수정
+            List {
+                
+                Picker(
+                    pickerTitle[0],
+                    selection: $selectedModifire[0]
+                ) {
+                    ForEach(Modifire.allCases,id: \.self) {
+                        modi in
+                        Text("\(modi.rawValue)").tag(modi)
                     }
+                }.onChange(
+                    of: selectedModifire
+                ) {
+                    old, new in
+                    codeSource.text[0] = new[0].code
+                    codeDescription.text[0] = new[0].code
                 }
+                
+                Picker(
+                    pickerTitle[1],
+                    selection: $selectedModifire[1]
+                ) {
+                    ForEach(Modifire.allCases, id: \.self) {
+                        modi in
+                        Text("\(modi.rawValue)").tag(modi)
+                    }
+                }.onChange(
+                    of: selectedModifire
+                ) {
+                    old, new in
+                    codeSource.text[1] = new[1].code
+                    codeDescription.text[1] = new[1].code
+                }
+                
+                Picker(
+                    pickerTitle[2],
+                    selection: $selectedModifire[2]
+                ) {
+                    ForEach(Modifire.allCases, id: \.self) {
+                        modi in
+                        Text("\(modi.rawValue)").tag(modi)
+                    }
+                }.onChange(
+                    of: selectedModifire
+                ) {
+                    old, new in
+                    codeSource.text[2] = new[2].code
+                    codeDescription.text[2] = new[2].code
+                }
+                
             }.frame(height: 200)
+            
             
             // # 코드 텍스트
             VStack(alignment: .leading) {
