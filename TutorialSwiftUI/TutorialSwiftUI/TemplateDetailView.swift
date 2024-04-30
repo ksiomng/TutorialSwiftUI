@@ -69,8 +69,6 @@ struct TemplateDetailView: View {
     /// 코드의 설명문 구조체
     @State private var codeDescription = CodeDescription()
     
-    private func
-    
     var body: some View {
         VStack {
             // # Picker 리스트
