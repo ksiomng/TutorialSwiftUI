@@ -68,70 +68,46 @@ struct TemplateDetailView: View {
     
     /// 코드의 설명문 구조체
     @State private var codeDescription = CodeDescription()
+
+    /// ## 리스트용 PickerView
+    /// - 설명
+    ///     - ForEach : Modifire 순회 & Picker의 Content 생성
+    ///     - OnChange : Picker 선택시, 해당 위치의 값 수정
+    /// - 인자
+    ///     - i : index
+    private func PickerView(_ i: Int) -> some View {
+        return Picker(
+            pickerTitle[i],
+            selection: $selectedModifire[i]
+        ) {
+            ForEach(Modifire.allCases,id: \.self) {
+                modi in
+                Text("\(modi.rawValue)").tag(modi)
+            }
+        }.onChange(
+            of: selectedModifire
+        ) {
+            old, new in
+            codeSource.text[i] = new[i].code
+            codeDescription.text[i] = new[i].code
+        }
+    }
     
+    /// body
     var body: some View {
         VStack {
             // # Picker 리스트
-            // ForEach : Modifire 순회 & Picker의 Content 생성
-            // OnChange : Picker 선택시, 해당 위치의 값 수정
             List {
-                
-                Picker(
-                    pickerTitle[0],
-                    selection: $selectedModifire[0]
-                ) {
-                    ForEach(Modifire.allCases,id: \.self) {
-                        modi in
-                        Text("\(modi.rawValue)").tag(modi)
-                    }
-                }.onChange(
-                    of: selectedModifire
-                ) {
-                    old, new in
-                    codeSource.text[0] = new[0].code
-                    codeDescription.text[0] = new[0].code
-                }
-                
-                Picker(
-                    pickerTitle[1],
-                    selection: $selectedModifire[1]
-                ) {
-                    ForEach(Modifire.allCases, id: \.self) {
-                        modi in
-                        Text("\(modi.rawValue)").tag(modi)
-                    }
-                }.onChange(
-                    of: selectedModifire
-                ) {
-                    old, new in
-                    codeSource.text[1] = new[1].code
-                    codeDescription.text[1] = new[1].code
-                }
-                
-                Picker(
-                    pickerTitle[2],
-                    selection: $selectedModifire[2]
-                ) {
-                    ForEach(Modifire.allCases, id: \.self) {
-                        modi in
-                        Text("\(modi.rawValue)").tag(modi)
-                    }
-                }.onChange(
-                    of: selectedModifire
-                ) {
-                    old, new in
-                    codeSource.text[2] = new[2].code
-                    codeDescription.text[2] = new[2].code
-                }
-                
+                PickerView(0)
+                PickerView(1)
+                PickerView(2)
             }.frame(height: 200)
-            
             
             // # 코드 텍스트
             VStack(alignment: .leading) {
                 CodeEditor(
                     source: codeSource.toString,
-                    language: .swift,
+                    language: .javascript,
                     theme: .agate
                 ).frame(width: 350, height: 100)
                 CodeText(codeSource.toString)
