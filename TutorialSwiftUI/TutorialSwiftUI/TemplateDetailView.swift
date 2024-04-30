@@ -1,7 +1,7 @@
 /*
  HighlightSwift : https://github.com/appstefan/highlightswift.git
  CodeEditor : https://github.com/ZeeZide/CodeEditor.git
- */
+*/
 
 import SwiftUI
 import HighlightSwift
@@ -33,7 +33,7 @@ private enum Modifire: String, CaseIterable {
 /// Code의 소스를 출력하기 위한 구조체
 private struct CodeSource {
     var original:String = "Text(\"TEST\")"
-    var text:[String] = Array(repeating: "", count: pickerCnt)
+    var text:[String] = Array(repeating: "", count: pickerCount)
     var toString: String {
         print("CodeSource - \(text)") // 로그
         return original + text.joined()
@@ -43,15 +43,16 @@ private struct CodeSource {
 /// Code의 설명을 출력하기 위한 구조체
 private struct CodeDescription {
     var original:String = "텍스트 뷰 : 텍스트를 출력해주는 뷰"
-    var text:[String] = Array(repeating: "", count: pickerCnt)
+    var text:[String] = Array(repeating: "", count: pickerCount)
     var toString: String {
         print("CodeDescription - \(text)") // 록
         return original + text.joined()
     }
 }
 
-/// picker의 개수 (개수에 맞춰 설정 필수)
-private let pickerCnt = 3
+/// - picker의 개수 (개수에 맞춰 설정 필수)
+/// - CodeSource, CodeDescription 및 selectedModifire의 repeating에 사용
+private let pickerCount = 3
 
 struct TemplateDetailView: View {
     /// Picker의 제목 배열
@@ -61,7 +62,7 @@ struct TemplateDetailView: View {
     
     /// 각각의 Picker에서 선택될 enum 타입의 모디파이어 배열
     @State private var selectedModifire: [Modifire] =
-    Array(repeating: .none, count: pickerCnt)
+    Array(repeating: .none, count: pickerCount)
     
     /// 코드의 소스 구조체
     @State private var codeSource = CodeSource()
@@ -71,7 +72,7 @@ struct TemplateDetailView: View {
 
     /// ## 리스트용 PickerView
     /// - 설명
-    ///     - ForEach : Modifire 순회 & Picker의 Content 생성
+    ///     - ForEach : Enum 타입의 Modifire순회 & Picker의 Content 생성
     ///     - OnChange : Picker 선택시, 해당 위치의 값 수정
     /// - 인자
     ///     - i : index
@@ -101,7 +102,11 @@ struct TemplateDetailView: View {
                 PickerView(0)
                 PickerView(1)
                 PickerView(2)
-            }.frame(height: 200)
+            }
+            .frame(maxHeight: 200)
+            .listStyle(PlainListStyle())
+            
+            Spacer()
             
             // # 코드 텍스트
             VStack(alignment: .leading) {
@@ -110,11 +115,9 @@ struct TemplateDetailView: View {
                     language: .javascript,
                     theme: .agate
                 ).frame(width: 350, height: 100)
-                CodeText(codeSource.toString)
+//                CodeText(codeSource.toString)
             }
-            .frame(width: 350, height: 200)
-            .background(Color.gray.opacity(0.1))
-            .cornerRadius(8)
+            .cornerRadius(10)
             
             Spacer()
             
@@ -124,11 +127,9 @@ struct TemplateDetailView: View {
                     source: codeDescription.toString,
                     language: .swift,
                     theme: .agate
-                )
+                ).frame(width: 350, height: 100)
             }
-            .frame(width: 350)
-            .background(Color.gray.opacity(0.1))
-            .cornerRadius(8)
+            .cornerRadius(10)
             
             Spacer()
             
