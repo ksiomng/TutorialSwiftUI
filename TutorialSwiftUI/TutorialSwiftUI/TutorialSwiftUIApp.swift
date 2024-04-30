@@ -9,9 +9,17 @@ import SwiftUI
 
 @main
 struct TutorialSwiftUIApp: App {
+    @State private var lottieComplted = false
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if lottieComplted {
+                ContentView()
+            } else {
+                SplashView {
+                    lottieComplted.toggle()
+                }
+            }
         }
     }
 }

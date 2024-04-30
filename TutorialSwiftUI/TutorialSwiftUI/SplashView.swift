@@ -6,15 +6,26 @@
 //
 
 import SwiftUI
+import Lottie
 
 struct SplashView: View {
-    @State var lottieShow = false
     
-    var body: some View { 
-        LottieView(lottieShow: $lottieShow)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+    var onLottieDidFinish: (() -> Void)? = nil
+    
+    var body: some View {
+            VStack {
+            LottieView(animation: .named("swiftorial"))
+                .resizable()
+                .playbackMode(.playing(.toProgress(1.0, loopMode: .playOnce)))
+                .animationDidFinish{ completed in
+                    if completed {
+                        onLottieDidFinish?()
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity,maxHeight: .infinity)
+            .background(.red)
             .ignoresSafeArea()
-            
     }
 }
 

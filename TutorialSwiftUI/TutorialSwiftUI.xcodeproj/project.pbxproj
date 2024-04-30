@@ -18,10 +18,9 @@
 		41249C532BE0DCD7004A6AEC /* CollectionsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41249C522BE0DCD7004A6AEC /* CollectionsType.swift */; };
 		41249C552BE0DD72004A6AEC /* LayoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41249C542BE0DD72004A6AEC /* LayoutType.swift */; };
 		41249C572BE0DE06004A6AEC /* DesignType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41249C562BE0DE06004A6AEC /* DesignType.swift */; };
-		41249C5B2BE0FEEC004A6AEC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 41249C5A2BE0FEEC004A6AEC /* Lottie */; };
-		41249C5F2BE0FF45004A6AEC /* SplashLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41249C5E2BE0FF45004A6AEC /* SplashLottie.swift */; };
 		41249C612BE0FF7D004A6AEC /* swiftorial.json in Resources */ = {isa = PBXBuildFile; fileRef = 41249C602BE0FF7D004A6AEC /* swiftorial.json */; };
 		41249C632BE0FF91004A6AEC /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41249C622BE0FF91004A6AEC /* SplashView.swift */; };
+		41249C692BE11DE8004A6AEC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 41249C682BE11DE8004A6AEC /* Lottie */; };
 		CE83B6652BE0D6E100DDBDBE /* TemplateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE83B6642BE0D6E100DDBDBE /* TemplateDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +37,6 @@
 		41249C522BE0DCD7004A6AEC /* CollectionsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsType.swift; sourceTree = "<group>"; };
 		41249C542BE0DD72004A6AEC /* LayoutType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutType.swift; sourceTree = "<group>"; };
 		41249C562BE0DE06004A6AEC /* DesignType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignType.swift; sourceTree = "<group>"; };
-		41249C5E2BE0FF45004A6AEC /* SplashLottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashLottie.swift; sourceTree = "<group>"; };
 		41249C602BE0FF7D004A6AEC /* swiftorial.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = swiftorial.json; sourceTree = "<group>"; };
 		41249C622BE0FF91004A6AEC /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		CE83B6642BE0D6E100DDBDBE /* TemplateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateDetailView.swift; sourceTree = "<group>"; };
@@ -49,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41249C5B2BE0FEEC004A6AEC /* Lottie in Frameworks */,
+				41249C692BE11DE8004A6AEC /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +76,6 @@
 				CE83B6642BE0D6E100DDBDBE /* TemplateDetailView.swift */,
 				41249C3C2BE0D146004A6AEC /* TutorialSwiftUIApp.swift */,
 				41249C3E2BE0D146004A6AEC /* ContentView.swift */,
-				41249C5E2BE0FF45004A6AEC /* SplashLottie.swift */,
 				41249C602BE0FF7D004A6AEC /* swiftorial.json */,
 				41249C402BE0D148004A6AEC /* Assets.xcassets */,
 				41249C422BE0D148004A6AEC /* Preview Content */,
@@ -127,7 +124,7 @@
 			);
 			name = TutorialSwiftUI;
 			packageProductDependencies = (
-				41249C5A2BE0FEEC004A6AEC /* Lottie */,
+				41249C682BE11DE8004A6AEC /* Lottie */,
 			);
 			productName = TutorialSwiftUI;
 			productReference = 41249C392BE0D146004A6AEC /* TutorialSwiftUI.app */;
@@ -189,7 +186,6 @@
 			files = (
 				CE83B6652BE0D6E100DDBDBE /* TemplateDetailView.swift in Sources */,
 				41249C532BE0DCD7004A6AEC /* CollectionsType.swift in Sources */,
-				41249C5F2BE0FF45004A6AEC /* SplashLottie.swift in Sources */,
 				41249C3F2BE0D146004A6AEC /* ContentView.swift in Sources */,
 				41249C3D2BE0D146004A6AEC /* TutorialSwiftUIApp.swift in Sources */,
 				41249C632BE0FF91004A6AEC /* SplashView.swift in Sources */,
@@ -332,6 +328,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TutorialSwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = 9UU59NTC96;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -360,6 +357,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TutorialSwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = 9UU59NTC96;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -415,7 +413,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		41249C5A2BE0FEEC004A6AEC /* Lottie */ = {
+		41249C682BE11DE8004A6AEC /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 41249C592BE0FEEC004A6AEC /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
