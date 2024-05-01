@@ -9,21 +9,24 @@ import SwiftUI
 import CodeEditor
 
 struct SliderView: View {
-    @State private var ToggleButton = true
+    @State private var sliderValue = 0.0
     @State private var modArr = [TextModifier]()
     
     var body: some View {
         VStack {
             // 선택된 수정자를 적용한 텍스트 뷰
-            let modifiedText = Toggle("Toggle", isOn: $ToggleButton)
-                .apply(modifiers: modArr)
-            modifiedText
+            VStack {
+                Slider(value: $sliderValue, in: -100...100, step: 1)
+                let modifiedText = Text("\(sliderValue)")
+                    .apply(modifiers: modArr)
+                modifiedText
+            }
                 .padding()
                 .frame(minHeight: 100)
                 .font(.largeTitle)
             
             // 선택된 수정자를 적용한 텍스트 뷰
-            let modifiedCode = generateCode(modifiers: modArr, firstCode: "Toggle(\"Toggle\", isOn: $ToggleButton)")
+            let modifiedCode = generateCode(modifiers: modArr, firstCode: "Slider(value: $sliderValue, in: -100...100, setp: 1)")
             VStack(alignment: .leading) {
                 CodeEditor(
                     source: modifiedCode,
