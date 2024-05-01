@@ -116,7 +116,7 @@ struct MenuButton: View {
                     modArr.append(.cornerRadius)
                 }
             }) {
-                Text("Add")
+                Text("Add  ")
             }
             .padding()
             .foregroundStyle(Color.gray)
