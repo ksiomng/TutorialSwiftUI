@@ -14,23 +14,22 @@ private let menuItems = ContextMenu {
 }
 
 struct ContextMenuView: View {
-    @State private var shouldShowMenu = true
+    @State private var ShowMenu = true
     @State private var modArr = [TextModifier]()
     
     var body: some View {
         VStack {
-            MenuButton(modArr: $modArr)
             
             // 선택된 수정자를 적용한 텍스트 뷰
             let modifiedText = Text("Turtle Rock")
                 .apply(modifiers: modArr)
             modifiedText
-                .contextMenu(shouldShowMenu ? menuItems : nil)
+                .contextMenu(ShowMenu ? menuItems : nil)
                 .frame(minHeight: 100)
                 .font(.largeTitle)
             
             // 선택된 수정자를 적용한 텍스트 뷰
-            let modifiedCode = generateCode(modifiers: modArr, firstCode: "private let menuItems = ContextMenu {\nButton(\"Btn1\",systemImage: \"heart\"){}\nButton(\"Btn2\"){}\n}\n\nText(\"Turtle Rock\")\n.contextMenu(shouldShowMenu ? menuItem : nil)")
+            let modifiedCode = generateCode(modifiers: modArr, firstCode: "private let menuItems = ContextMenu {\nButton(\"Btn1\",systemImage: \"heart\"){}\nButton(\"Btn2\"){}\n}\n\nText(\"Turtle Rock\")\n.contextMenu(ShowMenu ? menuItem : nil)")
             VStack(alignment: .leading) {
                 CodeEditor(
                     source: modifiedCode,
@@ -39,8 +38,9 @@ struct ContextMenuView: View {
                 )
             }
             .cornerRadius(10)
-            .padding([.trailing, .leading])
+            .padding([.trailing, .leading, .bottom])
             
+            MenuButton(modArr: $modArr)
             
             // 선택된 수정자를 나열한 리스트
             List {

@@ -13,7 +13,6 @@ struct MenuView: View {
     
     var body: some View {
         VStack {
-           MenuButton(modArr: $modArr)
             
             // 선택된 수정자를 적용한 텍스트 뷰
             let modifiedText =             
@@ -38,6 +37,8 @@ struct MenuView: View {
             .cornerRadius(10)
             .padding([.trailing, .leading])
             
+            
+            MenuButton(modArr: $modArr)
             
             // 선택된 수정자를 나열한 리스트
             List {

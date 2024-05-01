@@ -13,19 +13,19 @@ func generateCode(modifiers: [TextModifier], firstCode: String) -> String {
     for modifier in modifiers {
         switch modifier {
         case .bold:
-            code += "\n    .bold()"
+            code += "\n.bold()"
         case .italic:
-            code += "\n    .italic()"
+            code += "\n.italic()"
         case .underline:
-            code += "\n    .underline()"
+            code += "\n.underline()"
         case .padding:
-            code += "\n    .padding()"
+            code += "\n.padding()"
         case .foregroundStyle:
-            code += "\n    .foregroundStyle(Color.yellow)"
+            code += "\n.foregroundStyle(Color.yellow)"
         case .background:
-            code += "\n    .background(.gary)"
+            code += "\n.background(.gary)"
         case .cornerRadius:
-            code += "\n    .cornerRadius(10)"
+            code += "\n.cornerRadius(10)"
         }
     }
     return code
@@ -94,25 +94,25 @@ struct MenuButton: View {
         HStack {
             Spacer()
             Menu(content: {
-                Button("Bold: 글씨크기를 굵게") {
+                Button("Bold: \nMake text bold") {
                     modArr.append(.bold)
                 }
-                Button("Italic: 이탈릭체로") {
+                Button("Italic: \nMake text italic") {
                     modArr.append(.italic)
                 }
-                Button("UnderLine") {
+                Button("Underline: \nUnderline text") {
                     modArr.append(.underline)
                 }
-                Button("Padding: 주변공백") {
+                Button("Padding: \nAdd padding around text") {
                     modArr.append(.padding)
                 }
-                Button("ForegroundStyler: 글씨 색상 바꾸기") {
+                Button("Foreground Color: \nChange text color") {
                     modArr.append(.foregroundStyle)
                 }
-                Button("Background: 배경색 추가하기") {
+                Button("Background: \nAdd background color") {
                     modArr.append(.background)
                 }
-                Button("CornerRadius: 모서리 둥글게") {
+                Button("Corner Radius: \nRound the corners") {
                     modArr.append(.cornerRadius)
                 }
             }) {
@@ -121,7 +121,6 @@ struct MenuButton: View {
             .padding()
             .foregroundStyle(Color.gray)
         }
-        .padding(.trailing)
     }
 }
 
