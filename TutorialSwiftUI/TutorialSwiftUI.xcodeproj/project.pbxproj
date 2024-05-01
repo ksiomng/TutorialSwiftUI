@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		411650F02BE1C70B007A12C9 /* SwiftorialSplashLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = 411650EF2BE1C70B007A12C9 /* SwiftorialSplashLottie.json */; };
+		411650F42BE1CC6A007A12C9 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411650F32BE1CC6A007A12C9 /* SheetView.swift */; };
 		41249C3D2BE0D146004A6AEC /* TutorialSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41249C3C2BE0D146004A6AEC /* TutorialSwiftUIApp.swift */; };
 		41249C3F2BE0D146004A6AEC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41249C3E2BE0D146004A6AEC /* ContentView.swift */; };
 		41249C412BE0D148004A6AEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41249C402BE0D148004A6AEC /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		411650EF2BE1C70B007A12C9 /* SwiftorialSplashLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SwiftorialSplashLottie.json; sourceTree = "<group>"; };
+		411650F32BE1CC6A007A12C9 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		41249C392BE0D146004A6AEC /* TutorialSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TutorialSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41249C3C2BE0D146004A6AEC /* TutorialSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSwiftUIApp.swift; sourceTree = "<group>"; };
 		41249C3E2BE0D146004A6AEC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +56,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		411650F12BE1CC18007A12C9 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				411650EF2BE1C70B007A12C9 /* SwiftorialSplashLottie.json */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		411650F22BE1CC5B007A12C9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				411650F32BE1CC6A007A12C9 /* SheetView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		41249C302BE0D146004A6AEC = {
 			isa = PBXGroup;
 			children = (
@@ -73,14 +91,15 @@
 		41249C3B2BE0D146004A6AEC /* TutorialSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				411650F22BE1CC5B007A12C9 /* View */,
 				CE83B6642BE0D6E100DDBDBE /* TemplateDetailView.swift */,
-				411650EF2BE1C70B007A12C9 /* SwiftorialSplashLottie.json */,
 				41249C3C2BE0D146004A6AEC /* TutorialSwiftUIApp.swift */,
+				41249C622BE0FF91004A6AEC /* SplashView.swift */,
 				41249C3E2BE0D146004A6AEC /* ContentView.swift */,
 				41249C402BE0D148004A6AEC /* Assets.xcassets */,
 				41249C422BE0D148004A6AEC /* Preview Content */,
 				41249C582BE0DE94004A6AEC /* Model */,
-				41249C622BE0FF91004A6AEC /* SplashView.swift */,
+				411650F12BE1CC18007A12C9 /* Resource */,
 			);
 			path = TutorialSwiftUI;
 			sourceTree = "<group>";
@@ -194,6 +213,7 @@
 				41249C4F2BE0DA4D004A6AEC /* ViewType.swift in Sources */,
 				41249C4B2BE0D8DF004A6AEC /* ContentType.swift in Sources */,
 				41249C4D2BE0D8FE004A6AEC /* ControlType.swift in Sources */,
+				411650F42BE1CC6A007A12C9 /* SheetView.swift in Sources */,
 				41249C512BE0DADE004A6AEC /* NavigationType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
