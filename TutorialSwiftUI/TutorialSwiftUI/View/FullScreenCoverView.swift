@@ -48,8 +48,8 @@ struct FullScreenCoverView: View, ViewPorotocol {
                 Text("No Have Item").tag(0)
                 Text("Have Item").tag(1)
             }
-            
             .pickerStyle(.segmented)
+            
             Divider()
             
             switch pickerCnt {

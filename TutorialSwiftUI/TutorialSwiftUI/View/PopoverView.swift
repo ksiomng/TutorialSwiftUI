@@ -10,6 +10,8 @@ import SwiftUI
 struct PopoverView: View, ViewPorotocol {
     
     @State var isPresented: Bool = false
+    @State private var pickerCnt: Int = 0
+    @State private var data: Item?
     
     var body: some View {
         ScrollView {
@@ -35,13 +37,25 @@ struct PopoverView: View, ViewPorotocol {
             
             Text("SheetView")
                 .frame(maxWidth: .infinity, alignment: .leading)
-
-
+            
+            Picker(selection: $pickerCnt, label: Text("Picker")) {
+                Text("No Have Item").tag(0)
+                Text("Have Item").tag(1)
+            }
+            .pickerStyle(.segmented)
             
             Divider()
             
-            previewButton
-                .frame(maxWidth: .infinity, alignment: .center)
+            switch pickerCnt {
+            case 1:
+                haveItemPreiViewbutton
+                    .frame(maxWidth: .infinity, alignment: .center)
+            default:
+                previewButton
+                    .frame(maxWidth: .infinity, alignment: .center)
+            }
+            
+           
             
             Spacer()
         }
@@ -63,7 +77,24 @@ struct PopoverView: View, ViewPorotocol {
                 .cornerRadius(10)
         }
         .popover(isPresented: $isPresented){
-            popOverView
+            popOverView(data: nil)
+        }
+    }
+     
+    private var haveItemPreiViewbutton: some View {
+        Button {
+            data = Item(title: "This is PopOver Item Title",
+                        body: "This is PopOver Item Body")
+        } label: {
+            Text("Show Preview Button")
+                .foregroundColor(.white)
+                .bold()
+                .padding()
+                .background(Color.blue)
+                .cornerRadius(10)
+        }
+        .popover(item: $data) { data in
+            popOverView(data: data)
         }
     }
     
@@ -84,16 +115,25 @@ struct PopoverView: View, ViewPorotocol {
         .cornerRadius(10)
     }
     
-    private var popOverView: some View {
+    private func popOverView(data:Item? ) -> some View {
         VStack(spacing: 10) {
             Text("This is Popover View")
             Divider()
             Text("If you use an iPhone, it will look the same as a sheet")
             Text("Check it out with an iPad or MacBook")
+            
+            Text("Item\nTitle:\(data?.title ?? "")\nBody:\(data?.body ?? "")")
+            
+            if data != nil {
+                Button("Dismiss") {
+                    self.data = nil
+                }
+            }
+            
         }
         .padding()
     }
-    
+   
     
     // 복사
     func copyCode(_ code: String) {
@@ -107,9 +147,31 @@ struct PopoverView: View, ViewPorotocol {
     
     // Code Preview
     func sheetViewCode() -> String {
+        switch pickerCnt {
+        case 1:
         """
         @State var isPresented: Bool = false
+        @State private var data: Item?
         
+        Button {
+            data = Item(title: "This is PopOver Item Title",
+                        body: "This is PopOver Item Body")
+        } label: {
+            Text("Show Preview Button")
+                .foregroundColor(.white)
+                .bold()
+                .padding()
+                .background(Color.blue)
+                .cornerRadius(10)
+        }
+        .popover(item: $data) { data in
+            popOverView(data: data)
+        }
+        """
+        default:
+        """
+        @State var isPresented: Bool = false
+
         Button {
             isPresented.toggle()
         } label: {
@@ -124,10 +186,23 @@ struct PopoverView: View, ViewPorotocol {
             popOverView
         }
         """
+        }
+
     }
     
     // Base code
     func basecode() -> String {
+        switch pickerCnt {
+        case 1:
+        """
+        func popover<Item, Content>(
+            item: Binding<Item?>,
+            attachmentAnchor: PopoverAttachmentAnchor = .rect(.bounds),
+            arrowEdge: Edge = .top,
+            @ViewBuilder content: @escaping (Item) -> Content
+        ) -> some View where Item : Identifiable, Content : View
+        """
+        default:
         """
         func popover<Content>(
             isPresented: Binding<Bool>,
@@ -136,6 +211,8 @@ struct PopoverView: View, ViewPorotocol {
             @ViewBuilder content: @escaping () -> Content
         ) -> some View where Content : View
         """
+        }
+        
     }
 }
 
