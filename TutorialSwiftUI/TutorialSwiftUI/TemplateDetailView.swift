@@ -103,7 +103,7 @@ struct TemplateDetailView: View {
         ) {
             old, new in
             codeSource.text[i] = new[i].code
-            codeDescription.text[i] = new[i].code
+            codeDescription.text[i] = new[i].description
         }
     }
     
