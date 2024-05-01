@@ -13,7 +13,7 @@ struct Item: Identifiable {
     let body: String
 }
 
-struct FullScreenCoverView: View {
+struct FullScreenCoverView: View, ViewPorotocol {
     @State private var isPresented: Bool = false
     @State private var pickerCnt: Int = 0
     @State private var data: Item?
@@ -129,16 +129,16 @@ struct FullScreenCoverView: View {
         }
     }
     
-    private func copyCode(_ code: String) {
+    func copyCode(_ code: String) {
         UIPasteboard.general.string = code
     }
     
     // Dismiss Action
-    private func didDismiss() {
+    func didDismiss() {
         isPresented = false
     }
     
-    private func sheetViewCode() -> String {
+    func sheetViewCode() -> String {
         switch pickerCnt {
         case 1:
             """
@@ -189,7 +189,7 @@ struct FullScreenCoverView: View {
     }
     
     // Base code
-    private func basecode() -> String {
+    func basecode() -> String {
         switch pickerCnt {
     
         case 1:

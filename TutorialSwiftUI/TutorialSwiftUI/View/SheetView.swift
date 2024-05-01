@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SheetView: View {
+struct SheetView: View, ViewPorotocol {
     @State private var isPresented: Bool = false
     
     var body: some View {
@@ -89,17 +89,17 @@ struct SheetView: View {
     
     
     // 복사
-    private func copyCode(_ code: String) {
+    func copyCode(_ code: String) {
         UIPasteboard.general.string = code
     }
     
     // Dismiss Action
-    private func didDismiss() {
+    func didDismiss() {
        
     }
     
     // Code Preview
-    private func sheetViewCode() -> String {
+    func sheetViewCode() -> String {
         """
         Button(action: {
             isPresented.toggle()
@@ -118,7 +118,7 @@ struct SheetView: View {
     }
     
     // Base code
-    private func basecode() -> String {
+    func basecode() -> String {
         """
         func sheet<Content>(
             isPresented: Binding<Bool>,
@@ -145,11 +145,14 @@ struct CodePreviewView: View {
     
     var body: some View {
         ZStack {
-            Text(code)
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.gray.opacity(0.5))
-                .cornerRadius(10)
+            ScrollView(.horizontal){
+                Text(code)
+        
+            }
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(Color.gray.opacity(0.5))
+            .cornerRadius(10)
             
             if showCopy {
                 HStack(alignment:.bottom) {
