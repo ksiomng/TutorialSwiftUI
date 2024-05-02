@@ -20,8 +20,9 @@
 		41249C572BE0DE06004A6AEC /* DesignType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41249C562BE0DE06004A6AEC /* DesignType.swift */; };
 		781723772BE2031B00470F6A /* HighlightSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 781723762BE2031B00470F6A /* HighlightSwift */; };
 		7817237A2BE2032D00470F6A /* CodeEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 781723792BE2032D00470F6A /* CodeEditor */; };
-		78384B292BE34742002FB0A1 /* NavigationStackContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78384B282BE34742002FB0A1 /* NavigationStackContainer.swift */; };
-		787D95292BE234A1006263F5 /* NavigationContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787D95282BE234A1006263F5 /* NavigationContainerView.swift */; };
+		78384B292BE34742002FB0A1 /* NavigationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78384B282BE34742002FB0A1 /* NavigationStackView.swift */; };
+		78384B2B2BE350DD002FB0A1 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78384B2A2BE350DD002FB0A1 /* NavigationBarView.swift */; };
+		787D95292BE234A1006263F5 /* NavigationViewContatiner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787D95282BE234A1006263F5 /* NavigationViewContatiner.swift */; };
 		CE83B6652BE0D6E100DDBDBE /* TemplateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE83B6642BE0D6E100DDBDBE /* TemplateDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,8 +39,9 @@
 		41249C522BE0DCD7004A6AEC /* CollectionsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsType.swift; sourceTree = "<group>"; };
 		41249C542BE0DD72004A6AEC /* LayoutType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutType.swift; sourceTree = "<group>"; };
 		41249C562BE0DE06004A6AEC /* DesignType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignType.swift; sourceTree = "<group>"; };
-		78384B282BE34742002FB0A1 /* NavigationStackContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStackContainer.swift; sourceTree = "<group>"; };
-		787D95282BE234A1006263F5 /* NavigationContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationContainerView.swift; sourceTree = "<group>"; };
+		78384B282BE34742002FB0A1 /* NavigationStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStackView.swift; sourceTree = "<group>"; };
+		78384B2A2BE350DD002FB0A1 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		787D95282BE234A1006263F5 /* NavigationViewContatiner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewContatiner.swift; sourceTree = "<group>"; };
 		CE83B6642BE0D6E100DDBDBE /* TemplateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,8 +113,9 @@
 		781723742BE1FFF500470F6A /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				787D95282BE234A1006263F5 /* NavigationContainerView.swift */,
-				78384B282BE34742002FB0A1 /* NavigationStackContainer.swift */,
+				787D95282BE234A1006263F5 /* NavigationViewContatiner.swift */,
+				78384B282BE34742002FB0A1 /* NavigationStackView.swift */,
+				78384B2A2BE350DD002FB0A1 /* NavigationBarView.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -198,10 +201,11 @@
 				CE83B6652BE0D6E100DDBDBE /* TemplateDetailView.swift in Sources */,
 				41249C532BE0DCD7004A6AEC /* CollectionsType.swift in Sources */,
 				41249C3F2BE0D146004A6AEC /* ContentView.swift in Sources */,
-				787D95292BE234A1006263F5 /* NavigationContainerView.swift in Sources */,
+				787D95292BE234A1006263F5 /* NavigationViewContatiner.swift in Sources */,
 				41249C3D2BE0D146004A6AEC /* TutorialSwiftUIApp.swift in Sources */,
 				41249C572BE0DE06004A6AEC /* DesignType.swift in Sources */,
-				78384B292BE34742002FB0A1 /* NavigationStackContainer.swift in Sources */,
+				78384B2B2BE350DD002FB0A1 /* NavigationBarView.swift in Sources */,
+				78384B292BE34742002FB0A1 /* NavigationStackView.swift in Sources */,
 				41249C552BE0DD72004A6AEC /* LayoutType.swift in Sources */,
 				41249C4F2BE0DA4D004A6AEC /* ViewType.swift in Sources */,
 				41249C4B2BE0D8DF004A6AEC /* ContentType.swift in Sources */,
