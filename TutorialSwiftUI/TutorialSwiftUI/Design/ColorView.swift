@@ -116,18 +116,6 @@ struct ColorView: View {
         UIPasteboard.general.string = code
     }
     
-    func a(modifier: Modifire) -> String {
-        switch modifier {
-        case .bold:
-            return ".bold()"
-        case .frame:
-            return ".frame()"
-        case .background:
-            return ".background(.red)"
-        default: return ""
-        }
-    }
-    
     func returnCode() -> String {
         
         return """
