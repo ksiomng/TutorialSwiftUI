@@ -8,7 +8,7 @@ import HighlightSwift
 import CodeEditor
 
 /// Picker에서 사용할 속성, Grid 칼럼을 나누는 개수
-private enum GridItemColumns: String, CaseIterable  {
+private enum GridItems: String, CaseIterable  {
     case fixed1, fixed2, fixed3,
          flexible1, flexible2, flexible3,
          adaptive1, adaptive2, adaptive3
@@ -159,13 +159,15 @@ private enum SpacingLazyVGrid: String, CaseIterable {
 private struct CodeSource {
     /// 기본 대상
     var original:String = """
-ScrollView {
+ScrollView(.vertical) {
     LazyVGrid(columns: [GridItem(.fixed(100)),],
               alignment: .center,
               spacing: nil
     ) {
         ForEach((1...999), id: \\.self) {
             Text("<Item\\($0)>")
+                .frame(width:100, height: 40)
+                .border(Color.black)
         }
     }
 }
@@ -220,7 +222,7 @@ private enum Modifire: String, CaseIterable {
         switch self {
         case .none: return ""
         case .bold: return "\n.bold()"
-        case .frame: return "\n.frame(width: 200, height: 150)"
+        case .frame: return "\n.frame(width: 200, height: 100)"
         case .background: return "\n.background(Color.red)"
         case .padding: return "\n.padding(20)"
         case .foregroundColor: return "\n.foregroundColor(.blue)"
@@ -236,7 +238,7 @@ private struct ModifireBuilder: ViewModifier {
         switch selectedModifire {
         case .none : content
         case .bold : content.bold()
-        case .frame : content.frame(width: 200, height: 150)
+        case .frame : content.frame(width: 200, height: 100)
         case .background : content.background(Color.red)
         case .padding : content.padding(20)
         case .foregroundColor : content.foregroundColor(.blue)
@@ -260,7 +262,7 @@ struct LazyVGridView: View {
     Array(repeating: .none, count: pickerCount)
     
     /// Picker에서 선택될 VStack의 Alignment 속성
-    @State private var selectedGridItem: GridItemColumns = .fixed1
+    @State private var selectedGridItem: GridItems = .fixed1
     
     /// Picker에서 선택될 VStack의 Alignment 속성
     @State private var selectedAlignment: AlignmentLazyVGrid = .center
@@ -317,7 +319,7 @@ struct LazyVGridView: View {
                 selection: $selectedGridItem
             ) {
                 ForEach(
-                    GridItemColumns.allCases,
+                    GridItems.allCases,
                     id: \.self
                 ) {
                     item in
@@ -428,7 +430,7 @@ struct LazyVGridView: View {
                 
                 /// ## 코드 결과
                 
-                ScrollView {
+                ScrollView(.vertical) {
                     LazyVGrid(columns:
                                 selectedGridItem.toGridItem(),
                               alignment: selectedAlignment.toAlignment(),
@@ -436,6 +438,8 @@ struct LazyVGridView: View {
                     ) {
                         ForEach((1...999), id: \.self) {
                             Text("<Item\($0)>")
+                                .frame(width:100, height: 40)
+                                .border(Color.black)
                         }
                     }
                 }
