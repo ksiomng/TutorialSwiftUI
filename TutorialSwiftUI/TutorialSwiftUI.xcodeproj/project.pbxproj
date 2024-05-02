@@ -29,6 +29,7 @@
 		41249C692BE11DE8004A6AEC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 41249C682BE11DE8004A6AEC /* Lottie */; };
 		41B344FF2BE374EC00382695 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B344FE2BE374EC00382695 /* GradientView.swift */; };
 		41B345022BE3F07000382695 /* CodeEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 41B345012BE3F07000382695 /* CodeEditor */; };
+		41B345112BE3F65700382695 /* HighlightSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 41B345102BE3F65700382695 /* HighlightSwift */; };
 		CE83B6652BE0D6E100DDBDBE /* TemplateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE83B6642BE0D6E100DDBDBE /* TemplateDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41B345112BE3F65700382695 /* HighlightSwift in Frameworks */,
 				41B345022BE3F07000382695 /* CodeEditor in Frameworks */,
 				41249C692BE11DE8004A6AEC /* Lottie in Frameworks */,
 			);
@@ -104,6 +106,7 @@
 			children = (
 				41249C3B2BE0D146004A6AEC /* TutorialSwiftUI */,
 				41249C3A2BE0D146004A6AEC /* Products */,
+				41B3450E2BE3F64A00382695 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,6 +157,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		41B3450E2BE3F64A00382695 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -173,6 +183,7 @@
 			packageProductDependencies = (
 				41249C682BE11DE8004A6AEC /* Lottie */,
 				41B345012BE3F07000382695 /* CodeEditor */,
+				41B345102BE3F65700382695 /* HighlightSwift */,
 			);
 			productName = TutorialSwiftUI;
 			productReference = 41249C392BE0D146004A6AEC /* TutorialSwiftUI.app */;
@@ -205,6 +216,7 @@
 			packageReferences = (
 				41249C592BE0FEEC004A6AEC /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				41B345002BE3F07000382695 /* XCRemoteSwiftPackageReference "CodeEditor" */,
+				41B3450F2BE3F65700382695 /* XCRemoteSwiftPackageReference "highlightswift" */,
 			);
 			productRefGroup = 41249C3A2BE0D146004A6AEC /* Products */;
 			projectDirPath = "";
@@ -476,6 +488,14 @@
 				minimumVersion = 1.2.4;
 			};
 		};
+		41B3450F2BE3F65700382695 /* XCRemoteSwiftPackageReference "highlightswift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/appstefan/highlightswift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.7;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -488,6 +508,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 41B345002BE3F07000382695 /* XCRemoteSwiftPackageReference "CodeEditor" */;
 			productName = CodeEditor;
+		};
+		41B345102BE3F65700382695 /* HighlightSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41B3450F2BE3F65700382695 /* XCRemoteSwiftPackageReference "highlightswift" */;
+			productName = HighlightSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

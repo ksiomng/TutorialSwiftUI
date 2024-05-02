@@ -91,7 +91,7 @@ struct ColorView: View {
             TitleTextView(title: "Code Preview")
             
             CodePreviewView(code: returnCode(), copyAction: copyCode, showCopy: true)
-            
+                
             TitleTextView(title: "Base Code")
             
             CodePreviewView(code: basecode(), copyAction: copyCode, showCopy: false)

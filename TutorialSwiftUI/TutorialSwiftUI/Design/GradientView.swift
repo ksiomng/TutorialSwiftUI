@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CodeEditor
 
 
 enum CustomUnitPoint: CaseIterable{
@@ -79,10 +80,10 @@ struct GradientView: View {
     @State private var angularCenter: CustomUnitPoint = .center
     
     var body: some View {
+        
         ScrollView {
             VStack(spacing: 20) {
                 // 뷰 프리뷰
-                
                 viewPreviewSection
                 
                 codePreviewSection
@@ -234,6 +235,9 @@ struct GradientView: View {
         VStack(spacing: 20) {
             TitleTextView(title: "Code Preview")
             
+            CodeEditor(source: sheetViewCode(), language: .swift, theme: .ocean)
+                .background(.red)
+            
             CodePreviewView(code: sheetViewCode(), copyAction: copyCode,showCopy: true)
             
             TitleTextView(title: "Base Code")
@@ -256,7 +260,8 @@ struct GradientView: View {
             let text = 
         """
         .backgroungd(
-            LinearGradient(gradient: Gradient(colors: [.blue, .white, .pink]),
+            LinearGradient(gradient:
+                            Gradient(colors: [.blue, .white, .pink]),
                                               startPoint: .\(startPoint.toString()),
                                               endPoint: .\(endPoint.toString())
                                     )

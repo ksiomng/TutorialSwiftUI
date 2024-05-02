@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import HighlightSwift
 
 struct SheetView: View, ViewPorotocol {
     @State private var isPresented: Bool = false
@@ -138,21 +139,30 @@ struct PresentSheetView: View {
 }
 
 struct CodePreviewView: View {
-    
+    let highlight = Highlight(cacheLimit: 10)
     let code: String
     let copyAction: (String) -> Void
     let showCopy: Bool
     
+    init(code: String, copyAction: @escaping (String) -> Void, showCopy: Bool) {
+        self.code = code
+        self.copyAction = copyAction
+        self.showCopy = showCopy
+        UIScrollView.appearance().bounces = false
+    }
+
+    @State private var attributedString: AttributedString?
+    
     var body: some View {
         ZStack {
             ScrollView(.horizontal){
-                Text(code)
-        
+                
+                ModifiedTextPreview(attributedString: attributedString)
             }
             .frame(maxWidth: .infinity)
-            .padding()
             .background(Color.gray.opacity(0.5))
             .cornerRadius(10)
+            
             
             if showCopy {
                 HStack(alignment:.bottom) {
@@ -173,6 +183,33 @@ struct CodePreviewView: View {
                 }
             }
             
+        }
+        .onAppear {
+            Task {
+                await codeText()
+            }
+        }
+    }
+    
+    func codeText() async {
+        let a = try! await highlight.attributed(code, language: .swift ,colors: HighlightColors.light(.xcode))
+        attributedString = a
+    }
+    
+}
+struct ModifiedTextPreview: View {
+    var attributedString: AttributedString?
+    
+    var body: some View {
+        Group {
+            if let attributedString = attributedString {
+                Text(attributedString)
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(Color.clear)
+            } else {
+                ProgressView() // 혹은 다른 로딩 인디케이터
+            }
         }
     }
 }
