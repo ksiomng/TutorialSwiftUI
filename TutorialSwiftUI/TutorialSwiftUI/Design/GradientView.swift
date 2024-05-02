@@ -86,7 +86,7 @@ struct GradientView: View {
                 viewPreviewSection
                 
                 codePreviewSection
-             
+                
             }
             .padding()
             .navigationTitle("Gradient View")
@@ -96,16 +96,16 @@ struct GradientView: View {
     
     private var viewPreviewSection: some View {
         VStack(alignment: .leading, spacing: 10) {
-
+            
             TitleTextView(title: "View Preview")
             
             Text("Gradient View")
                 .frame(maxWidth: .infinity, alignment: .leading)
-
-
+            
+            
             
             Divider()
-
+            
             HStack {
                 Spacer()
                 Text("Check Gradient")
@@ -157,7 +157,7 @@ struct GradientView: View {
     }
     
     func linearSelectView() -> some View {
-        HStack {
+        HStack(alignment: .center, spacing: 10) {
             VStack {
                 Text("StartPoint")
                 Picker("StartPoint", selection: $startPoint) {
@@ -169,6 +169,7 @@ struct GradientView: View {
                     startPoint = newValue
                 }
             }
+            .frame(maxWidth: .infinity)
             
             VStack {
                 Text("EndPoint")
@@ -181,40 +182,51 @@ struct GradientView: View {
                     endPoint = newValue
                 }
             }
+            .frame(maxWidth: .infinity)
         }
+        
     }
     
     func radialStepperView() -> some View {
         VStack {
-            Stepper("StartRadius \(Int(startRadius))", value: $startRadius, in: 0...100)
+            Stepper("StartRadius: \(Int(startRadius))", value: $startRadius, in: 0...100)
                 .onChange(of: startRadius) { oldValue, newValue in
                     startRadius = newValue
                 }
-            Stepper("endRadius \(Int(endRadius))", value: $endRadius, in: 0...100)
+            Stepper("endRadius: \(Int(endRadius))", value: $endRadius, in: 0...100)
                 .onChange(of: endRadius) { oldValue, newValue in
                     endRadius = newValue
                 }
             
-            Picker("RadialCenter", selection: $radialCenter) {
-                ForEach(CustomUnitPoint.allCases, id: \.self) { type in
-                    Text(type.toString())
+            HStack {
+                Text("Center")
+                Spacer()
+                Picker("RadialCenter", selection: $radialCenter) {
+                    ForEach(CustomUnitPoint.allCases, id: \.self) { type in
+                        Text(type.toString())
+                    }
+                }
+                .onChange(of: radialCenter) { oldValue, newValue in
+                    radialCenter = newValue
                 }
             }
-            .onChange(of: radialCenter) { oldValue, newValue in
-                radialCenter = newValue
-            }
+            
             
         }
     }
     
     func angularGradient() -> some View {
-        Picker("AngularCenter", selection: $angularCenter) {
-            ForEach(CustomUnitPoint.allCases, id: \.self) { type in
-                Text(type.toString())
+        HStack {
+            Text("Center")
+            Spacer()
+            Picker("AngularCenter", selection: $angularCenter) {
+                ForEach(CustomUnitPoint.allCases, id: \.self) { type in
+                    Text(type.toString())
+                }
             }
-        }
-        .onChange(of: angularCenter) { oldValue, newValue in
-            angularCenter = newValue
+            .onChange(of: angularCenter) { oldValue, newValue in
+                angularCenter = newValue
+            }
         }
     }
     // Code Preview Section
@@ -271,7 +283,7 @@ struct GradientView: View {
                         AngularGradient(gradient: Gradient(colors: [.blue, .white, .pink]),
                                                            center: .\(angularCenter.toString())
                         )
-
+            
             )
             """
             
@@ -312,7 +324,7 @@ struct GradientView: View {
                         AngularGradient(gradient: Gradient(colors: [.blue, .white, .pink]),
                                                            center: .center
                         )
-
+            
             )
             """
             
