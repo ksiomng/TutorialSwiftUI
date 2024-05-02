@@ -35,75 +35,77 @@ struct ImageView: View {
     Array(repeating: .none, count: 20)
     
     var body: some View {
-        VStack {
-            Spacer()
-            // 코드 결과
-            Image("Snowball")
-                .resizable()
-                .modifier(ModifireBuilder(selectedModifire: $selectedModifire[0]))
-                .modifier(ModifireBuilder(selectedModifire: $selectedModifire[1]))
-                .modifier(ModifireBuilder(selectedModifire: $selectedModifire[2]))
-                .modifier(ModifireBuilder(selectedModifire: $selectedModifire[3]))
-            
-            Spacer()
-            
-            
-            // 코드 텍스트
-            VStack(alignment: .leading) {
-                Text("Image(\"Image\")\n\t.resizable()")
-                CodeBuilder(selectedModifire: $selectedModifire[0])
-                CodeBuilder(selectedModifire: $selectedModifire[1])
-                CodeBuilder(selectedModifire: $selectedModifire[2])
-                CodeBuilder(selectedModifire: $selectedModifire[3])
+        ScrollView {
+            VStack {
+                Spacer()
+                // 코드 결과
+                Image("Snowball")
+                    .resizable()
+                    .modifier(ModifireBuilder(selectedModifire: $selectedModifire[0]))
+                    .modifier(ModifireBuilder(selectedModifire: $selectedModifire[1]))
+                    .modifier(ModifireBuilder(selectedModifire: $selectedModifire[2]))
+                    .modifier(ModifireBuilder(selectedModifire: $selectedModifire[3]))
+                
+                Spacer()
+                
+                
+                // 코드 텍스트
+                VStack(alignment: .leading) {
+                    Text("Image(\"Image\")\n\t.resizable()")
+                    CodeBuilder(selectedModifire: $selectedModifire[0])
+                    CodeBuilder(selectedModifire: $selectedModifire[1])
+                    CodeBuilder(selectedModifire: $selectedModifire[2])
+                    CodeBuilder(selectedModifire: $selectedModifire[3])
+                }
+                .frame(width: 350)
+                .font(.system(size: 18, design: .monospaced))
+                .background(Color.gray.opacity(0.1))
+                .cornerRadius(8)
+                
+                Spacer()
+                
+                // 코드 설명
+                VStack(alignment: .leading) {
+                    Text("Image View : 이미지를 출력해주는 뷰")
+                    DescriptionBuilder(selectedModifire: $selectedModifire[0])
+                    DescriptionBuilder(selectedModifire: $selectedModifire[1])
+                    DescriptionBuilder(selectedModifire: $selectedModifire[2])
+                    DescriptionBuilder(selectedModifire: $selectedModifire[3])
+                }
+                .frame(width: 350)
+                .font(.system(size: 18, design: .monospaced))
+                .background(Color.gray.opacity(0.1))
+                .cornerRadius(8)
+                
+                Spacer()
+                // List Picker - 위치별 모디파이어 선택
+                List {
+                    Picker("First", selection: $selectedModifire[0]) {
+                        ForEach(Modifire.allCases, id: \.self) { modi in
+                            Text("\(modi.rawValue)")
+                                .tag(modi)
+                        }
+                    }
+                    Picker("Second", selection: $selectedModifire[1]) {
+                        ForEach(Modifire.allCases, id: \.self) { modi in
+                            Text("\(modi.rawValue)")
+                                .tag(modi)
+                        }
+                    }
+                    Picker("Third", selection: $selectedModifire[2]) {
+                        ForEach(Modifire.allCases, id: \.self) { modi in
+                            Text("\(modi.rawValue)")
+                                .tag(modi)
+                        }
+                    }
+                    Picker("Fourth", selection: $selectedModifire[3]) {
+                        ForEach(Modifire.allCases, id: \.self) { modi in
+                            Text("\(modi.rawValue)")
+                                .tag(modi)
+                        }
+                    }
+                }.frame(height: 250)
             }
-            .frame(width: 350)
-            .font(.system(size: 18, design: .monospaced))
-            .background(Color.gray.opacity(0.1))
-            .cornerRadius(8)
-            
-            Spacer()
-            
-            // 코드 설명
-            VStack(alignment: .leading) {
-                Text("Image View : 이미지를 출력해주는 뷰")
-                DescriptionBuilder(selectedModifire: $selectedModifire[0])
-                DescriptionBuilder(selectedModifire: $selectedModifire[1])
-                DescriptionBuilder(selectedModifire: $selectedModifire[2])
-                DescriptionBuilder(selectedModifire: $selectedModifire[3])
-            }
-            .frame(width: 350)
-            .font(.system(size: 18, design: .monospaced))
-            .background(Color.gray.opacity(0.1))
-            .cornerRadius(8)
-            
-            Spacer()
-            // List Picker - 위치별 모디파이어 선택
-            List {
-                Picker("First", selection: $selectedModifire[0]) {
-                    ForEach(Modifire.allCases, id: \.self) { modi in
-                        Text("\(modi.rawValue)")
-                            .tag(modi)
-                    }
-                }
-                Picker("Second", selection: $selectedModifire[1]) {
-                    ForEach(Modifire.allCases, id: \.self) { modi in
-                        Text("\(modi.rawValue)")
-                            .tag(modi)
-                    }
-                }
-                Picker("Third", selection: $selectedModifire[2]) {
-                    ForEach(Modifire.allCases, id: \.self) { modi in
-                        Text("\(modi.rawValue)")
-                            .tag(modi)
-                    }
-                }
-                Picker("Fourth", selection: $selectedModifire[3]) {
-                    ForEach(Modifire.allCases, id: \.self) { modi in
-                        Text("\(modi.rawValue)")
-                            .tag(modi)
-                    }
-                }
-            }.frame(height: 250)
         }
     }
 }
