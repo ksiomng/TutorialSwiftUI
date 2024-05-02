@@ -8,16 +8,6 @@
 import SwiftUI
 import CodeEditor
 
-struct PresentNavigationView: View {
-    var body: some View {
-        NavigationView {
-            Text("Navigation View")
-                .font(.largeTitle)
-                .padding()
-        }
-    }
-}
-
 struct NavigationContainerView: View {
     @State private var isPresented = false
     private var original:String = """
@@ -74,9 +64,6 @@ struct NavigationContainerView: View {
             }
             .navigationTitle("Navigation View")
             .navigationBarTitleDisplayMode(.inline)
-        }
-        .sheet(isPresented: $isPresented) {
-            PresentNavigationView()
         }
     }
 }
