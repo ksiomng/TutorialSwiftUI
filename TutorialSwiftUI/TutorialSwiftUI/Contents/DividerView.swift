@@ -25,83 +25,85 @@ struct DividerView: View {
     Array(repeating: .none, count: 10)
     
     var body: some View {
-        VStack {
-            Spacer()
-            // 코드 결과
-            VStack{
-                Divider()
-                Text("Divider")
-                    .font(.largeTitle)
-                Divider()
-                Text("Divider")
-                    .font(.largeTitle)
-                Divider()
+        ScrollView {
+            VStack {
+                Spacer()
+                // 코드 결과
+                VStack{
+                    Divider()
+                    Text("Divider")
+                        .font(.largeTitle)
+                    Divider()
+                    Text("Divider")
+                        .font(.largeTitle)
+                    Divider()
+                }
+                .modifier(ModifireBuilder(selectedModifire: $selectedModifire[0]))
+                .modifier(ModifireBuilder(selectedModifire: $selectedModifire[1]))
+                .modifier(ModifireBuilder(selectedModifire: $selectedModifire[2]))
+                .modifier(ModifireBuilder(selectedModifire: $selectedModifire[3]))
+                
+                
+                Spacer()
+                
+                
+                // 코드 텍스트
+                VStack(alignment: .leading) {
+                    Text("Divider()\nText(\"Divider\")\n\t.font(.largeTitle)\nDivider()\nText(\"Divider\")\n\t.font(.largeTitle)\nDivider()")
+                    CodeBuilder(selectedModifire: $selectedModifire[0])
+                    CodeBuilder(selectedModifire: $selectedModifire[1])
+                    CodeBuilder(selectedModifire: $selectedModifire[2])
+                    CodeBuilder(selectedModifire: $selectedModifire[3])
+                }
+                .frame(width: 350)
+                .font(.system(size: 18, design: .monospaced))
+                .background(Color.gray.opacity(0.1))
+                .cornerRadius(8)
+                
+                Spacer()
+                
+                // 코드 설명
+                VStack(alignment: .leading) {
+                    Text("Divider View : 수평 또는 수직으로 선을 출력해주는 뷰")
+                    DescriptionBuilder(selectedModifire: $selectedModifire[0])
+                    DescriptionBuilder(selectedModifire: $selectedModifire[1])
+                    DescriptionBuilder(selectedModifire: $selectedModifire[2])
+                    DescriptionBuilder(selectedModifire: $selectedModifire[3])
+                }
+                .frame(width: 350)
+                .font(.system(size: 18, design: .monospaced))
+                .background(Color.gray.opacity(0.1))
+                .cornerRadius(8)
+                
+                Spacer()
+                // List Picker - 위치별 모디파이어 선택
+                List {
+                    Picker("First", selection: $selectedModifire[0]) {
+                        ForEach(Modifire.allCases, id: \.self) { modi in
+                            Text("\(modi.rawValue)")
+                                .tag(modi)
+                        }
+                    }
+                    Picker("Second", selection: $selectedModifire[1]) {
+                        ForEach(Modifire.allCases, id: \.self) { modi in
+                            Text("\(modi.rawValue)")
+                                .tag(modi)
+                        }
+                    }
+                    Picker("Third", selection: $selectedModifire[2]) {
+                        ForEach(Modifire.allCases, id: \.self) { modi in
+                            Text("\(modi.rawValue)")
+                                .tag(modi)
+                        }
+                    }
+                    Picker("Fourth", selection: $selectedModifire[3]) {
+                        ForEach(Modifire.allCases, id: \.self) { modi in
+                            Text("\(modi.rawValue)")
+                                .tag(modi)
+                        }
+                    }
+                }.frame(height: 250)
             }
-            .modifier(ModifireBuilder(selectedModifire: $selectedModifire[0]))
-            .modifier(ModifireBuilder(selectedModifire: $selectedModifire[1]))
-            .modifier(ModifireBuilder(selectedModifire: $selectedModifire[2]))
-            .modifier(ModifireBuilder(selectedModifire: $selectedModifire[3]))
-            
-            
-            Spacer()
-            
-            
-            // 코드 텍스트
-            VStack(alignment: .leading) {
-                Text("Text(\"TEST\")")
-                CodeBuilder(selectedModifire: $selectedModifire[0])
-                CodeBuilder(selectedModifire: $selectedModifire[1])
-                CodeBuilder(selectedModifire: $selectedModifire[2])
-                CodeBuilder(selectedModifire: $selectedModifire[3])
-            }
-            .frame(width: 350)
-            .font(.system(size: 18, design: .monospaced))
-            .background(Color.gray.opacity(0.1))
-            .cornerRadius(8)
-            
-            Spacer()
-            
-            // 코드 설명
-            VStack(alignment: .leading) {
-                Text("Divider View : 수평 또는 수직으로 선을 출력해주는 뷰")
-                DescriptionBuilder(selectedModifire: $selectedModifire[0])
-                DescriptionBuilder(selectedModifire: $selectedModifire[1])
-                DescriptionBuilder(selectedModifire: $selectedModifire[2])
-                DescriptionBuilder(selectedModifire: $selectedModifire[3])
-            }
-            .frame(width: 350)
-            .font(.system(size: 18, design: .monospaced))
-            .background(Color.gray.opacity(0.1))
-            .cornerRadius(8)
-            
-            Spacer()
-            // List Picker - 위치별 모디파이어 선택
-            List {
-                Picker("First", selection: $selectedModifire[0]) {
-                    ForEach(Modifire.allCases, id: \.self) { modi in
-                        Text("\(modi.rawValue)")
-                            .tag(modi)
-                    }
-                }
-                Picker("Second", selection: $selectedModifire[1]) {
-                    ForEach(Modifire.allCases, id: \.self) { modi in
-                        Text("\(modi.rawValue)")
-                            .tag(modi)
-                    }
-                }
-                Picker("Third", selection: $selectedModifire[2]) {
-                    ForEach(Modifire.allCases, id: \.self) { modi in
-                        Text("\(modi.rawValue)")
-                            .tag(modi)
-                    }
-                }
-                Picker("Fourth", selection: $selectedModifire[3]) {
-                    ForEach(Modifire.allCases, id: \.self) { modi in
-                        Text("\(modi.rawValue)")
-                            .tag(modi)
-                    }
-                }
-            }.frame(height: 250)
         }
     }
 }
