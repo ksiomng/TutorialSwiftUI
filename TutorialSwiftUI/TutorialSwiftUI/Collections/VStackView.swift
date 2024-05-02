@@ -172,7 +172,10 @@ struct VStackView: View {
                 pickerTitle[i],
                 selection: $selectedModifire[i]
             ) {
-                ForEach(Modifire.allCases,id: \.self) {
+                ForEach(
+                    Modifire.allCases,
+                    id: \.self
+                ) {
                     item in
                     Text("\(item.rawValue)").tag(item)
                 }
@@ -197,7 +200,10 @@ struct VStackView: View {
                 "Alignment",
                 selection: $selectedAlignment
             ) {
-                ForEach(AlignmentVStack.allCases,id: \.self) {
+                ForEach(
+                    AlignmentVStack.allCases,
+                    id: \.self
+                ) {
                     item in
                     Text("\(item.rawValue)").tag(item)
                 }
@@ -208,7 +214,8 @@ struct VStackView: View {
                 codeSource.original = codeSource.original
                     .replacingOccurrences(
                         of: "alignment: .\(old.rawValue)",
-                        with: "alignment: .\(new.rawValue)")
+                        with: "alignment: .\(new.rawValue)"
+                    )
             }
         }
     }
