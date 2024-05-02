@@ -25,18 +25,18 @@ private enum AlignmentVStack: String, CaseIterable  {
 
 /// Picker에서 사용할 속성, VStack의 Spacing 속성
 private enum SpacingVStack: String, CaseIterable {
-    case none = "nil", one = "1", five = "5", ten = "10"
+    case none = "nil", five = "5", ten = "10", twenty = "20"
     
     func toCGFloat() -> CGFloat? {
         switch self {
         case .none:
             return nil
-        case .one:
-            return 1
         case .five:
             return 5
         case .ten:
             return 10
+        case .twenty:
+            return 20
         }
     }
 }
@@ -46,12 +46,15 @@ private struct CodeSource {
     /// 기본 대상
     var original:String = """
 VStack (alignment: .center,spacing: nil){
-    Text(\"Text 01\")
+    Text(\"Hello\")
         .border(Color.black)
-    Text(\"Text 01\")
+        .font(.system(size: 33))
+    Text(\"AppSchool\")
         .border(Color.black)
-    Text(\"Text 01\")
+        .font(.system(size: 22))
+    Text(\"Tutorial Project\")
         .border(Color.black)
+        .font(.system(size: 11))
 }
 """
     /// 모디파이어 텍스트
@@ -70,7 +73,7 @@ private struct CodeDescription {
     var original:String = """
 VStack : 내부의 View들을 수직(세로)으로 배치
 Alignment : 내부의 View들을 정렬
-Spacing : 내부의 View들의 간격을 조정
+Spacing : 내부의 View들 사이의 간격을 조정
 """
     
     /// 모디파이어 텍스트
@@ -91,11 +94,11 @@ private enum Modifire: String, CaseIterable {
     var description: String {
         switch self {
         case .none: return ""
-        case .bold: return "\nbold : 글씨 두껍게"
-        case .frame: return "\nframe : 뷰의 크기 설정"
-        case .background: return "\nbackground : 배경 스타일 설정"
-        case .padding: return "\npadding : 내부에 여백 설정"
-        case .foregroundColor: return "\nforegroundColor: 글자색 지정"
+        case .bold: return "\nbold : VStack 내부 View들의 글씨를 두껍게"
+        case .frame: return "\nframe : VStack의 크기 설정"
+        case .background: return "\nbackground : VStack의 배경 스타일 설정"
+        case .padding: return "\npadding : VStack의 안쪽에 여백 설정"
+        case .foregroundColor: return "\nforegroundColor: VStack 내부 View들의 글자색 지정"
         }
     }
     
@@ -130,13 +133,13 @@ private struct ModifireBuilder: ViewModifier {
 
 /// - picker의 개수 (개수에 맞춰 설정 필수)
 /// - CodeSource, CodeDescription 및 selectedModifire의 repeating에 사용
-private let pickerCount = 5
+private let pickerCount = 3
 
 /// # body View
 struct VStackView: View {
     /// Picker의 제목 배열
     private let pickerTitle: [String] = [
-        "First", "Second", "Third", "Fourth", "Fifth"
+        "First", "Second", "Third"
     ]
     
     /// 각각의 Picker에서 선택될 enum 타입의 모디파이어 배열
@@ -162,131 +165,132 @@ struct VStackView: View {
     /// - 인자
     ///     - i : index
     private func PickerView(_ i: Int) -> some View {
-        return Picker(
-            pickerTitle[i],
-            selection: $selectedModifire[i]
-        ) {
-            ForEach(Modifire.allCases,id: \.self) {
-                item in
-                Text("\(item.rawValue)").tag(item)
+        return HStack {
+            Text(pickerTitle[i])
+            Spacer()
+            Picker(
+                pickerTitle[i],
+                selection: $selectedModifire[i]
+            ) {
+                ForEach(Modifire.allCases,id: \.self) {
+                    item in
+                    Text("\(item.rawValue)").tag(item)
+                }
+            }.onChange(
+                of: selectedModifire
+            ) {
+                old, new in
+                codeSource.text[i] = new[i].code
+                codeDescription.text[i] = new[i].description
             }
-        }.onChange(
-            of: selectedModifire
-        ) {
-            old, new in
-            codeSource.text[i] = new[i].code
-            codeDescription.text[i] = new[i].description
         }
+        
     }
     
     /// # 리스트용 PickerView
     /// - VStack의 Alignment 설정
     private func PickerAlignmentView() -> some View {
-        return Picker(
-            "Alignment",
-            selection: $selectedAlignment
-        ) {
-            ForEach(AlignmentVStack.allCases,id: \.self) {
-                item in
-                Text("\(item.rawValue)").tag(item)
+        return HStack {
+            Text("Alignment")
+            Spacer()
+            Picker(
+                "Alignment",
+                selection: $selectedAlignment
+            ) {
+                ForEach(AlignmentVStack.allCases,id: \.self) {
+                    item in
+                    Text("\(item.rawValue)").tag(item)
+                }
+            }.onChange(
+                of: selectedAlignment
+            ) {
+                old, new in
+                codeSource.original = codeSource.original
+                    .replacingOccurrences(
+                        of: "alignment: .\(old.rawValue)",
+                        with: "alignment: .\(new.rawValue)")
             }
-        }.onChange(
-            of: selectedAlignment
-        ) {
-            old, new in
-            codeSource.original = codeSource.original
-                .replacingOccurrences(
-                    of: "alignment: .\(old.rawValue)",
-                    with: "alignment: .\(new.rawValue)")
         }
     }
     
     /// # 리스트용 PickerView
     /// - VStack의 Spacing 설정
     private func PickerSpacingView() -> some View {
-        return Picker(
-            "Spacing",
-            selection: $selectedSpacing
-        ) {
-            ForEach(SpacingVStack.allCases,id: \.self) {
-                item in
-                Text("\(item.rawValue)").tag(item)
+        return HStack {
+            Text("Spacing")
+            Spacer()
+            Picker(
+                "Spacing",
+                selection: $selectedSpacing
+            ) {
+                ForEach(SpacingVStack.allCases,id: \.self) {
+                    item in
+                    Text("\(item.rawValue)").tag(item)
+                }
+            }.onChange(
+                of: selectedSpacing
+            ) {
+                old, new in
+                codeSource.original = codeSource.original
+                    .replacingOccurrences(
+                        of: "spacing: \(old.rawValue)",
+                        with: "spacing: \(new.rawValue)")
             }
-        }.onChange(
-            of: selectedSpacing
-        ) {
-            old, new in
-            codeSource.original = codeSource.original
-                .replacingOccurrences(
-                    of: "spacing: \(old.rawValue)",
-                    with: "spacing: \(new.rawValue)")
         }
     }
     
     /// # body
     var body: some View {
         VStack {
+            
             /// ## Picker 리스트
-            List {
-                PickerView(0)
-                PickerView(1)
-                PickerView(2)
-                PickerView(3)
-                PickerView(4)
-            }
-            .frame(maxHeight: 230)
-            .listStyle(PlainListStyle())
+            VStack {
+                Section(header: Text("Option")) {
+                    PickerAlignmentView()
+                    PickerSpacingView()
+                }
+                
+                Section(header: Text("Modifire")) {
+                    PickerView(0)
+                    PickerView(1)
+                    PickerView(2)
+                }
+            }.padding(25)
             
-            Divider()
-            
-            List {
-                PickerAlignmentView()
-                PickerSpacingView()
-            }
-            .frame(maxHeight: 230)
-            .listStyle(PlainListStyle())
-            
-            Spacer()
-            
-            
-            /// ## 코드 설명
-            VStack(alignment: .leading) {
+            /// ## 코드 설명, 코드 소스
+            VStack {
                 CodeEditor(
                     source: codeDescription.toString,
                     language: .swift,
                     theme: .agate
                 ).frame(width: 350, height: 100)
-            }
-            .cornerRadius(10)
-            
-            Spacer()
-            
-            /// ## 코드 소스
-            VStack(alignment: .leading) {
+                
                 CodeEditor(
                     source: codeSource.toString,
                     language: .javascript,
                     theme: .agate
-                ).frame(width: 350, height: 200)
+                ).frame(width: 350, height: 150)
+                
+                /// ## 코드 결과
+                VStack(
+                    alignment: selectedAlignment.toAlignment(),
+                    spacing: selectedSpacing.toCGFloat()
+                ) {
+                    Text("Hello")
+                        .border(Color.black)
+                        .font(.system(size: 33))
+                    Text("AppSchool")
+                        .border(Color.black)
+                        .font(.system(size: 22))
+                    Text("Tutorial Project")
+                        .border(Color.black)
+                        .font(.system(size: 11))
+                }
+                .modifier(ModifireBuilder(selectedModifire: $selectedModifire[0]))
+                .modifier(ModifireBuilder(selectedModifire: $selectedModifire[1]))
+                .modifier(ModifireBuilder(selectedModifire: $selectedModifire[2]))
             }
             .cornerRadius(10)
-            
-            Spacer()
-            
-            /// ## 코드 결과
-            VStack(
-                alignment: selectedAlignment.toAlignment(),
-                spacing: selectedSpacing.toCGFloat()
-            ) {
-                Text("Hello").border(Color.black)
-                Text("AppSchool").border(Color.black)
-                Text("Tutorial Project").border(Color.black)
-            }
-            .modifier(ModifireBuilder(selectedModifire: $selectedModifire[0]))
-            .modifier(ModifireBuilder(selectedModifire: $selectedModifire[1]))
-            .modifier(ModifireBuilder(selectedModifire: $selectedModifire[2]))
-            .modifier(ModifireBuilder(selectedModifire: $selectedModifire[3]))
-            .modifier(ModifireBuilder(selectedModifire: $selectedModifire[4]))
             
             Spacer()
         }
