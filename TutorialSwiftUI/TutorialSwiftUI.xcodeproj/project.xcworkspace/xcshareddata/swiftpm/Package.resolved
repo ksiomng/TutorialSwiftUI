@@ -1,6 +1,24 @@
 {
-  "originHash" : "66369da3ef365ee63899cb4a5a62b9d0b6747aa28f2c669dae60c933723f9628",
+  "originHash" : "0dc469864d55595fd8f51419217cb3af8ac74dc0e912f30a458bd6cdad3465f3",
   "pins" : [
+    {
+      "identity" : "codeeditor",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ZeeZide/CodeEditor.git",
+      "state" : {
+        "revision" : "3a924589c957383693cae6336a29c3ead602ec96",
+        "version" : "1.2.4"
+      }
+    },
+    {
+      "identity" : "highlightr",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/helje5/Highlightr",
+      "state" : {
+        "revision" : "bd0358056ff1f12ea83833a9fc1b3b5a396a9da0",
+        "version" : "3.0.2"
+      }
+    },
     {
       "identity" : "lottie-ios",
       "kind" : "remoteSourceControl",
