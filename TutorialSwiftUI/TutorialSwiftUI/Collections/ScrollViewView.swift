@@ -30,8 +30,8 @@ ScrollView (
     showsIndicators: true
 ) {
     LazyHStack() {
-        ForEach(1..<100) {
-            Text("Item \\($0)")
+        ForEach(1..<999) {
+            Text("<Item\\($0)>")
                 .font(.title)
         }
     }
@@ -229,8 +229,8 @@ struct ScrollViewView: View {
                     showsIndicators: selectedShowsIndicators.toBool()
                 ) {
                     LazyHStack() {
-                        ForEach(1..<100) {
-                            Text("Item \($0)")
+                        ForEach(1..<999) {
+                            Text("<Item\($0)>")
                                 .font(.title)
                         }
                     }

@@ -76,7 +76,7 @@ ZStack(alignment: selectedAlignment.toAlignment()) {
 private struct CodeDescription {
     /// 기본 대상
     var original:String = """
-ZStack : 내부의 View들을 겹치게 배치
+ZStack : 내부의 View들을 겹칙 배치
 Alignment : 내부의 View들을 정렬
 """
     
