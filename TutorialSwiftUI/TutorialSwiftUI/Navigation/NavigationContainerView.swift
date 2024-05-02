@@ -51,29 +51,6 @@ struct NavigationContainerView: View {
                             .frame(width: 350)
                     }
                     
-//                    Section(header: Text("View Preview")
-//                        .textCase(nil)
-//                        .font(.title2)
-//                        .fontWeight(.bold)
-//                        .foregroundStyle(Color.black)
-//                    ) {
-//                        HStack {
-//                            Spacer()
-//                            Button("Navigation View") {
-//                                isPresented.toggle()
-//                            }
-//                            .foregroundColor(.white)
-//                            .padding()
-//                            .background(Color.blue)
-//                            .cornerRadius(10)
-//                            Spacer()
-//                        }
-//                        .cornerRadius(10)
-//                        .padding()
-//                        .padding(.top, -20)
-//                        .listRowBackground(Color.clear)
-//                    }
-                    
                     Section(header: Text("Base Code")
                         .textCase(nil)
                         .font(.title2)
