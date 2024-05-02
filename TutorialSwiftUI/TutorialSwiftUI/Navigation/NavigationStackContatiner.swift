@@ -8,7 +8,7 @@
 import SwiftUI
 import CodeEditor
 
-struct NavigationStackView: View {
+struct NavigationStackContatiner: View {
     private var original:String = """
     struct ContentView: View {
         var body: some View {
@@ -69,5 +69,5 @@ struct NavigationStackView: View {
 }
 
 #Preview {
-    NavigationStackView()
+    NavigationStackContatiner()
 }
