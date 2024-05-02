@@ -1,34 +1,30 @@
 //
-//  ImageView.swift
+//  SFSymbolsView.swift
 //  TutorialSwiftUI
 //
-//  Created by 황민경 on 5/1/24.
+//  Created by 황민경 on 5/2/24.
 //
 
 import SwiftUI
 
 private enum Modifire: String, CaseIterable {
     case none
-    case frame
-    case scaledToFit
-    case scaledToFill
-    case aspectRatio
-    case overlay
-    case border
+    case font
+    case foregroundColor
+    case padding
+    case background
     case opacity
-    case offset
     case rotationEffect
     case scaleEffect
     case shadow
-    case clipShape
-    case cornerRadius
+    case offset
     case blur
-    case contrast
-    case saturation
-    case brightness
+    case symbolVariant
+    case symbolRenderingMode
+    case symbolEffect
 }
 
-struct ImageView: View {
+struct SFSymbolsView: View {
     
     /// 각각의 Picker에서 선택될 enum 타입의 모디파이어 배열
     @State private var selectedModifire: [Modifire] =
@@ -38,8 +34,7 @@ struct ImageView: View {
         VStack {
             Spacer()
             // 코드 결과
-            Image("Snowball")
-                .resizable()
+            Image(systemName: "ladybug")
                 .modifier(ModifireBuilder(selectedModifire: $selectedModifire[0]))
                 .modifier(ModifireBuilder(selectedModifire: $selectedModifire[1]))
                 .modifier(ModifireBuilder(selectedModifire: $selectedModifire[2]))
@@ -50,7 +45,7 @@ struct ImageView: View {
             
             // 코드 텍스트
             VStack(alignment: .leading) {
-                Text("Image(\"Image\")\n\t.resizable()")
+                Text("Image(systemName:\"Image\")")
                 CodeBuilder(selectedModifire: $selectedModifire[0])
                 CodeBuilder(selectedModifire: $selectedModifire[1])
                 CodeBuilder(selectedModifire: $selectedModifire[2])
@@ -65,7 +60,7 @@ struct ImageView: View {
             
             // 코드 설명
             VStack(alignment: .leading) {
-                Text("Image View : 이미지를 출력해주는 뷰")
+                Text("SFSymbols View : SFSymbols 이미지를 출력해주는 뷰")
                 DescriptionBuilder(selectedModifire: $selectedModifire[0])
                 DescriptionBuilder(selectedModifire: $selectedModifire[1])
                 DescriptionBuilder(selectedModifire: $selectedModifire[2])
@@ -116,40 +111,32 @@ private struct CodeBuilder: View {
         switch selectedModifire {
         case .none:
             return Text("")
-        case .frame:
-            return Text("\t.frame(width: 100, height: 100)")
-        case .scaledToFit:
-            return Text("\t.scaledToFit()")
-        case .scaledToFill:
-            return Text("\t.scaledToFill()")
-        case .aspectRatio:
-            return Text(".aspectRatio(contentMode: .fit)")
-        case .overlay:
-            return Text(".overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.blue, lineWidth: 10)")
-        case .border:
-            return Text(".border(Color.green, width: 4)")
+        case .font:
+            return Text("\t.font(.system(size: 50))")
+        case .foregroundColor:
+            return Text("\t.foregroundColor(.purple)")
+        case .padding:
+            return Text("\t.padding()")
+        case .background:
+            return Text("\t.background(Color.green)")
         case .opacity:
-            return Text("\t.opacity(0.2)")
-        case .offset:
-            return Text("\t.offset(x: 50, y: 20)")
+            return Text("\t.opacity(0.4)")
         case .rotationEffect:
-            return Text("\t.rotationEffect(.degrees(45))")
+            return Text("\t.rotationEffect(.degrees(-60))")
         case .scaleEffect:
             return Text("\t.scaleEffect(1.5)")
         case .shadow:
-            return Text("\t.shadow(color: Color.black, radius: 3, x: 2, y: 2)")
-        case .clipShape:
-            return Text("\t.clipShape(Circle())")
-        case .cornerRadius:
-            return Text("cornerRadius(20)")
+            return Text("\t.shadow(color: .black, radius: 10)")
+        case .offset:
+            return Text("\t.offset(x: 50, y: 50)")
         case .blur:
-            return Text("\t.blur(radius: 5)")
-        case .contrast:
-            return Text("\t.contrast(1.5)")
-        case .saturation:
-            return Text("\t.saturation(0.5)")
-        case .brightness:
-            return Text("\t.brightness(0.2)")
+            return Text("\t.blur(radius: 3.0)")
+        case .symbolVariant:
+            return Text("\t.symbolVariant(.slash)")
+        case .symbolEffect:
+            return Text("\t.sysbolEffect(.variableColor.iterative.reversing")
+        case .symbolRenderingMode:
+            return Text("\t.symbolRenderingMode(.multicolor)")
         }
     }
 }
@@ -162,40 +149,32 @@ private struct DescriptionBuilder: View {
         switch selectedModifire {
         case .none:
             return Text("")
-        case .frame:
-            return Text("frame : 이미지의 크기와 위치 설정")
-        case .scaledToFit:
-            return Text("scaledToFit : 이미지를 콘텐츠 프레임에 맞추도록 크기 조정")
-        case .scaledToFill:
-            return Text("scaledToFill : 이미지를 콘텐츠 프레임에 가득 차도록 크기 조정")
-        case .aspectRatio:
-            return Text("aspectRatio : 이미지의 가로세로 비율 유지한 채 크기 조절")
-        case .overlay:
-            return Text("overlay : 이미지 위에 다른 뷰를 배치하여 테두리 생성")
-        case .border:
-            return Text("border : 이미지 주위에 선을 그려 테두리 생성")
+        case .font:
+            return Text("font : 아이콘의 글꼴과 크기 설정")
+        case .foregroundColor:
+            return Text("foregroundColor : 아이콘 색상 설정")
+        case .padding:
+            return Text("padding : 아이콘 주위에 여백 추가")
+        case .background:
+            return Text("background : 아이콘의 배경에 색상 또는 이미지 추가")
         case .opacity:
-            return Text("opacity : 이미지의 불투명도 조절")
-        case .offset:
-            return Text("offset : 이미지 위치 조절")
+            return Text("opacity : 아이콘의 불투명도 조절")
         case .rotationEffect:
-            return Text("rotationEffect : 이미지 회전")
+            return Text("rotationEffect : 아이콘 회전")
         case .scaleEffect:
-            return Text("scaleEffect : 이미지 크기 조절")
+            return Text("scaleEffect : 아이콘 크기 조절")
         case .shadow:
-            return Text("shadow : 이미지 그림자 효과 추가")
-        case .clipShape:
-            return Text("clipShape : 이미지 모양 지정")
-        case .cornerRadius:
-            return Text("cornerRadius : 이미지 모서리 둥글게 조정")
+            return Text("shadow : 아이콘 그림자 효과 적용")
+        case .offset:
+            return Text("offset : 아이콘 위치 조절")
         case .blur:
-            return Text("blur : 이미지 블러 효과 적용")
-        case .contrast:
-            return Text("contrast : 이미지 대비 조절")
-        case .saturation:
-            return Text("saturation : 이미지 채도 조절")
-        case .brightness:
-            return Text("brightness : 이미지 밝기 조절")
+            return Text("blur :  아이콘 블러 효과 적용")
+        case .symbolVariant:
+            return Text("symbolVariant : SFSymbol 변형 설정")
+        case .symbolEffect:
+            return Text("sysbolEffect : SFSymbol 특수 효과")
+        case .symbolRenderingMode:
+            return Text("symbolRenderingMode : SFSymbol 렌더링 모드 설정")
         }
     }
 }
@@ -207,28 +186,23 @@ private struct ModifireBuilder: ViewModifier {
     func body(content: Content) -> some View {
         switch selectedModifire {
         case .none : content
-//        case .resizable : content.resizable()
-        case .frame : content.frame(width: 100, height: 100)
-        case .scaledToFit : content.scaledToFit()
-        case .scaledToFill : content.scaledToFill()
-        case .aspectRatio : content.aspectRatio(contentMode: .fit)
-        case .overlay: content.overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.blue, lineWidth: 10))
-        case .border: content.border(Color.green, width: 4)
-        case .opacity: content.opacity(0.2)
-        case .offset: content.offset(x: 50, y: 20)
-        case .rotationEffect: content.rotationEffect(.degrees(45))
+        case .font: content.font(.system(size: 50))
+        case .foregroundColor: content.foregroundColor(.purple)
+        case .padding: content.padding()
+        case .background: content.background(Color.green)
+        case .opacity: content.opacity(0.4)
+        case .rotationEffect: content.rotationEffect(.degrees(-60))
         case .scaleEffect: content.scaleEffect(1.5)
-        case .shadow: content.shadow(color: Color.black, radius: 3, x: 2, y: 2)
-        case .clipShape: content.clipShape(Circle())
-        case .cornerRadius: content.cornerRadius(20)
-        case .blur: content.blur(radius: 5)
-        case .contrast: content.contrast(1.5)
-        case .saturation: content.saturation(0.5)
-        case .brightness: content.brightness(0.2)
+        case .shadow: content.shadow(color: .black, radius: 10)
+        case .offset: content.offset(x: 50, y: 50)
+        case .blur: content.blur(radius: 3.0)
+        case .symbolVariant: content.symbolVariant(.fill)
+        case .symbolEffect: content.symbolEffect(.variableColor.iterative.reversing)
+        case .symbolRenderingMode: content.symbolRenderingMode(.multicolor)
         }
     }
 }
 
 #Preview {
-    ImageView()
+    SFSymbolsView()
 }

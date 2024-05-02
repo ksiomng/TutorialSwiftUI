@@ -11,7 +11,7 @@ import SwiftUI
 struct TutorialSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            QuizView()
+            SFSymbolsView()
         }
     }
 }
