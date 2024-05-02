@@ -34,7 +34,6 @@ struct TextView: View {
             Spacer()
             // 코드 결과
             Text("TEST")
-                .font(.largeTitle)
                 .modifier(ModifireBuilder(selectedModifire: $selectedModifire[0]))
                 .modifier(ModifireBuilder(selectedModifire: $selectedModifire[1]))
                 .modifier(ModifireBuilder(selectedModifire: $selectedModifire[2]))
@@ -122,7 +121,7 @@ private struct CodeBuilder: View {
         case .foregroundColor:
             return Text("\t.foregroundColor(.blue)")
         case .opacity:
-            return Text("\t.opacity(0.8)")
+            return Text("\t.opacity(0.2)")
         case .italic:
             return Text("\t.italic()")
         case .underline:
@@ -164,7 +163,7 @@ private struct DescriptionBuilder: View {
         case .rotationEffect:
             return Text("rotationEffect : 텍스트 회전")
         case .shadow:
-            return Text("shadow :  텍스트의 그림자 설정")
+            return Text("shadow :  텍스트 그림자 효과 설정")
         case .fontWeight:
             return Text("fontWeight : 텍스트의 글꼴 두께 설정")
         }

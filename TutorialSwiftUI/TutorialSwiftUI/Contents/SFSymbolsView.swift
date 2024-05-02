@@ -132,7 +132,7 @@ private struct CodeBuilder: View {
         case .blur:
             return Text("\t.blur(radius: 3.0)")
         case .symbolVariant:
-            return Text("\t.symbolVariant(.slash)")
+            return Text("\t.symbolVariant(.fill)")
         case .symbolEffect:
             return Text("\t.sysbolEffect(.variableColor.iterative.reversing")
         case .symbolRenderingMode:
@@ -164,7 +164,7 @@ private struct DescriptionBuilder: View {
         case .scaleEffect:
             return Text("scaleEffect : 아이콘 크기 조절")
         case .shadow:
-            return Text("shadow : 아이콘 그림자 효과 적용")
+            return Text("shadow : 아이콘 그림자 효과 설정")
         case .offset:
             return Text("offset : 아이콘 위치 조절")
         case .blur:

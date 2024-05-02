@@ -1,8 +1,8 @@
 //
-//  TextFieldView.swift
+//  TextEditorView.swift
 //  TutorialSwiftUI
 //
-//  Created by 황민경 on 5/1/24.
+//  Created by 황민경 on 5/2/24.
 //
 
 import SwiftUI
@@ -11,16 +11,16 @@ import SwiftUI
 private enum Modifire: String, CaseIterable {
     case none
     case padding
-    case background
     case font
     case foregroundColor
     case multilineTextAlignment
+    case lineSpacing
     case textContentType
     case autocapitalization
     case disableAutocorrection
 }
 
-struct TextFieldView: View {
+struct TextEditorView: View {
     
     /// 각각의 Picker에서 선택될 enum 타입의 모디파이어 배열
     @State private var selectedModifire: [Modifire] =
@@ -30,7 +30,7 @@ struct TextFieldView: View {
         VStack {
             Spacer()
             // 코드 결과
-            TextField("Enter text here", text: $text)
+            TextEditor(text: $text)
                 .modifier(ModifireBuilder(selectedModifire: $selectedModifire[0]))
                 .modifier(ModifireBuilder(selectedModifire: $selectedModifire[1]))
                 .modifier(ModifireBuilder(selectedModifire: $selectedModifire[2]))
@@ -114,14 +114,14 @@ private struct CodeBuilder: View {
             return Text("")
         case .padding:
             return Text("\t.padding()")
-        case .background:
-            return Text("\t.background(Color.blue.opacity(0.1))")
         case .font:
             return Text("\t.font(.largeTitle)")
         case .foregroundColor:
             return Text("\t.foregroundColor(.blue)")
         case .multilineTextAlignment:
             return Text("\t.multilineTextAlignment(.trailing)")
+        case .lineSpacing:
+            return Text("\t.lineSpacing(10)")
         case .textContentType:
             return Text("\t.textContentType(.none)")
         case .autocapitalization:
@@ -142,14 +142,14 @@ private struct DescriptionBuilder: View {
             return Text("")
         case .padding:
             return Text("padding : 입력 필드 주위에 여백 추가")
-        case .background:
-            return Text("background : 입력 필드의 배경 색상 또는 이미지 추가")
         case .font:
             return Text("font : 입력 필드의 글꼴과 크기 설정")
         case .foregroundColor:
             return Text("foregroundColor : 입력 필드의 색상 설정")
         case .multilineTextAlignment:
             return Text("multilineTextAlignment : 여러 줄 텍스트 정렬")
+        case .lineSpacing:
+            return Text("lineSpacing : 텍스트의 줄 간격 설정")
         case .textContentType:
             return Text("textContentType : 입력 필드의 콘텐츠 유형 지정")
         case .autocapitalization:
@@ -168,10 +168,10 @@ private struct ModifireBuilder: ViewModifier {
         switch selectedModifire {
         case .none : content
         case .padding: content.padding()
-        case .background: content.background(Color.blue.opacity(0.1))
         case .font: content.font(.largeTitle)
         case .foregroundColor: content.foregroundColor(.blue)
         case .multilineTextAlignment: content.multilineTextAlignment(.trailing)
+        case .lineSpacing: content.lineSpacing(10)
         case .textContentType: content.textContentType(.none)
         case .autocapitalization: content.autocapitalization(.sentences)
         case .disableAutocorrection: content.disableAutocorrection(true)
@@ -179,6 +179,7 @@ private struct ModifireBuilder: ViewModifier {
     }
 }
 
+
 #Preview {
-    TextFieldView()
+    TextEditorView()
 }

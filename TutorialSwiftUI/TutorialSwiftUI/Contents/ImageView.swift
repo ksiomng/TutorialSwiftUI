@@ -185,13 +185,13 @@ private struct DescriptionBuilder: View {
         case .scaleEffect:
             return Text("scaleEffect : 이미지 크기 조절")
         case .shadow:
-            return Text("shadow : 이미지 그림자 효과 추가")
+            return Text("shadow : 이미지 그림자 효과 설정")
         case .clipShape:
             return Text("clipShape : 이미지 모양 지정")
         case .cornerRadius:
             return Text("cornerRadius : 이미지 모서리 둥글게 조정")
         case .blur:
-            return Text("blur : 이미지 블러 효과 적용")
+            return Text("blur : 이미지 블러 효과 설정")
         case .contrast:
             return Text("contrast : 이미지 대비 조절")
         case .saturation:

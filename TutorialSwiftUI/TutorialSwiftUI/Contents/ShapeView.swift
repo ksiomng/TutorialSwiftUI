@@ -147,7 +147,7 @@ private struct DescriptionBuilder: View {
         case .opacity:
             return Text("opacity : 도형의 불투명도 조절")
         case .shadow:
-            return Text("shadow : 도형 그림자 효과 적용")
+            return Text("shadow : 도형 그림자 효과 설정")
         case .scaleEffect:
             return Text("scaleEffect : 도형의 크기 조절")
         case .rotationEffect:

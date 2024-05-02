@@ -122,7 +122,7 @@ private struct CodeBuilder: View {
         case .scaleEffect:
             return Text("\t.scaleEffect(1.2)")
         case .rotationEffect:
-            return Text("\t.rotationEffect(Angle(degrees: 50))")
+            return Text("\t.rotationEffect(Angle(.degrees: 50))")
         case .overlay:
             return Text("\t.overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))")
             
@@ -149,7 +149,7 @@ private struct DescriptionBuilder: View {
         case .opacity:
             return Text("opacity : 레이블 불투명도 조절")
         case .shadow:
-            return Text("shadow : 레이블 그림자 효과 적용")
+            return Text("shadow : 레이블 그림자 효과 설정")
         case .scaleEffect:
             return Text("scaleEffect : 레이블의 크기 조절")
         case .rotationEffect:

@@ -49,7 +49,7 @@ struct DividerView: View {
                 
                 // 코드 텍스트
                 VStack(alignment: .leading) {
-                    Text("Divider()\nText(\"Divider\")\n\t.font(.largeTitle)\nDivider()\nText(\"Divider\")\n\t.font(.largeTitle)\nDivider()")
+                    Text("Divider()")
                     CodeBuilder(selectedModifire: $selectedModifire[0])
                     CodeBuilder(selectedModifire: $selectedModifire[1])
                     CodeBuilder(selectedModifire: $selectedModifire[2])
