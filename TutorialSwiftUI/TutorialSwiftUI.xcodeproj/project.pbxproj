@@ -27,6 +27,7 @@
 		41249C572BE0DE06004A6AEC /* DesignType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41249C562BE0DE06004A6AEC /* DesignType.swift */; };
 		41249C632BE0FF91004A6AEC /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41249C622BE0FF91004A6AEC /* SplashView.swift */; };
 		41249C692BE11DE8004A6AEC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 41249C682BE11DE8004A6AEC /* Lottie */; };
+		41B344FF2BE374EC00382695 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B344FE2BE374EC00382695 /* GradientView.swift */; };
 		CE83B6652BE0D6E100DDBDBE /* TemplateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE83B6642BE0D6E100DDBDBE /* TemplateDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		41249C542BE0DD72004A6AEC /* LayoutType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutType.swift; sourceTree = "<group>"; };
 		41249C562BE0DE06004A6AEC /* DesignType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignType.swift; sourceTree = "<group>"; };
 		41249C622BE0FF91004A6AEC /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		41B344FE2BE374EC00382695 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		CE83B6642BE0D6E100DDBDBE /* TemplateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				411651002BE23FE5007A12C9 /* ColorView.swift */,
+				41B344FE2BE374EC00382695 /* GradientView.swift */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				411650FE2BE20479007A12C9 /* AlertView.swift in Sources */,
 				411650F42BE1CC6A007A12C9 /* SheetView.swift in Sources */,
 				41249C512BE0DADE004A6AEC /* NavigationType.swift in Sources */,
+				41B344FF2BE374EC00382695 /* GradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
