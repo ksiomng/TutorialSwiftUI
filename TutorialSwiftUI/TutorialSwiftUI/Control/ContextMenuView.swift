@@ -18,18 +18,35 @@ struct ContextMenuView: View {
     @State private var modArr = [TextModifier]()
     
     var body: some View {
-        VStack {
-            
-            // 선택된 수정자를 적용한 텍스트 뷰
-            let modifiedText = Text("Turtle Rock")
-                .apply(modifiers: modArr)
-            modifiedText
-                .contextMenu(ShowMenu ? menuItems : nil)
-                .frame(minHeight: 100)
-                .font(.largeTitle)
-            
-            // 선택된 수정자를 적용한 텍스트 뷰
-            let modifiedCode = generateCode(modifiers: modArr, firstCode: """
+        ScrollView {
+            VStack {
+                
+                //View Preview
+                VStack(alignment: .leading, spacing: 10) {
+                    TitleTextView(title: "View Preview")
+                    Text("toggle")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Divider()
+                    HStack{
+                        Spacer()
+                        // 선택된 수정자를 적용한 텍스트 뷰
+                        let modifiedText = Text("Turtle Rock")
+                            .apply(modifiers: modArr)
+                        modifiedText
+                            .contextMenu(ShowMenu ? menuItems : nil)
+                            .frame(minHeight: 100)
+                            .font(.largeTitle)
+                        Spacer()
+                    }
+                }
+                .padding()
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(10)
+    
+                MenuButton(modArr: $modArr)
+                
+                // 선택된 수정자를 적용한 텍스트 뷰
+                let modifiedCode = generateCode(modifiers: modArr, firstCode: """
             private let menuItems = ContextMenu {
                 Button(\"btn\",systemImage:\"heart\"){}
                 Button(\"btn\"){}
@@ -37,31 +54,30 @@ struct ContextMenuView: View {
             Text(\"Turtle Rock\")
                 .contextMenu(ShowMenu ? menuItem : nil)
             """
-            )
-            VStack(alignment: .leading) {
-                CodeEditor(
-                    source: modifiedCode,
-                    language: .javascript,
-                    theme: .agate
                 )
-            }
-            .cornerRadius(10)
-            .padding([.trailing, .leading, .bottom])
-            
-            MenuButton(modArr: $modArr)
-            
-            // 선택된 수정자를 나열한 리스트
-            List {
-                ForEach(modArr.indices, id: \.self) { index in
-                    Text("🜸 \(modArr[index].description)")
+                //CodePreview
+                VStack(spacing: 20) {
+                    TitleTextView(title: "Code Preview")
+                    CodePreviewView(code: modifiedCode, copyAction: copyCode, showCopy: true)
+                    
+                    TitleTextView(title: "List")
+                    AddListView(modArr: $modArr)
                 }
-                .onDelete(perform: { indexSet in
-                    modArr.remove(atOffsets: indexSet)
-                })
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(10)
+                
             }
-            .scrollContentBackground(.hidden)
-            .frame(height: 400)
+            
+            .padding()
+            .frame(maxHeight: .infinity)
+            .navigationTitle("Color")
+            .navigationBarTitleDisplayMode(.inline)
         }
+    }
+    func copyCode(_ code: String) {
+        UIPasteboard.general.string = code
     }
 }
 

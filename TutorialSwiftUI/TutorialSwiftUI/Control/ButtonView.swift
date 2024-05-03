@@ -61,9 +61,9 @@ struct ButtonView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
     }
-        func copyCode(_ code: String) {
-            UIPasteboard.general.string = code
-        }
+    func copyCode(_ code: String) {
+        UIPasteboard.general.string = code
+    }
     
 }
 
