@@ -94,25 +94,25 @@ struct MenuButton: View {
         HStack {
             Spacer()
             Menu(content: {
-                Button("Bold: Make text bold") {
+                Button("Bold: 텍스트를 굵게") {
                     modArr.append(.bold)
                 }
-                Button("Italic: Make text italic") {
+                Button("Italic: 이탤릭체") {
                     modArr.append(.italic)
                 }
-                Button("Underline: \nUnderline text") {
+                Button("Underline: 밑줄") {
                     modArr.append(.underline)
                 }
-                Button("Padding: Add padding around text") {
+                Button("Padding: 주변에 패딩 추가") {
                     modArr.append(.padding)
                 }
-                Button("Foreground Color: Change text color") {
+                Button("Foreground Color: 글자색 바꾸기") {
                     modArr.append(.foregroundStyle)
                 }
-                Button("Background: Add background color") {
+                Button("Background: 배경색 추가하기") {
                     modArr.append(.background)
                 }
-                Button("Corner Radius: Round the corners") {
+                Button("Corner Radius: 모서리 둥글게") {
                     modArr.append(.cornerRadius)
                 }
             }) {
