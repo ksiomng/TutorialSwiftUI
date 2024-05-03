@@ -9,8 +9,87 @@ import SwiftUI
 import CodeEditor
 
 struct NavigationBarContatiner: View {
-    @State private var isPresented = false
-    private var original:String = """
+    @State var isPresented = false
+    var body: some View {
+        
+        ScrollView {
+            VStack(spacing: 20) {
+                viewPreviewSection
+                codePreviewSection
+            }
+            .padding()
+            .frame(maxHeight: .infinity)
+            .navigationTitle("Color")
+            .navigationBarTitleDisplayMode(.inline)
+            
+        }
+    }
+    
+    private var viewPreviewSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            
+            TitleTextView(title: "View Preview")
+            
+            Text("NavigationBar")
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            Divider()
+            
+            HStack{
+                Spacer()
+                
+                NavigationStack {
+                    Text("Navigation Bar")
+                        .navigationTitle("Title here")
+                        .toolbarColorScheme(.dark, for: .navigationBar)
+                        .toolbarBackground(Color.green)
+                        .toolbarBackground(.visible, for: .navigationBar)
+                        .toolbar {
+                            ToolbarItem {
+                                Button("Button") { }
+                            }
+                        }
+                }
+                .frame(width: 330, height: 250)
+ 
+                Spacer()
+            }
+            
+            Spacer()
+            
+            VStack {
+                BulletPointText(text: "화면 상단에 위치하는 바로, 타이틀, 네비게이션 버튼, 기타 컨트롤을 포함할 수 있음.")
+                BulletPointText(text: " 사용자는 NavigationBar를 통해 앱 내에서의 위치를 파악하고, 이전 화면으로 돌아갈 수 있는 버튼 등을 사용.")
+                    .padding(.top, 5)
+            }
+
+            Spacer()
+        }
+        .padding()
+        .background(Color.gray.opacity(0.2))
+        .cornerRadius(10)
+    }
+    
+    private var codePreviewSection: some View {
+        VStack(spacing: 20) {
+            TitleTextView(title: "Code Preview")
+            
+            CodePreviewView(code: returnCode(), copyAction: copyCode, showCopy: true)
+                
+            TitleTextView(title: "Base Code")
+            
+            CodePreviewView(code: basecode(), copyAction: copyCode, showCopy: false)
+        }
+        .padding()
+        .frame(maxWidth: .infinity)
+        .background(Color.gray.opacity(0.2))
+        .cornerRadius(10)
+    }
+    
+    
+    // Base code
+    func basecode() -> String {
+        """
         struct ContentView: View {
             var body: some View {
                 ScrollView{
@@ -28,150 +107,43 @@ struct NavigationBarContatiner: View {
             }
         }
         """
+    }
     
-    var body: some View {
-        NavigationView {
-            VStack {
-                List {
-                    Section(header: Text("Navigation Bar")
-                        .textCase(nil)
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .foregroundStyle(Color.black)
-                    ) {
-                        Text("""
-                                 SwiftUI Navigation Bar는 사용자가 App에서 서로 다른 View 사이를 이동할 수 있도록 하는 UI 요소입니다.일반적으로 계층적 Navigation 경험을 제공하는 데 사용됩니다.
-                                 """)
-                        .padding()
-                        .padding(.top, -20)
-                        .font(.system(size: 16))
-                        .lineSpacing(8)
-                        .listRowBackground(Color.clear)
-                        .frame(width: 350)
-                    }
-                    
-                    Section(header: Text("View Preview")
-                        .textCase(nil)
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .foregroundStyle(Color.black)
-                    ) {
-                        VStack {
-                            NavigationLink(destination: ChildView()) {
-                                Text("Navigation Bar preview")
-                            }
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color.blue)
-                            .cornerRadius(10)
-                        }
-                        .cornerRadius(10)
-                        .padding()
-                        .padding(.top, -20)
-                        .listRowBackground(Color.clear)
-                    }
-                    
-                    Section(header: Text("Base Code")
-                        .textCase(nil)
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .foregroundStyle(Color.black)
-                    ) {
-                        VStack(alignment: .center) {
-                            CodeEditor(
-                                source: original,
-                                language: .swift,
-                                theme: .agate
-                            )
-                            .frame(width: 350, height: 290)
-                        }
-                        .cornerRadius(10)
-                        .padding()
-                        .padding(.top, -20)
-                    }
-                    .listRowBackground(Color.clear)
-                }
+    func copyCode(_ code: String) {
+        UIPasteboard.general.string = code
+    }
+    
+    func returnCode() -> String {
+        return """
+           NavigationStack {
+               Text("Navigation Bar")
+                   .navigationTitle("Title here")
+                   .toolbarColorScheme(.dark, for: .navigationBar)
+                   .toolbarBackground(Color.green)
+                   .toolbarBackground(.visible, for: .navigationBar)
+                   .toolbar {
+                       ToolbarItem {
+                           Button("Button") { /* Some action here*/ }
+                       }
+                   }
+           }
+           """
+    }
+    
+    /// Bullet point text style
+    struct BulletPointText: View {
+        var text: String
+        
+        var body: some View {
+            HStack(alignment: .top, spacing: 5) {
+                Text("•")
+                Text(text)
             }
-            .navigationTitle("Navigation Bar")
-            .navigationBarTitleDisplayMode(.inline)
         }
     }
+    
 }
 
-struct ChildView: View {
-//    @State var flag = true
-    private var childViewOriginal:String = """
-        var body: some View {
-            NavigationStack {
-                Section(header: Text("Current Screen Code")
-                    .textCase(nil)
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .foregroundStyle(Color.black)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 25)
-                ) {
-                    VStack(alignment: .center) {
-                        CodeEditor(
-                            source: childViewOriginal,
-                            language: .swift,
-                            theme: .agate
-                        )
-                        .frame(width: 350, height: 290)
-                    }
-                    .cornerRadius(10)
-                }
-                
-                .navigationTitle("Title here")
-                .toolbarColorScheme(.dark, for: .navigationBar)
-                .toolbarBackground(Color.gray)
-                .toolbarBackground(.visible, for: .navigationBar)
-                .toolbar {
-                    ToolbarItem {
-                        Button("Button") { /* Some action here*/ }
-                    }
-                }
-            }
-        }
-        """
-    
-    var body: some View {
-        NavigationStack {
-            List {
-                Section(header: Text("Current Screen Code")
-                    .textCase(nil)
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .foregroundStyle(Color.black)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                ) {
-                    VStack(alignment: .center) {
-                        CodeEditor(
-                            source: childViewOriginal,
-                            language: .swift,
-                            theme: .agate
-                        )
-                        .frame(width: 350, height: 600)
-                    }
-                    .cornerRadius(10)
-                }
-                
-                //            Toggle(isOn: $flag, label: {
-                //                Text("NavigationBarTitle DisplayMode")
-                //            }).padding()
-            }
-            .navigationTitle("Title here")
-            .toolbarColorScheme(.dark, for: .navigationBar)
-            .toolbarBackground(Color.gray)
-            .toolbarBackground(.visible, for: .navigationBar)
-            .toolbar {
-                ToolbarItem {
-                    Button("Button") { print(":asd") }
-                }
-            }
-        }
-    }
-}
 
 #Preview {
     NavigationBarContatiner()
