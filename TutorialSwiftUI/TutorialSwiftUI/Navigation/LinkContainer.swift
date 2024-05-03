@@ -9,61 +9,101 @@ import SwiftUI
 import CodeEditor
 
 struct LinkContainer: View {
-    private var original:String = "Link(/*Text Here (String)*/, destination: URL(string: /*URL Here (String)*/)!)"
-    
     var body: some View {
-        NavigationStack {
-            List {
-                Section(header: Text("Link")
-                    .textCase(nil)
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .foregroundStyle(Color.black)
-                ) {
-                    Text("""
-                             Link는 웹 URL로 연결하는 링크를 생성할 때 사용됩니다. 사용자가 링크를 클릭하면, 기본 웹 브라우저를 통해 해당 URL이 열립니다.\n주로 외부 웹사이트로의 링크를 제공할 때 사용됩니다. 또 파일 시스템의 Location을 표시할 때, 특정 App의 경로를 나타내기도 한다.
-                             """)
-                    .padding()
-                    .padding(.top, -20)
-                    .font(.system(size: 16))
-                    .lineSpacing(8)
-                    .listRowBackground(Color.clear)
-                    .frame(width: 350)
-                }
-                
-                Section(header: Text("Preview")
-                    .textCase(nil)
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .foregroundStyle(Color.black)
-                ) {
-                    Link("Visit Apple", destination: URL(string: "https://www.apple.com")!)
-                }
-                
-                Section(header: Text("Base Code")
-                    .textCase(nil)
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .foregroundStyle(Color.black)
-                ) {
-                    VStack(alignment: .center) {
-                        CodeEditor(
-                            source: original,
-                            language: .swift,
-                            theme: .agate
-                        )
-                        .frame(width: 350, height: 100)
-                    }
-                    .cornerRadius(10)
-                    .padding()
-                    .padding(.top, -20)
-                }
-                .listRowBackground(Color.clear)
+        
+        ScrollView {
+            VStack(spacing: 20) {
+                viewPreviewSection
+                codePreviewSection
             }
+            .padding()
+            .frame(maxHeight: .infinity)
             .navigationTitle("Link")
             .navigationBarTitleDisplayMode(.inline)
+            
         }
     }
+    
+    private var viewPreviewSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            
+            TitleTextView(title: "View Preview")
+            
+            Text("Link")
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            Divider()
+            
+            HStack{
+                Spacer()
+                
+                Link("Visit Apple", destination: URL(string: "https://www.apple.com")!)
+                    .frame(height: 80)
+ 
+                Spacer()
+            }
+            
+            Spacer()
+            
+            VStack {
+                BulletPointText(text: "URL이나 다른 외부 목적지로 연결할 수 있는 Conponent.")
+                BulletPointText(text: "Link Conponent는 App 내부의 Navigation뿐만 아니라 외부 Resource와의 연결도 용이.")
+                    .padding(.top, 5)
+            }
+
+            Spacer()
+        }
+        .padding()
+        .background(Color.gray.opacity(0.2))
+        .cornerRadius(10)
+    }
+    
+    private var codePreviewSection: some View {
+        VStack(spacing: 20) {
+            TitleTextView(title: "Code Preview")
+            
+            CodePreviewView(code: returnCode(), copyAction: copyCode, showCopy: true)
+                
+            TitleTextView(title: "Base Code")
+            
+            CodePreviewView(code: basecode(), copyAction: copyCode, showCopy: false)
+        }
+        .padding()
+        .frame(maxWidth: .infinity)
+        .background(Color.gray.opacity(0.2))
+        .cornerRadius(10)
+    }
+    
+    
+    // Base code
+    func basecode() -> String {
+        """
+        Link(/*Text Here (String)*/, destination: URL(string: /*URL Here (String)*/)!)
+        """
+    }
+    
+    func copyCode(_ code: String) {
+        UIPasteboard.general.string = code
+    }
+    
+    func returnCode() -> String {
+        return """
+               Link("Visit Apple", destination: URL(string: "https://www.apple.com")!)
+           """
+    }
+    
+    /// Bullet point text style
+    struct BulletPointText: View {
+        var text: String
+        
+        var body: some View {
+            HStack(alignment: .top, spacing: 5) {
+                Text("•")
+                Text(text)
+            }
+        }
+    }
+    
 }
 
 #Preview {
