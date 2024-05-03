@@ -224,9 +224,6 @@ struct ZStackView: View {
             
             TitleTextView(title: "View Preview")
             
-            Text("Color")
-                .frame(maxWidth: .infinity, alignment: .leading)
-            
             Divider()
             HStack{
                 Spacer()

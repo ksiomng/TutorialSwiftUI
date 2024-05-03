@@ -148,32 +148,18 @@ struct TabViewView: View {
         
     }
     
-    /// # body
-    var body: some View {
-        VStack {
+    /// # 영역 - 코드의 실행 결과를 보여줌
+    private var viewPreviewSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
             
-            /// ## Picker 리스트
-            VStack {
-                Section(header: Text("Modifire")) {
-                    PickerView(0)
-                }
-            }.padding(25)
+            TitleTextView(title: "View Preview")
             
-            /// ## 코드 설명, 코드 소스
-            VStack {
-                CodeEditor(
-                    source: codeDescription.toString,
-                    language: .swift,
-                    theme: .agate
-                ).frame(width: 350, height: 100)
-                
-                CodeEditor(
-                    source: codeSource.toString,
-                    language: .javascript,
-                    theme: .agate
-                ).frame(width: 350, height: 150)
-                
-                /// ## 코드 결과
+            Text("Color")
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            Divider()
+            HStack{
+                Spacer()
                 TabView {
                     Text("House")
                         .tabItem {
@@ -192,11 +178,74 @@ struct TabViewView: View {
                             Text("Bag")
                         }
                 }
+                .frame(height: 100)
                 .modifier(ModifireBuilder(selectedModifire: $selectedModifire[0]))
+
+                Spacer()
             }
-            .cornerRadius(10)
             
             Spacer()
+        }
+        .padding()
+        .background(Color.gray.opacity(0.2))
+        .cornerRadius(10)
+    }
+    
+    /// # 영역 - 코드의 프리뷰를 보여줌
+    private var codePreviewSection: some View {
+        VStack(spacing: 20) {
+            TitleTextView(title: "Code Preview")
+            CodePreviewView(code: returnCode(), copyAction: copyCode, showCopy: true)
+            
+            TitleTextView(title: "Code Descrption")
+            CodePreviewView(code: basecode(), copyAction: copyCode, showCopy: false)
+        }
+        .padding()
+        .frame(maxWidth: .infinity)
+        .background(Color.gray.opacity(0.2))
+        .cornerRadius(10)
+    }
+    
+    /// Base code
+    func basecode() -> String {
+        return codeDescription.toString
+    }
+    
+    ///
+    func copyCode(_ code: String) {
+        UIPasteboard.general.string = code
+    }
+    
+    ///
+    func returnCode() -> String {
+        return codeSource.toString
+    }
+    
+    /// # 영역 - 옵션, 모디파이어 선택
+    private var optionSelectSection: some View {
+        VStack {
+            TitleTextView(title: "Option Select")
+            Section(header: Text("Modifire")) {
+                PickerView(0)
+            }
+        }.padding()
+            .frame(maxWidth: .infinity)
+            .background(Color.gray.opacity(0.2))
+            .cornerRadius(10)
+    }
+    
+    /// # body
+    var body: some View {
+        ScrollView {
+            VStack (spacing: 20) {
+                viewPreviewSection
+                optionSelectSection
+                codePreviewSection
+            }
+            .padding()
+            .frame(maxHeight: .infinity)
+            .navigationTitle("Color")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
