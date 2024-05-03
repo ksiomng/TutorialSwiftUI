@@ -154,10 +154,12 @@ struct CodePreviewView: View {
     @State private var attributedString: AttributedString?
     
     var body: some View {
+       
         ZStack {
             ScrollView(.horizontal){
-                
+               
                 ModifiedTextPreview(attributedString: attributedString)
+           
             }
             .frame(maxWidth: .infinity)
             .background(Color.gray.opacity(0.5))
@@ -189,11 +191,17 @@ struct CodePreviewView: View {
                 await codeText()
             }
         }
+        .onChange(of: code) { _, _ in
+            Task {
+                await codeText()
+            }
+        }
     }
     
     func codeText() async {
-        let a = try! await highlight.attributed(code, language: .swift ,colors: HighlightColors.light(.xcode))
-        attributedString = a
+        let result = try? await highlight.attributed(code, language: .swift ,colors: HighlightColors.light(.xcode))
+        
+        attributedString = result
     }
     
 }

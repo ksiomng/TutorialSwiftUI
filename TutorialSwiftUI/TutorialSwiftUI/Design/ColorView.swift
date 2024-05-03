@@ -87,11 +87,12 @@ struct ColorView: View {
     }
     
     private var codePreviewSection: some View {
-        VStack(spacing: 20) {
+        
+        return VStack(spacing: 20) {
             TitleTextView(title: "Code Preview")
             
             CodePreviewView(code: returnCode(), copyAction: copyCode, showCopy: true)
-                
+            
             TitleTextView(title: "Base Code")
             
             CodePreviewView(code: basecode(), copyAction: copyCode, showCopy: false)
@@ -108,7 +109,7 @@ struct ColorView: View {
         """
         Text("Hello, World")
             .background(.white)
-            .foregroundStyle(.white)
+            .foregroundStyle(.black)
         """
     }
     
