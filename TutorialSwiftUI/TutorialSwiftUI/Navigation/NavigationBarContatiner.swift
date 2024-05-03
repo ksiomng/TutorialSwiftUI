@@ -49,7 +49,7 @@ struct NavigationBarContatiner: View {
                             }
                         }
                 }
-                .frame(width: 330, height: 250)
+                .frame(width: 300, height: 250)
  
                 Spacer()
             }
