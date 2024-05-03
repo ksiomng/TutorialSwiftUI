@@ -46,6 +46,15 @@
 		41B3457E2BE4668E00382695 /* TabViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345752BE4668D00382695 /* TabViewView.swift */; };
 		41B3457F2BE4668E00382695 /* VStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345762BE4668D00382695 /* VStackView.swift */; };
 		41B345802BE4668E00382695 /* ZStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345772BE4668D00382695 /* ZStackView.swift */; };
+		41B3458A2BE4672100382695 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345812BE4672100382695 /* DividerView.swift */; };
+		41B3458B2BE4672200382695 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345822BE4672100382695 /* ImageView.swift */; };
+		41B3458C2BE4672200382695 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345832BE4672100382695 /* LabelView.swift */; };
+		41B3458D2BE4672200382695 /* SFSymbolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345842BE4672100382695 /* SFSymbolsView.swift */; };
+		41B3458E2BE4672200382695 /* ShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345852BE4672100382695 /* ShapeView.swift */; };
+		41B3458F2BE4672200382695 /* TextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345862BE4672100382695 /* TextEditorView.swift */; };
+		41B345902BE4672200382695 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345872BE4672100382695 /* TextFieldView.swift */; };
+		41B345912BE4672200382695 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345882BE4672100382695 /* TextView.swift */; };
+		41B345942BE4673800382695 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345922BE4673800382695 /* QuizView.swift */; };
 		CE83B6652BE0D6E100DDBDBE /* TemplateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE83B6642BE0D6E100DDBDBE /* TemplateDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +96,15 @@
 		41B345752BE4668D00382695 /* TabViewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewView.swift; sourceTree = "<group>"; };
 		41B345762BE4668D00382695 /* VStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStackView.swift; sourceTree = "<group>"; };
 		41B345772BE4668D00382695 /* ZStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZStackView.swift; sourceTree = "<group>"; };
+		41B345812BE4672100382695 /* DividerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
+		41B345822BE4672100382695 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		41B345832BE4672100382695 /* LabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
+		41B345842BE4672100382695 /* SFSymbolsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFSymbolsView.swift; sourceTree = "<group>"; };
+		41B345852BE4672100382695 /* ShapeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeView.swift; sourceTree = "<group>"; };
+		41B345862BE4672100382695 /* TextEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEditorView.swift; sourceTree = "<group>"; };
+		41B345872BE4672100382695 /* TextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		41B345882BE4672100382695 /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		41B345922BE4673800382695 /* QuizView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		CE83B6642BE0D6E100DDBDBE /* TemplateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +171,8 @@
 		41249C3B2BE0D146004A6AEC /* TutorialSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				41B345932BE4673800382695 /* Quiz */,
+				41B345892BE4672100382695 /* Contents */,
 				41B345542BE4626E00382695 /* Collections */,
 				41B345782BE4668D00382695 /* Collections */,
 				411650FF2BE211A6007A12C9 /* Design */,
@@ -226,6 +246,29 @@
 				41B345772BE4668D00382695 /* ZStackView.swift */,
 			);
 			path = Collections;
+			sourceTree = "<group>";
+		};
+		41B345892BE4672100382695 /* Contents */ = {
+			isa = PBXGroup;
+			children = (
+				41B345812BE4672100382695 /* DividerView.swift */,
+				41B345822BE4672100382695 /* ImageView.swift */,
+				41B345832BE4672100382695 /* LabelView.swift */,
+				41B345842BE4672100382695 /* SFSymbolsView.swift */,
+				41B345852BE4672100382695 /* ShapeView.swift */,
+				41B345862BE4672100382695 /* TextEditorView.swift */,
+				41B345872BE4672100382695 /* TextFieldView.swift */,
+				41B345882BE4672100382695 /* TextView.swift */,
+			);
+			path = Contents;
+			sourceTree = "<group>";
+		};
+		41B345932BE4673800382695 /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				41B345922BE4673800382695 /* QuizView.swift */,
+			);
+			path = Quiz;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,12 +355,16 @@
 				41B345552BE4626E00382695 /* GridView.swift in Sources */,
 				411650FA2BE1F731007A12C9 /* PopoverView.swift in Sources */,
 				CE83B6652BE0D6E100DDBDBE /* TemplateDetailView.swift in Sources */,
+				41B345912BE4672200382695 /* TextView.swift in Sources */,
 				41B3457F2BE4668E00382695 /* VStackView.swift in Sources */,
 				41B345802BE4668E00382695 /* ZStackView.swift in Sources */,
 				41B345582BE4626E00382695 /* LazyVGridView.swift in Sources */,
 				411650FC2BE1FBEA007A12C9 /* ViewPorotocol.swift in Sources */,
+				41B345942BE4673800382695 /* QuizView.swift in Sources */,
 				41249C532BE0DCD7004A6AEC /* CollectionsType.swift in Sources */,
+				41B3458C2BE4672200382695 /* LabelView.swift in Sources */,
 				41249C3F2BE0D146004A6AEC /* ContentView.swift in Sources */,
+				41B3458A2BE4672100382695 /* DividerView.swift in Sources */,
 				41B345792BE4668E00382695 /* GridView.swift in Sources */,
 				41B3457A2BE4668E00382695 /* HStackView.swift in Sources */,
 				41B345572BE4626E00382695 /* LazyHGridView.swift in Sources */,
@@ -331,17 +378,22 @@
 				41249C552BE0DD72004A6AEC /* LayoutType.swift in Sources */,
 				41249C4F2BE0DA4D004A6AEC /* ViewType.swift in Sources */,
 				411650F82BE1E0C9007A12C9 /* FullScreenCoverView.swift in Sources */,
+				41B345902BE4672200382695 /* TextFieldView.swift in Sources */,
 				41249C4B2BE0D8DF004A6AEC /* ContentType.swift in Sources */,
+				41B3458B2BE4672200382695 /* ImageView.swift in Sources */,
 				41B3455A2BE4626E00382695 /* TabViewView.swift in Sources */,
 				41B345592BE4626E00382695 /* ScrollViewView.swift in Sources */,
 				41249C4D2BE0D8FE004A6AEC /* ControlType.swift in Sources */,
 				41B3457B2BE4668E00382695 /* LazyHGridView.swift in Sources */,
+				41B3458E2BE4672200382695 /* ShapeView.swift in Sources */,
 				41B3457E2BE4668E00382695 /* TabViewView.swift in Sources */,
 				411650FE2BE20479007A12C9 /* AlertView.swift in Sources */,
 				411650F42BE1CC6A007A12C9 /* SheetView.swift in Sources */,
 				41249C512BE0DADE004A6AEC /* NavigationType.swift in Sources */,
 				41B3455C2BE4626E00382695 /* ZStackView.swift in Sources */,
+				41B3458D2BE4672200382695 /* SFSymbolsView.swift in Sources */,
 				41B344FF2BE374EC00382695 /* GradientView.swift in Sources */,
+				41B3458F2BE4672200382695 /* TextEditorView.swift in Sources */,
 				41B3457D2BE4668E00382695 /* ScrollViewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
