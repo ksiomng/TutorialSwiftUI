@@ -37,17 +37,15 @@ struct NavigationLinkContainer: View {
             HStack{
                 Spacer()
                 
-                NavigationStack {
-                    List {
-                        NavigationLink(destination: Text("Navigation Link Detail View1")) {
-                            Text("Navigation Link1")
-                        }
-                        NavigationLink(destination: Text("Navigation Link Detail View2")) {
-                            Text("Navigation Link2")
-                        }
-                        NavigationLink(destination: Text("Navigation Link Detail View3")) {
-                            Text("Navigation Link3")
-                        }
+                List {
+                    NavigationLink(destination: Text("Navigation Link Detail View1")) {
+                        Text("Navigation Link1")
+                    }
+                    NavigationLink(destination: Text("Navigation Link Detail View2")) {
+                        Text("Navigation Link2")
+                    }
+                    NavigationLink(destination: Text("Navigation Link Detail View3")) {
+                        Text("Navigation Link3")
                     }
                 }
                 .frame(width: 300, height: 200)
