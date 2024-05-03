@@ -189,6 +189,11 @@ struct CodePreviewView: View {
                 await codeText()
             }
         }
+        .onChange(of: code) {
+            Task {
+                await codeText()
+            }
+        }
     }
     
     func codeText() async {
