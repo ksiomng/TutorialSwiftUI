@@ -26,7 +26,10 @@ struct SliderView: View {
                 .font(.largeTitle)
             
             // 선택된 수정자를 적용한 텍스트 뷰
-            let modifiedCode = generateCode(modifiers: modArr, firstCode: "Slider(value: $sliderValue, in: -100...100, setp: 1)")
+            let modifiedCode = generateCode(modifiers: modArr, firstCode: """
+                Slider(value: $sliderValue, in: -100...100, setp: 1)
+                """
+            )
             VStack(alignment: .leading) {
                 CodeEditor(
                     source: modifiedCode,

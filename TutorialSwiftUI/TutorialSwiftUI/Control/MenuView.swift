@@ -26,7 +26,13 @@ struct MenuView: View {
                 .font(.largeTitle)
             
             // 선택된 수정자를 적용한 텍스트 뷰
-            let modifiedCode = generateCode(modifiers: modArr, firstCode: "Menu(\"Menu\"){\nButton(\"Button1\"){}  \nButton(\"Button2\"){}\n}")
+            let modifiedCode = generateCode(modifiers: modArr, firstCode: """
+            Menu(\"Menu\"){
+                Button(\"Button1\"){}
+                Button(\"Button2\"){}
+            }
+            """
+            )
             VStack(alignment: .leading) {
                 CodeEditor(
                     source: modifiedCode,

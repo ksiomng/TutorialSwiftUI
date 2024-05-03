@@ -28,7 +28,18 @@ struct PickerView: View {
             .font(.largeTitle)
             
             // 선택된 수정자를 적용한 텍스트 뷰
-            let modifiedCode = generateCode(modifiers: modArr, firstCode: "var colors = [\"red\", \"green\", \"blue\"]\n@State var selectedColor = \"\"\n\nPicker(\"\", selection: $selectedColor) {\nForEach(colors, id: \\.self) {\nText($0)\n}}\n.pickerStyle(.wheel)")
+            let modifiedCode = generateCode(modifiers: modArr, firstCode: """
+            var colors = [\"red\", \"green\", \"blue\"]
+            @State var selectedColor = \"\"
+            
+            Picker(\"\", selection: $selectedColor) {
+                ForEach(colors, id: \\.self) {
+                    Text($0)
+                }
+            }
+            .pickerStyle(.wheel)
+            """
+            )
             VStack(alignment: .leading) {
                 CodeEditor(
                     source: modifiedCode,

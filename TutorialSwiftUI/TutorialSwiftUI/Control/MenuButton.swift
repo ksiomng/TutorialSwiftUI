@@ -94,25 +94,25 @@ struct MenuButton: View {
         HStack {
             Spacer()
             Menu(content: {
-                Button("Bold: \nMake text bold") {
+                Button("Bold: Make text bold") {
                     modArr.append(.bold)
                 }
-                Button("Italic: \nMake text italic") {
+                Button("Italic: Make text italic") {
                     modArr.append(.italic)
                 }
                 Button("Underline: \nUnderline text") {
                     modArr.append(.underline)
                 }
-                Button("Padding: \nAdd padding around text") {
+                Button("Padding: Add padding around text") {
                     modArr.append(.padding)
                 }
-                Button("Foreground Color: \nChange text color") {
+                Button("Foreground Color: Change text color") {
                     modArr.append(.foregroundStyle)
                 }
-                Button("Background: \nAdd background color") {
+                Button("Background: Add background color") {
                     modArr.append(.background)
                 }
-                Button("Corner Radius: \nRound the corners") {
+                Button("Corner Radius: Round the corners") {
                     modArr.append(.cornerRadius)
                 }
             }) {
@@ -125,3 +125,21 @@ struct MenuButton: View {
 }
 
 
+struct AddListView: View {
+    @Binding var modArr: [TextModifier]
+    
+    var body: some View {
+        List {
+            ForEach(modArr.indices, id: \.self) { index in
+                Text("\(modArr[index].description)")
+            }
+            .onDelete(perform: { indexSet in
+                modArr.remove(atOffsets: indexSet)
+            })
+        }
+        .cornerRadius(10)
+        .listStyle(PlainListStyle())
+        .scrollContentBackground(.hidden)
+        .frame(height: 300)
+    }
+}

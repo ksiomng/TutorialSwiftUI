@@ -29,7 +29,15 @@ struct ContextMenuView: View {
                 .font(.largeTitle)
             
             // 선택된 수정자를 적용한 텍스트 뷰
-            let modifiedCode = generateCode(modifiers: modArr, firstCode: "private let menuItems = ContextMenu {\nButton(\"Btn1\",systemImage: \"heart\"){}\nButton(\"Btn2\"){}\n}\n\nText(\"Turtle Rock\")\n.contextMenu(ShowMenu ? menuItem : nil)")
+            let modifiedCode = generateCode(modifiers: modArr, firstCode: """
+            private let menuItems = ContextMenu {
+                Button(\"btn\",systemImage:\"heart\"){}
+                Button(\"btn\"){}
+            }
+            Text(\"Turtle Rock\")
+                .contextMenu(ShowMenu ? menuItem : nil)
+            """
+            )
             VStack(alignment: .leading) {
                 CodeEditor(
                     source: modifiedCode,
