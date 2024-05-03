@@ -9,7 +9,6 @@ import SwiftUI
 import CodeEditor
 
 struct NavigationBarContatiner: View {
-    @State var isPresented = false
     var body: some View {
         
         ScrollView {
