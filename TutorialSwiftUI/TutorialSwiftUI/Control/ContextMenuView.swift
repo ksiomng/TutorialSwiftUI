@@ -56,7 +56,7 @@ struct ContextMenuView: View {
                             Button(\"btn\"){}
                         }
                         Text(\"Turtle Rock\")
-                            .contextMenu(ShowMenu ? menuItem : nil)
+                        .contextMenu(ShowMenu ? menuItem : nil)
                         """)
                     CodePreviewView(code: modifiedCode, copyAction: copyCode, showCopy: true)
                     
