@@ -288,14 +288,14 @@
 		41B345C22BE46ABF00382695 /* Control */ = {
 			isa = PBXGroup;
 			children = (
-				41B345B92BE46ABF00382695 /* ButtonView.swift */,
-				41B345BA2BE46ABF00382695 /* ContextMenuView.swift */,
 				41B345BB2BE46ABF00382695 /* MenuButton.swift */,
+				41B345B92BE46ABF00382695 /* ButtonView.swift */,
 				41B345BC2BE46ABF00382695 /* MenuView.swift */,
 				41B345BD2BE46ABF00382695 /* PickerView.swift */,
 				41B345BE2BE46ABF00382695 /* SliderView.swift */,
 				41B345BF2BE46ABF00382695 /* StepperView.swift */,
 				41B345C12BE46ABF00382695 /* ToggleView.swift */,
+				41B345BA2BE46ABF00382695 /* ContextMenuView.swift */,
 			);
 			path = Control;
 			sourceTree = "<group>";

@@ -94,25 +94,25 @@ struct MenuButton: View {
         HStack {
             Spacer()
             Menu(content: {
-                Button("Bold: \nMake text bold") {
+                Button("Bold: 텍스트를 굵게") {
                     modArr.append(.bold)
                 }
-                Button("Italic: \nMake text italic") {
+                Button("Italic: 이탤릭체") {
                     modArr.append(.italic)
                 }
-                Button("Underline: \nUnderline text") {
+                Button("Underline: 밑줄") {
                     modArr.append(.underline)
                 }
-                Button("Padding: \nAdd padding around text") {
+                Button("Padding: 주변에 패딩 추가") {
                     modArr.append(.padding)
                 }
-                Button("Foreground Color: \nChange text color") {
+                Button("Foreground Color: 글자색 바꾸기") {
                     modArr.append(.foregroundStyle)
                 }
-                Button("Background: \nAdd background color") {
+                Button("Background: 배경색 추가하기") {
                     modArr.append(.background)
                 }
-                Button("Corner Radius: \nRound the corners") {
+                Button("Corner Radius: 모서리 둥글게") {
                     modArr.append(.cornerRadius)
                 }
             }) {
@@ -125,3 +125,22 @@ struct MenuButton: View {
 }
 
 
+struct AddListView: View {
+    @Binding var modArr: [TextModifier]
+    
+    var body: some View {
+        List {
+            ForEach(modArr.indices, id: \.self) { index in
+                Text("\(modArr[index].description)")
+            }
+            .onDelete(perform: { indexSet in
+                modArr.remove(atOffsets: indexSet)
+            })
+        }
+        .frame(maxWidth: .infinity, minHeight: 150)
+        .background(Color(uiColor: .systemBackground))
+        .listStyle(PlainListStyle())
+        .scrollContentBackground(.hidden)
+        .cornerRadius(10)
+    }
+}

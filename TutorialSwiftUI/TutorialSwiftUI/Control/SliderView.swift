@@ -13,44 +13,61 @@ struct SliderView: View {
     @State private var modArr = [TextModifier]()
     
     var body: some View {
-        VStack {
-            // 선택된 수정자를 적용한 텍스트 뷰
-            VStack {
-                Slider(value: $sliderValue, in: -100...100, step: 1)
-                let modifiedText = Text("\(sliderValue)")
-                    .apply(modifiers: modArr)
-                modifiedText
-            }
-                .padding()
-                .frame(minHeight: 100)
-                .font(.largeTitle)
-            
-            // 선택된 수정자를 적용한 텍스트 뷰
-            let modifiedCode = generateCode(modifiers: modArr, firstCode: "Slider(value: $sliderValue, in: -100...100, setp: 1)")
-            VStack(alignment: .leading) {
-                CodeEditor(
-                    source: modifiedCode,
-                    language: .javascript,
-                    theme: .agate
-                )
-            }
-            .cornerRadius(10)
-            .padding([.trailing, .leading, .bottom])
-            
-            MenuButton(modArr: $modArr)
-            
-            // 선택된 수정자를 나열한 리스트
-            List {
-                ForEach(modArr.indices, id: \.self) { index in
-                    Text("🜸 \(modArr[index].description)")
+        ScrollView {
+            VStack(spacing: 20) {
+                // View Preview
+                VStack(alignment: .leading, spacing: 10) {
+                    TitleTextView(title: "View Preview")
+                    Text("Slider")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Divider()
+                    HStack {
+                        Spacer()
+                        Slider(value: $sliderValue, in: -100...100, step: 0.0001)
+                            .apply(modifiers: modArr)
+                        let formattedValue = String(format: "%.2f", sliderValue)
+                        Text(formattedValue)
+                            .font(.largeTitle)
+                            .padding()
+                        Spacer()
+                    }
                 }
-                .onDelete(perform: { indexSet in
-                    modArr.remove(atOffsets: indexSet)
-                })
+                .padding()
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(10)
+                
+                
+                // MenuButton
+                MenuButton(modArr: $modArr)
+                
+                
+                // Code Preview
+                VStack(spacing: 20) {
+                    TitleTextView(title: "Code Preview")
+                    let modifiedCode = generateCode(modifiers: modArr, firstCode: """
+                        Slider(value: $sliderValue, in: -100...100, step: 1)
+                        """
+                    )
+                    CodePreviewView(code: modifiedCode, copyAction: copyCode, showCopy: true)
+                    
+                    // List
+                    TitleTextView(title: "List")
+                    AddListView(modArr: $modArr)
+                }
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(10)
             }
-            .scrollContentBackground(.hidden)
-            .frame(height: 400)
+            .padding()
+            .frame(maxHeight: .infinity)
+            .navigationTitle("Color")
+            .navigationBarTitleDisplayMode(.inline)
         }
+    }
+    
+    func copyCode(_ code: String) {
+        UIPasteboard.general.string = code
     }
 }
 
