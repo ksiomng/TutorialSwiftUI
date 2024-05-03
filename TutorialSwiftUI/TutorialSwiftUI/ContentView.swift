@@ -116,14 +116,14 @@ struct ViewSection: View {
     
     func destination(for viewType: ViewType) -> some View {
         switch viewType {
-        case .sheet:
-            EmptyView()
-        case .popover:
-            EmptyView()
-        case .alert:
-            EmptyView()
-        case .emptyView:
-            EmptyView()
+            case .sheet:
+                return AnyView(SheetView())
+            case .popover:
+                return AnyView(PopoverView())
+            case .alert:
+                return AnyView(AlertView())
+            case .emptyView:
+                return AnyView(EmptyView())
         }
     }
 }
@@ -142,20 +142,20 @@ struct NavigationSection: View {
     }
     func destination(for navigationType: NavigationType) -> some View {
         switch navigationType {
-        case .navigationView:
-            EmptyView()
-        case .navigationStack:
-            EmptyView()
-        case .navigationSplitView:
-            EmptyView()
-        case .navigationBar:
-            EmptyView()
-        case .navigationLink:
-            EmptyView()
-        case .passAView:
-            EmptyView()
-        case .link:
-            EmptyView()
+            case .navigationView:
+                EmptyView()
+            case .navigationStack:
+                EmptyView()
+            case .navigationSplitView:
+                EmptyView()
+            case .navigationBar:
+                EmptyView()
+            case .navigationLink:
+                EmptyView()
+            case .passAView:
+                EmptyView()
+            case .link:
+                EmptyView()
         }
     }
 }
@@ -238,9 +238,9 @@ struct DesignSection: View {
     func destination(for designType: DesignType) -> some View {
         switch designType {
         case .color:
-            EmptyView()
+            AnyView(ColorView())
         case .gradient:
-            EmptyView()
+            AnyView(GradientView())
         }
     }
 }

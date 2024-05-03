@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		411650F02BE1C70B007A12C9 /* SwiftorialSplashLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = 411650EF2BE1C70B007A12C9 /* SwiftorialSplashLottie.json */; };
 		411650F42BE1CC6A007A12C9 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411650F32BE1CC6A007A12C9 /* SheetView.swift */; };
 		411650F82BE1E0C9007A12C9 /* FullScreenCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411650F72BE1E0C9007A12C9 /* FullScreenCoverView.swift */; };
 		411650FA2BE1F731007A12C9 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411650F92BE1F731007A12C9 /* PopoverView.swift */; };
@@ -62,11 +61,11 @@
 		41B345C82BE46ABF00382695 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345BE2BE46ABF00382695 /* SliderView.swift */; };
 		41B345C92BE46ABF00382695 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345BF2BE46ABF00382695 /* StepperView.swift */; };
 		41B345CB2BE46ABF00382695 /* ToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345C12BE46ABF00382695 /* ToggleView.swift */; };
+		41B345CD2BE477E900382695 /* Swiftorial.json in Resources */ = {isa = PBXBuildFile; fileRef = 41B345CC2BE477E800382695 /* Swiftorial.json */; };
 		CE83B6652BE0D6E100DDBDBE /* TemplateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE83B6642BE0D6E100DDBDBE /* TemplateDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		411650EF2BE1C70B007A12C9 /* SwiftorialSplashLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SwiftorialSplashLottie.json; sourceTree = "<group>"; };
 		411650F32BE1CC6A007A12C9 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		411650F72BE1E0C9007A12C9 /* FullScreenCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCoverView.swift; sourceTree = "<group>"; };
 		411650F92BE1F731007A12C9 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
@@ -119,6 +118,7 @@
 		41B345BE2BE46ABF00382695 /* SliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		41B345BF2BE46ABF00382695 /* StepperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
 		41B345C12BE46ABF00382695 /* ToggleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleView.swift; sourceTree = "<group>"; };
+		41B345CC2BE477E800382695 /* Swiftorial.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Swiftorial.json; sourceTree = "<group>"; };
 		CE83B6642BE0D6E100DDBDBE /* TemplateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,7 +139,7 @@
 		411650F12BE1CC18007A12C9 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				411650EF2BE1C70B007A12C9 /* SwiftorialSplashLottie.json */,
+				41B345CC2BE477E800382695 /* Swiftorial.json */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -185,20 +185,20 @@
 		41249C3B2BE0D146004A6AEC /* TutorialSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				41B345C22BE46ABF00382695 /* Control */,
-				41B345B12BE46A3600382695 /* Navigation */,
-				41B345932BE4673800382695 /* Quiz */,
 				41B345892BE4672100382695 /* Contents */,
+				41B345C22BE46ABF00382695 /* Control */,
+				411650F22BE1CC5B007A12C9 /* View */,
+				41B345B12BE46A3600382695 /* Navigation */,
 				41B345782BE4668D00382695 /* Collections */,
 				411650FF2BE211A6007A12C9 /* Design */,
-				411650F22BE1CC5B007A12C9 /* View */,
-				CE83B6642BE0D6E100DDBDBE /* TemplateDetailView.swift */,
-				41249C3C2BE0D146004A6AEC /* TutorialSwiftUIApp.swift */,
 				41249C622BE0FF91004A6AEC /* SplashView.swift */,
 				41249C3E2BE0D146004A6AEC /* ContentView.swift */,
+				41249C3C2BE0D146004A6AEC /* TutorialSwiftUIApp.swift */,
+				CE83B6642BE0D6E100DDBDBE /* TemplateDetailView.swift */,
+				41B345932BE4673800382695 /* Quiz */,
 				41249C402BE0D148004A6AEC /* Assets.xcassets */,
-				41249C422BE0D148004A6AEC /* Preview Content */,
 				41249C582BE0DE94004A6AEC /* Model */,
+				41249C422BE0D148004A6AEC /* Preview Content */,
 				411650F12BE1CC18007A12C9 /* Resource */,
 			);
 			path = TutorialSwiftUI;
@@ -368,9 +368,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				411650F02BE1C70B007A12C9 /* SwiftorialSplashLottie.json in Resources */,
 				41249C442BE0D148004A6AEC /* Preview Assets.xcassets in Resources */,
 				41249C412BE0D148004A6AEC /* Assets.xcassets in Resources */,
+				41B345CD2BE477E900382695 /* Swiftorial.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

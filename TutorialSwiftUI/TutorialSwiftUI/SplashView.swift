@@ -14,7 +14,7 @@ struct SplashView: View {
     
     var body: some View {
             VStack {
-            LottieView(animation: .named("SwiftorialSplashLottie"))
+            LottieView(animation: .named("Swiftorial"))
                 .resizable()
                 .playbackMode(.playing(.toProgress(1.0, loopMode: .playOnce)))
                 .animationDidFinish{ completed in
