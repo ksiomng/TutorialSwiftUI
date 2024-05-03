@@ -39,14 +39,14 @@ struct NavigationLinkContainer: View {
                 
                 NavigationStack {
                     List {
-                        NavigationLink(destination: Text("Detail View1")) {
-                            Text("Link1")
+                        NavigationLink(destination: Text("Navigation Link Detail View1")) {
+                            Text("Navigation Link1")
                         }
-                        NavigationLink(destination: Text("Detail View2")) {
-                            Text("Link2")
+                        NavigationLink(destination: Text("Navigation Link Detail View2")) {
+                            Text("Navigation Link2")
                         }
-                        NavigationLink(destination: Text("Detail View3")) {
-                            Text("Link3")
+                        NavigationLink(destination: Text("Navigation Link Detail View3")) {
+                            Text("Navigation Link3")
                         }
                     }
                 }
