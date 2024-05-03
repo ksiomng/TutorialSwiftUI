@@ -30,14 +30,6 @@
 		41B344FF2BE374EC00382695 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B344FE2BE374EC00382695 /* GradientView.swift */; };
 		41B345022BE3F07000382695 /* CodeEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 41B345012BE3F07000382695 /* CodeEditor */; };
 		41B345112BE3F65700382695 /* HighlightSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 41B345102BE3F65700382695 /* HighlightSwift */; };
-		41B345552BE4626E00382695 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B3454C2BE4626E00382695 /* GridView.swift */; };
-		41B345562BE4626E00382695 /* HStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B3454D2BE4626E00382695 /* HStackView.swift */; };
-		41B345572BE4626E00382695 /* LazyHGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B3454E2BE4626E00382695 /* LazyHGridView.swift */; };
-		41B345582BE4626E00382695 /* LazyVGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B3454F2BE4626E00382695 /* LazyVGridView.swift */; };
-		41B345592BE4626E00382695 /* ScrollViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345502BE4626E00382695 /* ScrollViewView.swift */; };
-		41B3455A2BE4626E00382695 /* TabViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345512BE4626E00382695 /* TabViewView.swift */; };
-		41B3455B2BE4626E00382695 /* VStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345522BE4626E00382695 /* VStackView.swift */; };
-		41B3455C2BE4626E00382695 /* ZStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345532BE4626E00382695 /* ZStackView.swift */; };
 		41B345792BE4668E00382695 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345702BE4668D00382695 /* GridView.swift */; };
 		41B3457A2BE4668E00382695 /* HStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345712BE4668D00382695 /* HStackView.swift */; };
 		41B3457B2BE4668E00382695 /* LazyHGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345722BE4668D00382695 /* LazyHGridView.swift */; };
@@ -62,6 +54,14 @@
 		41B345B62BE46A3600382695 /* NavigationViewContatiner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345AE2BE46A3600382695 /* NavigationViewContatiner.swift */; };
 		41B345B72BE46A3600382695 /* PassaviewContainerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345AF2BE46A3600382695 /* PassaviewContainerExample.swift */; };
 		41B345B82BE46A3600382695 /* PassaviewContatiner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345B02BE46A3600382695 /* PassaviewContatiner.swift */; };
+		41B345C32BE46ABF00382695 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345B92BE46ABF00382695 /* ButtonView.swift */; };
+		41B345C42BE46ABF00382695 /* ContextMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345BA2BE46ABF00382695 /* ContextMenuView.swift */; };
+		41B345C52BE46ABF00382695 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345BB2BE46ABF00382695 /* MenuButton.swift */; };
+		41B345C62BE46ABF00382695 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345BC2BE46ABF00382695 /* MenuView.swift */; };
+		41B345C72BE46ABF00382695 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345BD2BE46ABF00382695 /* PickerView.swift */; };
+		41B345C82BE46ABF00382695 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345BE2BE46ABF00382695 /* SliderView.swift */; };
+		41B345C92BE46ABF00382695 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345BF2BE46ABF00382695 /* StepperView.swift */; };
+		41B345CB2BE46ABF00382695 /* ToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345C12BE46ABF00382695 /* ToggleView.swift */; };
 		CE83B6652BE0D6E100DDBDBE /* TemplateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE83B6642BE0D6E100DDBDBE /* TemplateDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,14 +87,6 @@
 		41249C562BE0DE06004A6AEC /* DesignType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignType.swift; sourceTree = "<group>"; };
 		41249C622BE0FF91004A6AEC /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		41B344FE2BE374EC00382695 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		41B3454C2BE4626E00382695 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
-		41B3454D2BE4626E00382695 /* HStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HStackView.swift; sourceTree = "<group>"; };
-		41B3454E2BE4626E00382695 /* LazyHGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyHGridView.swift; sourceTree = "<group>"; };
-		41B3454F2BE4626E00382695 /* LazyVGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyVGridView.swift; sourceTree = "<group>"; };
-		41B345502BE4626E00382695 /* ScrollViewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewView.swift; sourceTree = "<group>"; };
-		41B345512BE4626E00382695 /* TabViewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewView.swift; sourceTree = "<group>"; };
-		41B345522BE4626E00382695 /* VStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStackView.swift; sourceTree = "<group>"; };
-		41B345532BE4626E00382695 /* ZStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZStackView.swift; sourceTree = "<group>"; };
 		41B345702BE4668D00382695 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		41B345712BE4668D00382695 /* HStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HStackView.swift; sourceTree = "<group>"; };
 		41B345722BE4668D00382695 /* LazyHGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyHGridView.swift; sourceTree = "<group>"; };
@@ -119,6 +111,14 @@
 		41B345AE2BE46A3600382695 /* NavigationViewContatiner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewContatiner.swift; sourceTree = "<group>"; };
 		41B345AF2BE46A3600382695 /* PassaviewContainerExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassaviewContainerExample.swift; sourceTree = "<group>"; };
 		41B345B02BE46A3600382695 /* PassaviewContatiner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassaviewContatiner.swift; sourceTree = "<group>"; };
+		41B345B92BE46ABF00382695 /* ButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		41B345BA2BE46ABF00382695 /* ContextMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextMenuView.swift; sourceTree = "<group>"; };
+		41B345BB2BE46ABF00382695 /* MenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		41B345BC2BE46ABF00382695 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		41B345BD2BE46ABF00382695 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		41B345BE2BE46ABF00382695 /* SliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+		41B345BF2BE46ABF00382695 /* StepperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
+		41B345C12BE46ABF00382695 /* ToggleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleView.swift; sourceTree = "<group>"; };
 		CE83B6642BE0D6E100DDBDBE /* TemplateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,10 +185,10 @@
 		41249C3B2BE0D146004A6AEC /* TutorialSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				41B345C22BE46ABF00382695 /* Control */,
 				41B345B12BE46A3600382695 /* Navigation */,
 				41B345932BE4673800382695 /* Quiz */,
 				41B345892BE4672100382695 /* Contents */,
-				41B345542BE4626E00382695 /* Collections */,
 				41B345782BE4668D00382695 /* Collections */,
 				411650FF2BE211A6007A12C9 /* Design */,
 				411650F22BE1CC5B007A12C9 /* View */,
@@ -231,21 +231,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		41B345542BE4626E00382695 /* Collections */ = {
-			isa = PBXGroup;
-			children = (
-				41B3454C2BE4626E00382695 /* GridView.swift */,
-				41B3454D2BE4626E00382695 /* HStackView.swift */,
-				41B3454E2BE4626E00382695 /* LazyHGridView.swift */,
-				41B3454F2BE4626E00382695 /* LazyVGridView.swift */,
-				41B345502BE4626E00382695 /* ScrollViewView.swift */,
-				41B345512BE4626E00382695 /* TabViewView.swift */,
-				41B345522BE4626E00382695 /* VStackView.swift */,
-				41B345532BE4626E00382695 /* ZStackView.swift */,
-			);
-			path = Collections;
 			sourceTree = "<group>";
 		};
 		41B345782BE4668D00382695 /* Collections */ = {
@@ -298,6 +283,21 @@
 				41B345B02BE46A3600382695 /* PassaviewContatiner.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		41B345C22BE46ABF00382695 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				41B345B92BE46ABF00382695 /* ButtonView.swift */,
+				41B345BA2BE46ABF00382695 /* ContextMenuView.swift */,
+				41B345BB2BE46ABF00382695 /* MenuButton.swift */,
+				41B345BC2BE46ABF00382695 /* MenuView.swift */,
+				41B345BD2BE46ABF00382695 /* PickerView.swift */,
+				41B345BE2BE46ABF00382695 /* SliderView.swift */,
+				41B345BF2BE46ABF00382695 /* StepperView.swift */,
+				41B345C12BE46ABF00382695 /* ToggleView.swift */,
+			);
+			path = Control;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,50 +381,50 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41B345552BE4626E00382695 /* GridView.swift in Sources */,
+				41B345C32BE46ABF00382695 /* ButtonView.swift in Sources */,
 				411650FA2BE1F731007A12C9 /* PopoverView.swift in Sources */,
 				CE83B6652BE0D6E100DDBDBE /* TemplateDetailView.swift in Sources */,
 				41B345912BE4672200382695 /* TextView.swift in Sources */,
 				41B3457F2BE4668E00382695 /* VStackView.swift in Sources */,
 				41B345802BE4668E00382695 /* ZStackView.swift in Sources */,
-				41B345582BE4626E00382695 /* LazyVGridView.swift in Sources */,
 				411650FC2BE1FBEA007A12C9 /* ViewPorotocol.swift in Sources */,
 				41B345942BE4673800382695 /* QuizView.swift in Sources */,
 				41249C532BE0DCD7004A6AEC /* CollectionsType.swift in Sources */,
+				41B345C82BE46ABF00382695 /* SliderView.swift in Sources */,
 				41B3458C2BE4672200382695 /* LabelView.swift in Sources */,
+				41B345C92BE46ABF00382695 /* StepperView.swift in Sources */,
 				41249C3F2BE0D146004A6AEC /* ContentView.swift in Sources */,
 				41B345B32BE46A3600382695 /* NavigationBarContatiner.swift in Sources */,
 				41B3458A2BE4672100382695 /* DividerView.swift in Sources */,
 				41B345792BE4668E00382695 /* GridView.swift in Sources */,
 				41B3457A2BE4668E00382695 /* HStackView.swift in Sources */,
-				41B345572BE4626E00382695 /* LazyHGridView.swift in Sources */,
-				41B3455B2BE4626E00382695 /* VStackView.swift in Sources */,
 				41249C3D2BE0D146004A6AEC /* TutorialSwiftUIApp.swift in Sources */,
 				41249C632BE0FF91004A6AEC /* SplashView.swift in Sources */,
-				41B345562BE4626E00382695 /* HStackView.swift in Sources */,
 				411651012BE23FE5007A12C9 /* ColorView.swift in Sources */,
 				41B3457C2BE4668E00382695 /* LazyVGridView.swift in Sources */,
 				41249C572BE0DE06004A6AEC /* DesignType.swift in Sources */,
+				41B345CB2BE46ABF00382695 /* ToggleView.swift in Sources */,
 				41249C552BE0DD72004A6AEC /* LayoutType.swift in Sources */,
 				41249C4F2BE0DA4D004A6AEC /* ViewType.swift in Sources */,
 				41B345B82BE46A3600382695 /* PassaviewContatiner.swift in Sources */,
+				41B345C62BE46ABF00382695 /* MenuView.swift in Sources */,
 				411650F82BE1E0C9007A12C9 /* FullScreenCoverView.swift in Sources */,
 				41B345B42BE46A3600382695 /* NavigationLinkContainer.swift in Sources */,
 				41B345902BE4672200382695 /* TextFieldView.swift in Sources */,
 				41B345B22BE46A3600382695 /* LinkContainer.swift in Sources */,
 				41249C4B2BE0D8DF004A6AEC /* ContentType.swift in Sources */,
 				41B3458B2BE4672200382695 /* ImageView.swift in Sources */,
-				41B3455A2BE4626E00382695 /* TabViewView.swift in Sources */,
-				41B345592BE4626E00382695 /* ScrollViewView.swift in Sources */,
 				41249C4D2BE0D8FE004A6AEC /* ControlType.swift in Sources */,
 				41B3457B2BE4668E00382695 /* LazyHGridView.swift in Sources */,
 				41B3458E2BE4672200382695 /* ShapeView.swift in Sources */,
+				41B345C52BE46ABF00382695 /* MenuButton.swift in Sources */,
 				41B3457E2BE4668E00382695 /* TabViewView.swift in Sources */,
 				411650FE2BE20479007A12C9 /* AlertView.swift in Sources */,
 				411650F42BE1CC6A007A12C9 /* SheetView.swift in Sources */,
+				41B345C72BE46ABF00382695 /* PickerView.swift in Sources */,
 				41249C512BE0DADE004A6AEC /* NavigationType.swift in Sources */,
-				41B3455C2BE4626E00382695 /* ZStackView.swift in Sources */,
 				41B345B52BE46A3600382695 /* NavigationStackContatiner.swift in Sources */,
+				41B345C42BE46ABF00382695 /* ContextMenuView.swift in Sources */,
 				41B345B62BE46A3600382695 /* NavigationViewContatiner.swift in Sources */,
 				41B345B72BE46A3600382695 /* PassaviewContainerExample.swift in Sources */,
 				41B3458D2BE4672200382695 /* SFSymbolsView.swift in Sources */,
