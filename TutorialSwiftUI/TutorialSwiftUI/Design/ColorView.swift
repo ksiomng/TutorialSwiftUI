@@ -19,37 +19,9 @@ struct ColorView: View {
                 // 뷰 프리뷰
                 viewPreviewSection
                 
+                colorPickerSection
+                
                 // 코드 프리뷰
-                VStack {
-                    
-                    HStack {
-                        Text("BackGround Color")
-                        Spacer()
-                        
-                        Picker("backgroundColor", selection: $backgroundColorIndex) {
-                            ForEach(0..<baseColors.count, id:\.self) { index in
-                                Text(baseColors[index].description)
-                            }
-                        }
-                    }
-                    
-                    HStack {
-                        Text("Foreground Color")
-                        
-                        Spacer()
-                        
-                        Picker("backgroundColor", selection: $foregreoundColorIndex) {
-                            ForEach(0..<baseColors.count, id:\.self) { index in
-                                Text(baseColors[index].description)
-                            }
-                        }
-                        
-                    }
-                    
-                }
-                .frame(maxWidth: .infinity)
-                
-                
                 codePreviewSection
             }
             .padding()
@@ -86,6 +58,36 @@ struct ColorView: View {
         .cornerRadius(10)
     }
     
+    private var colorPickerSection: some View {
+        VStack {
+            HStack {
+                Text("BackGround Color")
+                Spacer()
+                
+                Picker("backgroundColor", selection: $backgroundColorIndex) {
+                    ForEach(0..<baseColors.count, id:\.self) { index in
+                        Text(baseColors[index].description)
+                    }
+                }
+            }
+            
+            HStack {
+                Text("Foreground Color")
+                
+                Spacer()
+                
+                Picker("backgroundColor", selection: $foregreoundColorIndex) {
+                    ForEach(0..<baseColors.count, id:\.self) { index in
+                        Text(baseColors[index].description)
+                    }
+                }
+                
+            }
+            
+        }
+        .frame(maxWidth: .infinity)
+    }
+    
     private var codePreviewSection: some View {
         
         return VStack(spacing: 20) {
@@ -118,7 +120,6 @@ struct ColorView: View {
     }
     
     func returnCode() -> String {
-        
         return """
                Text(\"Hello, World!\")
                    .background(.\(baseColors[backgroundColorIndex]))

@@ -8,7 +8,6 @@
 import SwiftUI
 import CodeEditor
 
-
 enum CustomUnitPoint: CaseIterable{
     case topLeading
     case top
@@ -102,8 +101,6 @@ struct GradientView: View {
             
             Text("Gradient View")
                 .frame(maxWidth: .infinity, alignment: .leading)
-            
-            
             
             Divider()
             
@@ -236,7 +233,6 @@ struct GradientView: View {
             TitleTextView(title: "Code Preview")
             
             CodeEditor(source: sheetViewCode(), language: .swift, theme: .ocean)
-                .background(.red)
             
             CodePreviewView(code: sheetViewCode(), copyAction: copyCode,showCopy: true)
             

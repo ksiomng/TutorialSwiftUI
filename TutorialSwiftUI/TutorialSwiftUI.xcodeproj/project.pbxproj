@@ -13,6 +13,9 @@
 		411650FC2BE1FBEA007A12C9 /* ViewPorotocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411650FB2BE1FBEA007A12C9 /* ViewPorotocol.swift */; };
 		411650FE2BE20479007A12C9 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411650FD2BE20479007A12C9 /* AlertView.swift */; };
 		411651012BE23FE5007A12C9 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411651002BE23FE5007A12C9 /* ColorView.swift */; };
+		411880972BE54AD200CE6209 /* CodePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411880962BE54AD200CE6209 /* CodePreviewView.swift */; };
+		411880992BE54AEB00CE6209 /* ModifiedTextPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411880982BE54AEB00CE6209 /* ModifiedTextPreview.swift */; };
+		4118809B2BE54AFB00CE6209 /* TitleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4118809A2BE54AFB00CE6209 /* TitleTextView.swift */; };
 		41249C3D2BE0D146004A6AEC /* TutorialSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41249C3C2BE0D146004A6AEC /* TutorialSwiftUIApp.swift */; };
 		41249C3F2BE0D146004A6AEC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41249C3E2BE0D146004A6AEC /* ContentView.swift */; };
 		41249C412BE0D148004A6AEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41249C402BE0D148004A6AEC /* Assets.xcassets */; };
@@ -72,6 +75,9 @@
 		411650FB2BE1FBEA007A12C9 /* ViewPorotocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPorotocol.swift; sourceTree = "<group>"; };
 		411650FD2BE20479007A12C9 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		411651002BE23FE5007A12C9 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
+		411880962BE54AD200CE6209 /* CodePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodePreviewView.swift; sourceTree = "<group>"; };
+		411880982BE54AEB00CE6209 /* ModifiedTextPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifiedTextPreview.swift; sourceTree = "<group>"; };
+		4118809A2BE54AFB00CE6209 /* TitleTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTextView.swift; sourceTree = "<group>"; };
 		41249C392BE0D146004A6AEC /* TutorialSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TutorialSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41249C3C2BE0D146004A6AEC /* TutorialSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSwiftUIApp.swift; sourceTree = "<group>"; };
 		41249C3E2BE0D146004A6AEC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -165,6 +171,16 @@
 			path = Design;
 			sourceTree = "<group>";
 		};
+		411880952BE54AC600CE6209 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				411880962BE54AD200CE6209 /* CodePreviewView.swift */,
+				411880982BE54AEB00CE6209 /* ModifiedTextPreview.swift */,
+				4118809A2BE54AFB00CE6209 /* TitleTextView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		41249C302BE0D146004A6AEC = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +201,7 @@
 		41249C3B2BE0D146004A6AEC /* TutorialSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				411880952BE54AC600CE6209 /* Common */,
 				41B345892BE4672100382695 /* Contents */,
 				41B345C22BE46ABF00382695 /* Control */,
 				411650F22BE1CC5B007A12C9 /* View */,
@@ -385,6 +402,7 @@
 				411650FA2BE1F731007A12C9 /* PopoverView.swift in Sources */,
 				CE83B6652BE0D6E100DDBDBE /* TemplateDetailView.swift in Sources */,
 				41B345912BE4672200382695 /* TextView.swift in Sources */,
+				4118809B2BE54AFB00CE6209 /* TitleTextView.swift in Sources */,
 				41B3457F2BE4668E00382695 /* VStackView.swift in Sources */,
 				41B345802BE4668E00382695 /* ZStackView.swift in Sources */,
 				411650FC2BE1FBEA007A12C9 /* ViewPorotocol.swift in Sources */,
@@ -409,6 +427,7 @@
 				41B345B82BE46A3600382695 /* PassaviewContatiner.swift in Sources */,
 				41B345C62BE46ABF00382695 /* MenuView.swift in Sources */,
 				411650F82BE1E0C9007A12C9 /* FullScreenCoverView.swift in Sources */,
+				411880972BE54AD200CE6209 /* CodePreviewView.swift in Sources */,
 				41B345B42BE46A3600382695 /* NavigationLinkContainer.swift in Sources */,
 				41B345902BE4672200382695 /* TextFieldView.swift in Sources */,
 				41B345B22BE46A3600382695 /* LinkContainer.swift in Sources */,
@@ -420,6 +439,7 @@
 				41B345C52BE46ABF00382695 /* MenuButton.swift in Sources */,
 				41B3457E2BE4668E00382695 /* TabViewView.swift in Sources */,
 				411650FE2BE20479007A12C9 /* AlertView.swift in Sources */,
+				411880992BE54AEB00CE6209 /* ModifiedTextPreview.swift in Sources */,
 				411650F42BE1CC6A007A12C9 /* SheetView.swift in Sources */,
 				41B345C72BE46ABF00382695 /* PickerView.swift in Sources */,
 				41249C512BE0DADE004A6AEC /* NavigationType.swift in Sources */,
