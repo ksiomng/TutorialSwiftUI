@@ -131,6 +131,7 @@ struct NavigationLinkContainer: View {
     }
     
 }
+
 #Preview {
     NavigationLinkContainer()
 }
