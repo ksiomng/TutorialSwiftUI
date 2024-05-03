@@ -16,5 +16,5 @@ enum ContentType: String, CaseIterable {
     case label = "Label"
     case shape = "Shape"
     case divider = "Divider"
-    case customKeyboard = "Custom Keyboard"
+//    case customKeyboard = "Custom Keyboard"
 }

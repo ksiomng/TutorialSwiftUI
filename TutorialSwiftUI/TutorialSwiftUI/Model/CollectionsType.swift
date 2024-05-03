@@ -15,6 +15,5 @@ enum CollectionsType: String, CaseIterable {
     case grid = "Grid"
     case lazyVGrid = "LazyVGrid"
     case lazyHGrid = "LazyHGrid"
-    case scrollView = "Scroll View"
     case tabView = "TabView"
 }

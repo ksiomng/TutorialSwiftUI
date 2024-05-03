@@ -16,7 +16,7 @@ struct ContentView: View {
                 ViewSection()
                 NavigationSection()
                 CollectionsSection()
-                LayoutSection()
+//                LayoutSection()
                 DesignSection()
             }
             .navigationBarTitle("SwiftUI Elements")
@@ -44,23 +44,21 @@ struct ContentSection: View {
         // contentType에 따라 다른 view를 반환하도록 구현
         switch contentType {
         case .text:
-            EmptyView()
+            return AnyView(TextView())
         case .textField:
-            EmptyView()
+            return AnyView(TextFieldView())
         case .textEditor:
-            EmptyView()
+            return AnyView(TextEditorView())
         case .image:
-            EmptyView()
+            return AnyView(ImageView())
         case .sfSymbols:
-            EmptyView()
+            return AnyView(SFSymbolsView())
         case .label:
-            EmptyView()
+            return AnyView(LabelView())
         case .shape:
-            EmptyView()
+            return AnyView(ShapeView())
         case .divider:
-            EmptyView()
-        case .customKeyboard:
-            EmptyView()
+            return AnyView(DividerView())
         }
     }
     
@@ -83,19 +81,19 @@ struct ControlSection: View {
     func destination(for controlType: ControlType) -> some View {
         switch controlType {
         case .button:
-            EmptyView()
+            return AnyView(ButtonView())
         case .menu:
-            EmptyView()
+            return AnyView(MenuView())
         case .contextMenu:
-            EmptyView()
+            return AnyView(ContextMenuView())
         case .toggle:
-            EmptyView()
+            return AnyView(ToggleView())
         case .slider:
-            EmptyView()
+            return AnyView(SliderView())
         case .stepper:
-            EmptyView()
+            return AnyView(StepperView())
         case .picker:
-            EmptyView()
+            return AnyView(PickerView())
         }
     }
     
@@ -110,7 +108,6 @@ struct ViewSection: View {
                     Text(viewType.rawValue)
                 }
             }
-            
         }
     }
     
@@ -140,22 +137,21 @@ struct NavigationSection: View {
             }
         }
     }
+    
     func destination(for navigationType: NavigationType) -> some View {
         switch navigationType {
             case .navigationView:
-                EmptyView()
+                return AnyView(NavigationViewContatiner())
             case .navigationStack:
-                EmptyView()
-            case .navigationSplitView:
-                EmptyView()
+                return AnyView(NavigationStackContatiner())
             case .navigationBar:
-                EmptyView()
+                return AnyView(NavigationBarContatiner())
             case .navigationLink:
-                EmptyView()
+                return AnyView(NavigationLinkContainer())
             case .passAView:
-                EmptyView()
+                return AnyView(PassaviewContatiner())
             case .link:
-                EmptyView()
+                return AnyView(LinkContainer())
         }
     }
 }
@@ -175,21 +171,19 @@ struct CollectionsSection: View {
     func destination(for collectionsType: CollectionsType) -> some View {
         switch collectionsType {
         case .vStack:
-            EmptyView()
+            return AnyView(VStackView())
         case .hStack:
-            EmptyView()
+            return AnyView(HStackView())
         case .zStack:
-            EmptyView()
+            return AnyView(ZStackView())
         case .grid:
-            EmptyView()
+            return AnyView(GridView())
         case .lazyVGrid:
-            EmptyView()
+            return AnyView(LazyVGridView())
         case .lazyHGrid:
-            EmptyView()
-        case .scrollView:
-            EmptyView()
+            return AnyView(LazyHGridView())
         case .tabView:
-            EmptyView()
+            return AnyView(TabViewView())
         }
     }
 }

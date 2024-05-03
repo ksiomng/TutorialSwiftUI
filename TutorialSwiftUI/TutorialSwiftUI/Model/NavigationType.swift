@@ -11,7 +11,7 @@ enum NavigationType: String, CaseIterable {
     
     case navigationView = "Navigation View"
     case navigationStack = "Navigation Stack"
-    case navigationSplitView = "Navigation Split View"
+//    case navigationSplitView = "Navigation Split View"
     case navigationBar = "Navigation Bar"
     case navigationLink = "Navigation Link"
     case passAView = "Pass a view"
