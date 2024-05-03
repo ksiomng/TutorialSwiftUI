@@ -137,9 +137,9 @@ struct AddListView: View {
                 modArr.remove(atOffsets: indexSet)
             })
         }
-        .cornerRadius(10)
+        .frame(maxWidth: .infinity)
+        .background(Color(uiColor: .systemBackground))
         .listStyle(PlainListStyle())
         .scrollContentBackground(.hidden)
-        .frame(height: 300)
     }
 }

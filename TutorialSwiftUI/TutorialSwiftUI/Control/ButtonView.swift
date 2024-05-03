@@ -13,7 +13,8 @@ struct ButtonView: View {
     
     var body: some View {
         VStack {
-
+            
+            //View Preview
             VStack(alignment: .leading, spacing: 10) {
                 TitleTextView(title: "View Preview")
                 Text("button")
@@ -35,20 +36,18 @@ struct ButtonView: View {
             .background(Color.gray.opacity(0.2))
             .cornerRadius(10)
             
-            
+            //Button
             MenuButton(modArr: $modArr)
-            
             
             
             let modifiedCode = generateCode(modifiers: modArr, firstCode: "Button(\"Button\"){}")
             
+            //CodePreview
             VStack(spacing: 20) {
-                    TitleTextView(title: "Code Preview")
-                    CodePreviewView(code: modifiedCode, copyAction: copyCode, showCopy: true)
+                TitleTextView(title: "Code Preview")
+                CodePreviewView(code: modifiedCode, copyAction: copyCode, showCopy: true)
                     
-                    TitleTextView(title: "List")
-
-                // 선택된 수정자를 나열한 리스트
+                TitleTextView(title: "List")
                 AddListView(modArr: $modArr)
                     .cornerRadius(10)
             }
@@ -57,14 +56,12 @@ struct ButtonView: View {
             .background(Color.gray.opacity(0.2))
             .cornerRadius(10)
 
-            
         }
         .padding()
         .frame(maxHeight: .infinity) // 내부 VStack의 세로 크기를 최대화
         .navigationTitle("Color")
         .navigationBarTitleDisplayMode(.inline)
     }
-    
     func copyCode(_ code: String) {
         UIPasteboard.general.string = code
     }
