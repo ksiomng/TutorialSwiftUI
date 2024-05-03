@@ -24,7 +24,6 @@ struct ToggleView: View {
                     Divider()
                     HStack{
                         Spacer()
-                        // 선택된 수정자를 적용한 텍스트 뷰
                         let modifiedText = Toggle("Toggle", isOn: $ToggleButton)
                             .apply(modifiers: modArr)
                         modifiedText
@@ -39,13 +38,15 @@ struct ToggleView: View {
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
                 
+                
+                //Button
                 MenuButton(modArr: $modArr)
                 
-                let modifiedCode = generateCode(modifiers: modArr, firstCode: "Toggle(\"Toggle\", isOn: $ToggleButton)")
                 
-                //CodePreview
+                //CodePreview & List
                 VStack(spacing: 20) {
                     TitleTextView(title: "Code Preview")
+                    let modifiedCode = generateCode(modifiers: modArr, firstCode: "Toggle(\"Toggle\", isOn: $ToggleButton)")
                     CodePreviewView(code: modifiedCode, copyAction: copyCode, showCopy: true)
                     
                     TitleTextView(title: "List")

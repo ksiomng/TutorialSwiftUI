@@ -24,7 +24,6 @@ struct PickerView: View {
                     Divider()
                     HStack {
                         Spacer()
-                        // Apply selected modifiers to the Picker
                         Picker("", selection: $selectedColor) {
                             ForEach(colors, id: \.self) {
                                 Text($0)
@@ -42,28 +41,27 @@ struct PickerView: View {
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
                 
+                
                 // MenuButton
                 MenuButton(modArr: $modArr)
                 
-                // Code Preview
+                
+                // Code Preview & List
                 VStack(spacing: 20) {
                     TitleTextView(title: "Code Preview")
-                    // Generate code based on selected modifiers
                     let modifiedCode = generateCode(modifiers: modArr, firstCode: """
-                    var colors = [\"red\", \"green\", \"blue\"]
-                    @State var selectedColor = \"\"
-                    
-                    Picker(\"\", selection: $selectedColor) {
-                        ForEach(colors, id: \\.self) {
-                            Text($0)
+                        var colors = [\"red\", \"green\", \"blue\"]
+                        @State var selectedColor = \"\"
+                            
+                        Picker(\"\", selection: $selectedColor) {
+                            ForEach(colors, id: \\.self) {
+                                Text($0)
+                            }
                         }
-                    }
-                    .pickerStyle(.wheel)
-                    """
-                    )
+                        .pickerStyle(.wheel)
+                        """)
                     CodePreviewView(code: modifiedCode, copyAction: copyCode, showCopy: true)
-                    
-                    // List
+
                     TitleTextView(title: "List")
                     AddListView(modArr: $modArr)
                 }

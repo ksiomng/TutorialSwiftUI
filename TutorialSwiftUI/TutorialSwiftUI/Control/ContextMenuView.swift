@@ -29,7 +29,6 @@ struct ContextMenuView: View {
                     Divider()
                     HStack{
                         Spacer()
-                        // 선택된 수정자를 적용한 텍스트 뷰
                         let modifiedText = Text("Turtle Rock")
                             .apply(modifiers: modArr)
                         modifiedText
@@ -43,21 +42,22 @@ struct ContextMenuView: View {
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
     
+                
+                //Button
                 MenuButton(modArr: $modArr)
                 
-                // 선택된 수정자를 적용한 텍스트 뷰
-                let modifiedCode = generateCode(modifiers: modArr, firstCode: """
-            private let menuItems = ContextMenu {
-                Button(\"btn\",systemImage:\"heart\"){}
-                Button(\"btn\"){}
-            }
-            Text(\"Turtle Rock\")
-                .contextMenu(ShowMenu ? menuItem : nil)
-            """
-                )
+                
                 //CodePreview
                 VStack(spacing: 20) {
                     TitleTextView(title: "Code Preview")
+                    let modifiedCode = generateCode(modifiers: modArr, firstCode: """
+                            private let menuItems = ContextMenu {
+                            Button(\"btn\",systemImage:\"heart\"){}
+                            Button(\"btn\"){}
+                        }
+                        Text(\"Turtle Rock\")
+                            .contextMenu(ShowMenu ? menuItem : nil)
+                        """)
                     CodePreviewView(code: modifiedCode, copyAction: copyCode, showCopy: true)
                     
                     TitleTextView(title: "List")

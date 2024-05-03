@@ -24,7 +24,6 @@ struct StepperView: View {
                     Divider()
                     HStack{
                         Spacer()
-                        // 선택된 수정자를 적용한 텍스트 뷰
                         Stepper(value: $sleepAmount) {
                             Text("\(sleepAmount)")
                         }
@@ -39,19 +38,19 @@ struct StepperView: View {
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
                 
+                
                 //Button
                 MenuButton(modArr: $modArr)
                 
-                // 선택된 수정자를 적용한 텍스트 뷰
-                let modifiedCode = generateCode(modifiers: modArr, firstCode: """
-            Stepper(value: $amount){
-                Text(\"amount\")
-            }
-            """
-                )
-                //CodePreview
+                
+                //CodePreview & List
                 VStack(spacing: 20) {
                     TitleTextView(title: "Code Preview")
+                    let modifiedCode = generateCode(modifiers: modArr, firstCode: """
+                        Stepper(value: $amount){
+                            Text(\"amount\")
+                        }
+                        """)
                     CodePreviewView(code: modifiedCode, copyAction: copyCode, showCopy: true)
                     
                     TitleTextView(title: "List")

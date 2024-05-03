@@ -22,7 +22,6 @@ struct MenuView: View {
                     Divider()
                     HStack {
                         Spacer()
-                        // Apply selected modifiers to the Menu
                         Menu("Menu") {
                             Button("Button1") {}
                             Button("Button2") {}
@@ -37,23 +36,22 @@ struct MenuView: View {
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
                 
+                
                 // MenuButton
                 MenuButton(modArr: $modArr)
                 
-                // Code Preview
+                
+                // Code Preview & List
                 VStack(spacing: 20) {
                     TitleTextView(title: "Code Preview")
-                    // Generate code based on selected modifiers
                     let modifiedCode = generateCode(modifiers: modArr, firstCode: """
-                    Menu(\"Menu\"){
-                        Button(\"Button1\"){}
-                        Button(\"Button2\"){}
-                    }
-                    """
-                    )
+                        Menu(\"Menu\"){
+                            Button(\"Button1\"){}
+                            Button(\"Button2\"){}
+                        }
+                        """)
                     CodePreviewView(code: modifiedCode, copyAction: copyCode, showCopy: true)
                     
-                    // List
                     TitleTextView(title: "List")
                     AddListView(modArr: $modArr)
                 }

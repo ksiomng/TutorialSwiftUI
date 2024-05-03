@@ -23,9 +23,9 @@ struct SliderView: View {
                     Divider()
                     HStack {
                         Spacer()
-                        Slider(value: $sliderValue, in: -100...100, step: 0.0001) // Define a smaller step to enable more precise control
+                        Slider(value: $sliderValue, in: -100...100, step: 0.0001)
                             .apply(modifiers: modArr)
-                        let formattedValue = String(format: "%.2f", sliderValue) // Format the slider value to display only 4 decimal places
+                        let formattedValue = String(format: "%.2f", sliderValue)
                         Text(formattedValue)
                             .font(.largeTitle)
                             .padding()
@@ -36,8 +36,10 @@ struct SliderView: View {
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
                 
+                
                 // MenuButton
                 MenuButton(modArr: $modArr)
+                
                 
                 // Code Preview
                 VStack(spacing: 20) {
