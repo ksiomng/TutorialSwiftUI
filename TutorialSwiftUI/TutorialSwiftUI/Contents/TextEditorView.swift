@@ -7,6 +7,31 @@
 
 import SwiftUI
 
+private let pickerCount = 9
+
+private struct CodeSource {
+    
+    var original:String = """
+    TextEditor(text: $text)
+        .frame(height: 100)
+"""
+    var text:[String] = Array(repeating: "", count: pickerCount)
+    
+    var toString: String {
+        //print("CodeSource - \(text)")
+        return original + text.joined()
+    }
+}
+private struct CodeDescription {
+    var original: String = "TextEditor View : 텍스트 입력하는 뷰"
+    var text:[String] = Array(repeating: "", count: pickerCount)
+
+    var toString: String {
+        //print("CodeDescription - \(text)")
+        return original + text.joined()
+    
+    }
+}
 /// 사용할 모디파이어 기재
 private enum Modifire: String, CaseIterable {
     case none
@@ -17,7 +42,47 @@ private enum Modifire: String, CaseIterable {
     case lineSpacing
     case textContentType
     case autocapitalization
-    case disableAutocorrection
+    
+    var description: String {
+        switch self {
+        case .none:
+            return ""
+        case .padding:
+            return "\npadding : 입력 필드 주위에 여백 추가"
+        case .font:
+            return "\nfont : 입력 필드의 글꼴과 크기 설정"
+        case .foregroundColor:
+            return "\nforegroundColor : 입력 필드의 색상 설정"
+        case .multilineTextAlignment:
+            return "\nmultilineTextAlignment : 여러 줄 텍스트 정렬"
+        case .lineSpacing:
+            return "\nlineSpacing : 텍스트의 줄 간격 설정"
+        case .textContentType:
+            return "\ntextContentType : 입력 필드의 콘텐츠 유형 지정"
+        case .autocapitalization:
+            return "\nautocapitalization : 자동 대문자화 옵션 설정"
+        }
+    }
+    var code: String {
+        switch self {
+        case .none:
+            return ""
+        case .padding:
+            return "\n\t.padding()"
+        case .font:
+            return "\n\t.font(.largeTitle)"
+        case .foregroundColor:
+            return "\n\t.foregroundColor(.blue)"
+        case .multilineTextAlignment:
+            return "\n\t.multilineTextAlignment(.trailing)"
+        case .lineSpacing:
+            return "\n\t.lineSpacing(10)"
+        case .textContentType:
+            return "\n\t.textContentType(.none)"
+        case .autocapitalization:
+            return "\n\t.autocapitalization(.sentences)"
+        }
+    }
 }
 
 struct TextEditorView: View {
@@ -26,137 +91,140 @@ struct TextEditorView: View {
     @State private var selectedModifire: [Modifire] =
     Array(repeating: .none, count: 11)
     @State private var text: String = ""
+    @State private var codeSource = CodeSource()
+    @State private var codeDescription = CodeDescription()
+    
     var body: some View {
-        VStack {
-            Spacer()
-            // 코드 결과
-            TextEditor(text: $text)
-                .modifier(ModifireBuilder(selectedModifire: $selectedModifire[0]))
-                .modifier(ModifireBuilder(selectedModifire: $selectedModifire[1]))
-                .modifier(ModifireBuilder(selectedModifire: $selectedModifire[2]))
-                .modifier(ModifireBuilder(selectedModifire: $selectedModifire[3]))
+        ScrollView {
+            VStack (spacing: 20){
+                //코드 결과
+                viewPreviewSection
+                
+                // List Picker - 위치별 모디파이어 선택
+                HStack {
+                    Text ("Modifer 1")
+                    
+                    Spacer()
+                    
+                    Picker("Modifier 1", selection: $selectedModifire[0]) {
+                        ForEach(Modifire.allCases, id: \.self) { modi in
+                            Text("\(modi.rawValue)")
+                                .tag(modi)
+                        }
+                    }
+                    .onChange(of: selectedModifire) { oldValue, newValue in
+                        codeSource.text[0] = newValue[0].code
+                        codeDescription.text[0] = newValue[0].description
+                    }
+                }
+                HStack {
+                    Text ("Modifer 2")
+                    
+                    Spacer()
+                    
+                    Picker("Modifier 2", selection: $selectedModifire[1]) {
+                        ForEach(Modifire.allCases, id: \.self) { modi in
+                            Text("\(modi.rawValue)")
+                                .tag(modi)
+                        }
+                    }
+                    .onChange(of: selectedModifire) { oldValue, newValue in
+                        codeSource.text[1] = newValue[1].code
+                        codeDescription.text[1] = newValue[1].description
+                    }
+                }
+                HStack {
+                    Text ("Modifer 3")
+                    
+                    Spacer()
+                    
+                    Picker("Modifier 3", selection: $selectedModifire[2]) {
+                        ForEach(Modifire.allCases, id: \.self) { modi in
+                            Text("\(modi.rawValue)")
+                                .tag(modi)
+                        }
+                    }
+                    .onChange(of: selectedModifire) { oldValue, newValue in
+                        codeSource.text[2] = newValue[2].code
+                        codeDescription.text[2] = newValue[2].description
+                    }
+                }
+                HStack {
+                    Text ("Modifer 4")
+                    
+                    Spacer()
+                    
+                    Picker("Modifier 4", selection: $selectedModifire[3]) {
+                        ForEach(Modifire.allCases, id: \.self) { modi in
+                            Text("\(modi.rawValue)")
+                                .tag(modi)
+                        }
+                    }
+                    .onChange(of: selectedModifire) { oldValue, newValue in
+                        codeSource.text[3] = newValue[3].code
+                        codeDescription.text[3] = newValue[3].description
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                
+                codePreviewSection
+                
+              .cornerRadius(8)
+                
+            }
+            .padding()
+            .frame(maxHeight: .infinity) // 내부 VStack의 세로 크기를 최대화
+            .navigationTitle("TextEditor")
+            .navigationBarTitleDisplayMode(.inline)
+        }
+    }
+    private var viewPreviewSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            TitleTextView(title: "View Preview")
+            
+            Text("TextEditor")
+                .frame(maxWidth: .infinity, alignment: .leading)
             Divider()
-            
-            Text("\(text)")
-                .padding()
-                .foregroundColor(.black)
-                .font(.body)
-            Spacer()
-            
-            
-            // 코드 텍스트
-            VStack(alignment: .leading) {
-                Text("TextField(\"Enter text here\", text: $text)")
-                CodeBuilder(selectedModifire: $selectedModifire[0])
-                CodeBuilder(selectedModifire: $selectedModifire[1])
-                CodeBuilder(selectedModifire: $selectedModifire[2])
-                CodeBuilder(selectedModifire: $selectedModifire[3])
+            VStack {
+                TextEditor(text: $text)
+                    .frame(height: 100)
+                    .modifier(ModifireBuilder(selectedModifire: $selectedModifire[0]))
+                    .modifier(ModifireBuilder(selectedModifire: $selectedModifire[1]))
+                    .modifier(ModifireBuilder(selectedModifire: $selectedModifire[2]))
+                    .modifier(ModifireBuilder(selectedModifire: $selectedModifire[3]))
+                //Divider()
+                Spacer()
+                Text("\(text)")
+                    .padding()
+                    .foregroundColor(.black)
+                    .font(.body)
             }
-            .frame(width: 350)
-            .font(.system(size: 18, design: .monospaced))
-            .background(Color.gray.opacity(0.1))
-            .cornerRadius(8)
-            
-            Spacer()
-            
-            // 코드 설명
-            VStack(alignment: .leading) {
-                Text("TextField View : 텍스트 입력하는 뷰")
-                DescriptionBuilder(selectedModifire: $selectedModifire[0])
-                DescriptionBuilder(selectedModifire: $selectedModifire[1])
-                DescriptionBuilder(selectedModifire: $selectedModifire[2])
-                DescriptionBuilder(selectedModifire: $selectedModifire[3])
-            }
-            .frame(width: 350)
-            .font(.system(size: 20, design: .monospaced))
-            .background(Color.gray.opacity(0.1))
-            .cornerRadius(8)
-            
-            Spacer()
-            // List Picker - 위치별 모디파이어 선택
-            List {
-                Picker("First", selection: $selectedModifire[0]) {
-                    ForEach(Modifire.allCases, id: \.self) { modi in
-                        Text("\(modi.rawValue)")
-                            .tag(modi)
-                    }
-                }
-                Picker("Second", selection: $selectedModifire[1]) {
-                    ForEach(Modifire.allCases, id: \.self) { modi in
-                        Text("\(modi.rawValue)")
-                            .tag(modi)
-                    }
-                }
-                Picker("Third", selection: $selectedModifire[2]) {
-                    ForEach(Modifire.allCases, id: \.self) { modi in
-                        Text("\(modi.rawValue)")
-                            .tag(modi)
-                    }
-                }
-                Picker("Fourth", selection: $selectedModifire[3]) {
-                    ForEach(Modifire.allCases, id: \.self) { modi in
-                        Text("\(modi.rawValue)")
-                            .tag(modi)
-                    }
-                }
-            }.frame(height: 250)
         }
+        .padding()
+        .background(Color.gray.opacity(0.2))
+        .cornerRadius(10)
     }
-}
-
-/// 코드 텍스트 - 출력할 코드 설정
-private struct CodeBuilder: View {
-    @Binding var selectedModifire: Modifire
-    
-    var body: some View {
-        switch selectedModifire {
-        case .none:
-            return Text("")
-        case .padding:
-            return Text("\t.padding()")
-        case .font:
-            return Text("\t.font(.largeTitle)")
-        case .foregroundColor:
-            return Text("\t.foregroundColor(.blue)")
-        case .multilineTextAlignment:
-            return Text("\t.multilineTextAlignment(.trailing)")
-        case .lineSpacing:
-            return Text("\t.lineSpacing(10)")
-        case .textContentType:
-            return Text("\t.textContentType(.none)")
-        case .autocapitalization:
-            return Text("\t.autocapitalization(.sentences)")
-        case .disableAutocorrection:
-            return Text("\t.disableAutocorrection(true)")
+    private var codePreviewSection: some View {
+        VStack(spacing:20) {
+            TitleTextView(title: "Code Preview")
+            CodePreviewView(code: returnCode(), copyAction: copyCode, showCopy: true)
+            
+            TitleTextView(title: "Description")
+            CodePreviewView(code: basecode(), copyAction: copyCode, showCopy: false)
         }
+        .padding()
+        .frame(maxWidth: .infinity)
+        .background(Color.gray.opacity(0.2))
+        .cornerRadius(10)
     }
-}
-
-/// 코드 설명 - 출력할 설명 설정
-private struct DescriptionBuilder: View {
-    @Binding var selectedModifire: Modifire
-    
-    var body: some View {
-        switch selectedModifire {
-        case .none:
-            return Text("")
-        case .padding:
-            return Text("padding : 입력 필드 주위에 여백 추가")
-        case .font:
-            return Text("font : 입력 필드의 글꼴과 크기 설정")
-        case .foregroundColor:
-            return Text("foregroundColor : 입력 필드의 색상 설정")
-        case .multilineTextAlignment:
-            return Text("multilineTextAlignment : 여러 줄 텍스트 정렬")
-        case .lineSpacing:
-            return Text("lineSpacing : 텍스트의 줄 간격 설정")
-        case .textContentType:
-            return Text("textContentType : 입력 필드의 콘텐츠 유형 지정")
-        case .autocapitalization:
-            return Text("autocapitalization : 자동 대문자화 옵션 설정")
-        case .disableAutocorrection:
-            return Text("disableAutocorrection : 자동 수정 비활성화")
-        }
+    func basecode() -> String {
+        return codeDescription.toString
+    }
+    func copyCode(_ code: String) {
+        UIPasteboard.general.string = code
+    }
+    func returnCode() -> String {
+        return codeSource.toString
     }
 }
 
@@ -174,7 +242,6 @@ private struct ModifireBuilder: ViewModifier {
         case .lineSpacing: content.lineSpacing(10)
         case .textContentType: content.textContentType(.none)
         case .autocapitalization: content.autocapitalization(.sentences)
-        case .disableAutocorrection: content.disableAutocorrection(true)
         }
     }
 }
