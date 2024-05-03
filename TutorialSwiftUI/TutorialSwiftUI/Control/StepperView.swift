@@ -19,7 +19,7 @@ struct StepperView: View {
                 //View Preview
                 VStack(alignment: .leading, spacing: 10) {
                     TitleTextView(title: "View Preview")
-                    Text("stepper")
+                    Text("Stepper")
                         .frame(maxWidth: .infinity, alignment: .leading)
                     Divider()
                     HStack{
