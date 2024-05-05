@@ -342,7 +342,7 @@ struct VStackView: View {
             }
             .padding()
             .frame(maxHeight: .infinity)
-            .navigationTitle("Color")
+            .navigationTitle("VStack View")
             .navigationBarTitleDisplayMode(.inline)
         }
     }

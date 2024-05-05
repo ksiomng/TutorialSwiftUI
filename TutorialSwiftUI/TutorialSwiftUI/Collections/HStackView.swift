@@ -347,7 +347,7 @@ struct HStackView: View {
             }
             .padding()
             .frame(maxHeight: .infinity)
-            .navigationTitle("Color")
+            .navigationTitle("HStack View")
             .navigationBarTitleDisplayMode(.inline)
         }
     }

@@ -490,7 +490,7 @@ struct LazyHGridView: View {
             }
             .padding()
             .frame(maxHeight: .infinity)
-            .navigationTitle("Color")
+            .navigationTitle("LazyHGrid View")
             .navigationBarTitleDisplayMode(.inline)
         }
     }

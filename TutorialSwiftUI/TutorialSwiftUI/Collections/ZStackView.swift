@@ -314,7 +314,7 @@ struct ZStackView: View {
             }
             .padding()
             .frame(maxHeight: .infinity)
-            .navigationTitle("Color")
+            .navigationTitle("ZStack View")
             .navigationBarTitleDisplayMode(.inline)
         }
     }

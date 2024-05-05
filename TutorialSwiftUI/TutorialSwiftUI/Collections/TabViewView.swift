@@ -244,7 +244,7 @@ struct TabViewView: View {
             }
             .padding()
             .frame(maxHeight: .infinity)
-            .navigationTitle("Color")
+            .navigationTitle("TabView View")
             .navigationBarTitleDisplayMode(.inline)
         }
     }

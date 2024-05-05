@@ -406,7 +406,7 @@ struct GridView: View {
             }
             .padding()
             .frame(maxHeight: .infinity)
-            .navigationTitle("Color")
+            .navigationTitle("Grid View")
             .navigationBarTitleDisplayMode(.inline)
         }
     }

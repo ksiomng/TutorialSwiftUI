@@ -286,7 +286,7 @@ struct ScrollViewView: View {
             }
             .padding()
             .frame(maxHeight: .infinity)
-            .navigationTitle("Color")
+            .navigationTitle("ScrollView View")
             .navigationBarTitleDisplayMode(.inline)
         }
     }
