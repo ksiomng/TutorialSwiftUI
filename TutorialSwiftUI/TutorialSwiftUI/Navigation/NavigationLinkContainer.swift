@@ -18,7 +18,7 @@ struct NavigationLinkContainer: View {
             }
             .padding()
             .frame(maxHeight: .infinity)
-            .navigationTitle("Color")
+            .navigationTitle("NavigationLink")
             .navigationBarTitleDisplayMode(.inline)
             
         }

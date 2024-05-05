@@ -18,7 +18,7 @@ struct NavigationBarContatiner: View {
             }
             .padding()
             .frame(maxHeight: .infinity)
-            .navigationTitle("Color")
+            .navigationTitle("NavigationBar")
             .navigationBarTitleDisplayMode(.inline)
             
         }

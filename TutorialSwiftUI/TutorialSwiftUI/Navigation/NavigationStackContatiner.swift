@@ -17,7 +17,7 @@ struct NavigationStackContatiner: View {
             }
             .padding()
             .frame(maxHeight: .infinity) // 내부 VStack의 세로 크기를 최대화
-            .navigationTitle("Color")
+            .navigationTitle("NavigationStack")
             .navigationBarTitleDisplayMode(.inline)
             
         }
