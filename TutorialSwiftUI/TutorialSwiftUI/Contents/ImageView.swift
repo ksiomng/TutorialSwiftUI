@@ -163,6 +163,8 @@ struct ImageView: View {
                         codeDescription.text[0] = newValue[0].description
                     }
                 }
+                .padding(.horizontal)
+                
                 HStack {
                     Text ("Modifer 2")
                     
@@ -179,6 +181,8 @@ struct ImageView: View {
                         codeDescription.text[1] = newValue[1].description
                     }
                 }
+                .padding(.horizontal)
+                
                 HStack {
                     Text ("Modifer 3")
                     
@@ -195,6 +199,8 @@ struct ImageView: View {
                         codeDescription.text[2] = newValue[2].description
                     }
                 }
+                .padding(.horizontal)
+                
                 HStack {
                     Text ("Modifer 4")
                     
@@ -211,6 +217,7 @@ struct ImageView: View {
                         codeDescription.text[3] = newValue[3].description
                     }
                 }
+                .padding(.horizontal)
                 .frame(maxWidth: .infinity)
                 
                 codePreviewSection

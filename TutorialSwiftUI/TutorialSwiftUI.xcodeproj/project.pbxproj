@@ -65,6 +65,7 @@
 		41B345C92BE46ABF00382695 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345BF2BE46ABF00382695 /* StepperView.swift */; };
 		41B345CB2BE46ABF00382695 /* ToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B345C12BE46ABF00382695 /* ToggleView.swift */; };
 		41B345CD2BE477E900382695 /* Swiftorial.json in Resources */ = {isa = PBXBuildFile; fileRef = 41B345CC2BE477E800382695 /* Swiftorial.json */; };
+		787D7AED2BE7E602006352B6 /* NavigationSplitViewContatiner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787D7AEC2BE7E602006352B6 /* NavigationSplitViewContatiner.swift */; };
 		CE83B6652BE0D6E100DDBDBE /* TemplateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE83B6642BE0D6E100DDBDBE /* TemplateDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +126,7 @@
 		41B345BF2BE46ABF00382695 /* StepperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
 		41B345C12BE46ABF00382695 /* ToggleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleView.swift; sourceTree = "<group>"; };
 		41B345CC2BE477E800382695 /* Swiftorial.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Swiftorial.json; sourceTree = "<group>"; };
+		787D7AEC2BE7E602006352B6 /* NavigationSplitViewContatiner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSplitViewContatiner.swift; sourceTree = "<group>"; };
 		CE83B6642BE0D6E100DDBDBE /* TemplateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -298,6 +300,7 @@
 				41B345AE2BE46A3600382695 /* NavigationViewContatiner.swift */,
 				41B345AF2BE46A3600382695 /* PassaviewContainerExample.swift */,
 				41B345B02BE46A3600382695 /* PassaviewContatiner.swift */,
+				787D7AEC2BE7E602006352B6 /* NavigationSplitViewContatiner.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				41249C4D2BE0D8FE004A6AEC /* ControlType.swift in Sources */,
 				41B3457B2BE4668E00382695 /* LazyHGridView.swift in Sources */,
 				41B3458E2BE4672200382695 /* ShapeView.swift in Sources */,
+				787D7AED2BE7E602006352B6 /* NavigationSplitViewContatiner.swift in Sources */,
 				41B345C52BE46ABF00382695 /* MenuButton.swift in Sources */,
 				41B3457E2BE4668E00382695 /* TabViewView.swift in Sources */,
 				411650FE2BE20479007A12C9 /* AlertView.swift in Sources */,
