@@ -56,7 +56,7 @@ struct ButtonView: View {
             }
             .padding()
             .frame(maxHeight: .infinity)
-            .navigationTitle("Color")
+            .navigationTitle("Button")
             .navigationBarTitleDisplayMode(.inline)
         }
     }

@@ -72,7 +72,7 @@ struct ContextMenuView: View {
             
             .padding()
             .frame(maxHeight: .infinity)
-            .navigationTitle("Color")
+            .navigationTitle("ContextMenu")
             .navigationBarTitleDisplayMode(.inline)
         }
     }

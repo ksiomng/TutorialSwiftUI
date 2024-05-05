@@ -61,7 +61,7 @@ struct SliderView: View {
             }
             .padding()
             .frame(maxHeight: .infinity)
-            .navigationTitle("Color")
+            .navigationTitle("Slider")
             .navigationBarTitleDisplayMode(.inline)
         }
     }

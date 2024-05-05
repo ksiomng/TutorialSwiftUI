@@ -61,7 +61,7 @@ struct ToggleView: View {
             
             .padding()
             .frame(maxHeight: .infinity)
-            .navigationTitle("Color")
+            .navigationTitle("Toggle")
             .navigationBarTitleDisplayMode(.inline)
         }
     }

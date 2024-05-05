@@ -72,7 +72,7 @@ struct PickerView: View {
             }
             .padding()
             .frame(maxHeight: .infinity)
-            .navigationTitle("Color")
+            .navigationTitle("Picker")
             .navigationBarTitleDisplayMode(.inline)
         }
     }

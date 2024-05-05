@@ -62,7 +62,7 @@ struct MenuView: View {
             }
             .padding()
             .frame(maxHeight: .infinity)
-            .navigationTitle("Color")
+            .navigationTitle("Menu")
             .navigationBarTitleDisplayMode(.inline)
         }
     }
